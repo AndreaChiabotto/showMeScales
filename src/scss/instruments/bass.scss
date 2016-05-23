@@ -1,0 +1,92 @@
+.bass {
+  @include calc('height', '#{$bass-fret-height} * #{$number-of-strings-on-bass}');
+  @include calc('width', '#{$bass-fret-width} * #{$number-of-frets-on-bass}');
+  background: $bass;
+  border-bottom: 7px solid $bass-shadow;
+  border-top: 7px solid $bass-shadow;
+  //
+  .string {
+    @include calc('width', '#{$bass-fret-width} * #{$number-of-frets-on-bass}');
+    @include shadow(0 3px 2px 0 $bass-shadow);
+    border-bottom: 2px solid $string;
+    height: $bass-fret-height;
+
+    &:nth-child(10),
+    &:nth-child(15) {
+      @include calc('height', '#{$bass-fret-height}/2');
+    }
+
+    &:nth-child(15) {
+      border-bottom: 0;
+    }
+  }
+  //
+  .note {
+    height: $bass-fret-height;
+    width: $bass-fret-width;
+
+    &::before,
+    &::after {
+      @include calc('width', '#{$bass-fret-width}/18');
+      @include calc('bottom', '#{$bass-fret-width}/40');
+    }
+  }
+  //
+  //
+  // JUST FOR BASS
+  .string:nth-child(10) .note,
+  .string:nth-child(15) .note {
+    @include calc('height', '#{$bass-fret-height}*.5');
+  }
+
+  .string:nth-child(15) .note::before,
+  .string:nth-child(15) .note::after {
+    bottom: 0;
+  }
+  //
+  .inlays {
+    background: $bass-inlay;
+
+    &:nth-child(1) {
+      @include calc('left', '#{$bass-fret-width}*2.5');
+    }
+
+    &:nth-child(2) {
+      @include calc('left', '#{$bass-fret-width}*4.5');
+    }
+
+    &:nth-child(3) {
+      @include calc('left', '#{$bass-fret-width}*6.5');
+    }
+
+    &:nth-child(4) {
+      @include calc('left', '#{$bass-fret-width}*8.5');
+    }
+
+    &:nth-child(5) {
+      @include calc('top', '#{$bass-fret-height}*1');
+      @include calc('left', '#{$bass-fret-width}*11.5');
+    }
+
+    &:nth-child(6) {
+      @include calc('top', '#{$bass-fret-height}*4');
+      @include calc('left', '#{$bass-fret-width}*11.5');
+    }
+
+    &:nth-child(7) {
+      @include calc('left', '#{$bass-fret-width}*14.5');
+    }
+
+    &:nth-child(8) {
+      @include calc('left', '#{$bass-fret-width}*16.5');
+    }
+
+    &:nth-child(9) {
+      @include calc('left', '#{$bass-fret-width}*18.5');
+    }
+
+    &:nth-child(10) {
+      @include calc('left', '#{$bass-fret-width}*20.5');
+    }
+  }
+}

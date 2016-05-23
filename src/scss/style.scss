@@ -1,0 +1,32 @@
+@import 'mixins';
+@import 'variables';
+
+
+@import 'select';
+
+@import 'instruments/instrument';
+@import 'instruments/guitar';
+@import 'instruments/bass';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $background;
+  font-family: Lucida Grande, sans-serif;
+  font-size: 15px;
+  padding: 20px;
+}
+
+.body {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+

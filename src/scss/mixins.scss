@@ -1,0 +1,42 @@
+// scss-lint:disable VendorPrefix
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin calc($property, $expression) {
+  // #{$property}: $default;
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin gradient-background($property, $first-color, $second-color) {
+  $property: $first-color; // fallback for old browsers
+  $property: -webkit-linear-gradient(to left, $first-color , $second-color); // Chrome 10-25, Safari 5.1-6
+  $property: linear-gradient(to left, $first-color , $second-color); // W3C, IE 10+, Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
+}
+
+@mixin shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
+
+@mixin border-radius($radius...) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}

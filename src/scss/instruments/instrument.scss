@@ -1,0 +1,94 @@
+.instrument {
+  height: 90%;
+  padding-right: 50px;
+  width: 100%;
+
+  .container {
+    min-height: 600px;
+    position: relative;
+  }
+}
+
+.fretboard {
+ // @include shadow(0 15px 20px 0 $shadow);
+  box-sizing: content-box;
+  margin-top: 90px;
+  position: relative;
+  z-index: -2;
+}
+
+.string {
+  z-index: 1;
+}
+
+.note {
+  @include transition(color $animation-time);
+  color: $note;
+  float: left;
+  position: relative;
+  z-index: 2;
+
+  &::before,
+  &::after {
+    background: $fret;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  &::after {
+    background: $fret-darker;
+    left: auto;
+    right: 0;
+  }
+
+  p {
+    @include transition(background $animation-time);
+    @include transition(opacity $animation-time);
+    @include border-radius(50%);
+    @include shadow(0 2px 3px 0 $shadow);
+    @include calc('bottom' , '-#{$note-size}/2');
+    @include calc('margin-left' , '-#{$note-size}/2');
+    @include calc('height' , '#{$note-size}');
+    @include calc('line-height' , '#{$note-size}');
+    @include calc('width' , '#{$note-size}');
+
+    background: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: auto;
+  }
+
+  &.tonic p {
+
+    @include transition(background $animation-time);
+    @include transition(opacity $animation-time);
+    background: $tonic-note;
+    opacity: 1;
+  }
+
+  &.highlighted p {
+    @include transition(background $animation-time);
+    @include transition(opacity $animation-time);
+    background: $highlighted-note;
+    opacity: 1;
+  }
+
+}
+
+.inlays {
+  @include border-radius(50%);
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  z-index: -1;
+}
+
