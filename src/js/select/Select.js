@@ -6,10 +6,9 @@ var Select = (function () {
         instrument_to_play = '',
         tonic = '';
 
-
     // CREATE THE ELEMENTS
-    fillSelectWithContent('Show me the', 'scales', Notes.getScaleName().names);
-    fillSelectWithContent('Show me tonic', 'notes', Notes.getNotes());
+    fillSelectWithContent('Show me the', 'scales', showMeScalesApp.setScaleName() );
+    fillSelectWithContent('Show me tonic', 'notes', showMeScalesApp.setNotes() );
     fillSelectWithContent('Show me the', 'playinginstrument', showMeScalesApp.instruments);
 
     [].slice.call(document.querySelectorAll('.select')).forEach(function (el) {
@@ -46,14 +45,13 @@ var Select = (function () {
         placeholder.selected = true;
         select.appendChild(placeholder);
 
-
         if (name === 'scales') {
             placeholder.innerHTML = 'scale';
             box.className = 'box scales disabled';
         }
         if (name === 'notes') {
             placeholder.innerHTML = 'note';
-            box.className = 'box notes disabled';
+            box.className = 'box notes ';
         }
         if (name === 'playinginstrument') {
             placeholder.innerHTML = 'instrument';
@@ -90,7 +88,6 @@ var Select = (function () {
         if (el.indexOf('scales') !== -1) {
             setScale(val);
         }
-
     }
 
     function setInstrument(obj) {
@@ -110,7 +107,6 @@ var Select = (function () {
 
     function setTonic(note) {
 
-        // just once
         if (tonic === '') {
             var sel = _selection.querySelector('.box.notes p');
             sel.innerHTML = 'of tonic';
@@ -121,17 +117,10 @@ var Select = (function () {
         tonic = note;
         showMeScalesApp.drawTonic(tonic);
 
-        // Instrument.getTonic(;
     }
 
     function setScale(index) {
-
-        scale_index = index;
-
-        var intervals = Notes.getScaleName().intervals[scale_index];
-        var scale = Notes.getScale(intervals);
-        Instrument.highlight(scale);
-        console.log(intervals + '  |  ' + scale);
+        showMeScalesApp.drawScales(index);
     }
 
     return {

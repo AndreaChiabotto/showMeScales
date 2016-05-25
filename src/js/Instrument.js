@@ -34,16 +34,16 @@ var Instrument = (function () {
                 }
 
 
-                    var _semitone = document.createElement('div');
-                    _semitone.className = 'note ' + note_class[_interval_semitones];
-                    if (i !== 0) {
+                var _semitone = document.createElement('div');
+                _semitone.className = 'note ' + note_class[_interval_semitones];
+                if (i !== 0) {
                     var _p = document.createElement('p');
                     _p.innerHTML = note_name[_interval_semitones];
 
                     _semitone.appendChild(_p);
-                    }
-                    _step.appendChild(_semitone);
                 }
+                _step.appendChild(_semitone);
+            }
 
 
             resetInterval();
@@ -61,7 +61,7 @@ var Instrument = (function () {
         for (var b = 0; b < obj.inlays; b++) {
             var _inlay = document.createElement('div');
             _inlay.className = 'inlays';
-            _fretboard.appendChild( _inlay);
+            _fretboard.appendChild(_inlay);
 
             _fretboard.insertBefore(_inlay, _fretboard.firstChild);
         }
@@ -77,30 +77,33 @@ var Instrument = (function () {
     }
 
     var paintTonic = function (tonic) {
-        PaintNotes( 'tonic', tonic );
+
+        PaintNotes(tonic, 'tonic');
     };
 
     var paintScales = function (notesOfScale) {
-        PaintNotes( 'highlighted', notesOfScale );
+
+        PaintNotes(notesOfScale, 'highlighted');
     };
 
-    function PaintNotes ( classNameToPaint, toHighlight ){
+    function PaintNotes(noteToHighlight, typeOfHighlighting) {
 
-        var removeNotes = _instrument.querySelectorAll('.' + classNameToPaint),
-            reg = new RegExp('(\\s|^)' + classNameToPaint + '(\\s|$)');
+        console.log( noteToHighlight +'/'+ noteToHighlight.length );
+
+        var removeNotes = _instrument.querySelectorAll('.' + typeOfHighlighting),
+            reg = new RegExp('(\\s|^)' + typeOfHighlighting + '(\\s|$)');
 
         for (var a = 0; a < removeNotes.length; a++) {
             removeNotes[a].className = removeNotes[a].className.replace(reg, ' ');
         }
 
-        for (var z = 1; z < toHighlight.length; z++) {
+        for (var z = 0; z < noteToHighlight.length; z++) {
 
-            var notes_name = toHighlight,
+            var notes_name = noteToHighlight[z],
                 notes = _instrument.querySelectorAll('.' + notes_name),
-                typeOfNote = " " + classNameToPaint;
+                typeOfNote = " " + typeOfHighlighting;
 
             for (var i = 0; i < notes.length; i++) {
-
                 notes[i].className += typeOfNote;
             }
         }
@@ -111,6 +114,4 @@ var Instrument = (function () {
         drawTonic: paintTonic,
         drawScales: paintScales
     };
-
-
 })();

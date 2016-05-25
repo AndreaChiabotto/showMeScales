@@ -3,51 +3,57 @@ var Notes = (function () {
     var NOTES = [['A', 'As', 'B', 'C', 'Cs', 'D', 'Ds', 'E', 'F', 'Fs', 'G', 'Gs'], ['A', 'Bf', 'B', 'C', 'Df', 'D', 'Ef', 'E', 'F', 'Gf', 'G', 'Af']],
         NOTES_NAME = [['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'], ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']],
 
-        SCALE_NAME = [
-            'Cromatic Scale',
-            'Major Scale',
-            'Minor Scale',
-          //  'Harmonic Major',
-          //  'Harmonic Minor',
-            'Melodic Major Scale',
-            'Melodic Minor Scale',
-            'Pentatonic Major Scale',
-            'Pentatonic Minor Scale',
-            'Blues Scale'
+        SCALE = [
+            Cromatic = {
+                name: 'Cromatic Scale',
+                intervals: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            },
+
+            MajorScale = {
+                name: 'Major',
+                intervals: [0, 2, 2, 1, 2, 2, 2, 1]
+            },
+
+            MinorScale = {
+                name: 'Minor',
+                intervals: [0, 2, 1, 2, 2, 1, 2, 2]
+            },
+
+            // HarmonicMajor = {
+            //     name : 'Harmonic major',
+            //     intervals : [0, 2, 2, 1, 2, 1, 2, 3]
+            //     },
+
+            // HarmonicMinor = {
+            //     name : 'Harmonic Minor',
+            //     intervals : [0, 2, 1, 2, 2, 1, 3, 1]
+            //     },
+
+            MelodicMajor = {
+                name: 'Melodic Major',
+                intervals: [0, 2, 2, 1, 2, 1, 2, 2]
+            },
+
+            MelodicMinor = {
+                name: 'Melodic Minor',
+                intervals: [0, 2, 1, 2, 2, 2, 2, 2]
+            },
+
+            PentatonicMajor = {
+                name: 'Major Pentatonic',
+                intervals: [0, 2, 2, 3, 2, 3]
+            },
+
+            PentatonicMinor = {
+                name: 'Pentatonic Minor',
+                intervals: [0, 3, 2, 2, 3, 2]
+            },
+
+            Blues = {
+                name: 'blues',
+                intervals: [0, 3, 2, 1, 1, 3, 2]
+            }
         ],
-
-        INTERVALS_SCALE = [
-            //cromatic
-            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-
-            //Major
-            [0, 2, 2, 1, 2, 2, 2, 1],
-            // Minor
-            [0, 2, 1, 2, 2, 1, 2, 2],
-
-            // Harmonic major TODO CORRECT
-            //[0, 2, 2, 1, 2, 1, 2, 3],
-            // Harmonic Minor
-          //  [0, 2, 1, 2, 2, 1, 3, 1],
-
-            // melodic major
-            [0, 2, 2, 1, 2, 1,2, 2],
-
-            // melodic Minor
-            [0, 2, 1, 2, 2, 2, 2, 2],
-
-            // Major  pentatonic
-            [0, 2, 2, 3 , 2, 3],
-            // pentatonic Minor
-            [0, 3, 2, 2 ,3 , 2],
-
-            // blues
-            [0, 3, 2, 1, 1, 3, 2],
-        ],
-        SCALE = {
-            names:  SCALE_NAME,
-            intervals: INTERVALS_SCALE,
-        },
 
         _way_to_show_notes = 0,
 
@@ -68,14 +74,21 @@ var Notes = (function () {
         return NOTES_NAME[_way_to_show_notes];
     };
 
-    var getModes = function () {
-        return MODES;
-    };
 
     var getScaleName = function () {
-        return SCALE;
+        var scalesName = [];
+
+        for (var i=0;i< SCALE.length;i++){
+            scalesName.push( SCALE[i].name);
+        }
+
+        return scalesName;
     };
 
+
+    var getScaleIntervals = function (index) {
+            return SCALE[index].intervals;
+    };
 
     /*
     --------------------------------------
@@ -144,8 +157,8 @@ var Notes = (function () {
 
     return {
         getNotes: getNotes,
-        getModes: getModes,
         getScaleName: getScaleName,
+        getScaleIntervals: getScaleIntervals,
         getScale: getScale,
         getNotesFromTonic: getNotesFromTonic
     };
