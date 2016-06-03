@@ -66,7 +66,7 @@ var Instrument = (function () {
             _fretboard.insertBefore(_inlay, _fretboard.firstChild);
         }
 
-        _fretboard.className = 'fretboard ' + obj.name;
+        _fretboard.className = 'fretboard on-stage ' + obj.name;
         _instrument.appendChild(_fretboard);
 
     }
@@ -88,7 +88,7 @@ var Instrument = (function () {
 
     function PaintNotes(noteToHighlight, typeOfHighlighting) {
 
-        console.log( noteToHighlight +'/'+ noteToHighlight.length );
+        console.log(noteToHighlight + '/' + noteToHighlight.length);
 
         var removeNotes = _instrument.querySelectorAll('.' + typeOfHighlighting),
             reg = new RegExp('(\\s|^)' + typeOfHighlighting + '(\\s|$)');
@@ -111,6 +111,7 @@ var Instrument = (function () {
 
     return {
         draw: drawFretboard,
+       // remove: removeInstrument,
         drawTonic: paintTonic,
         drawScales: paintScales
     };

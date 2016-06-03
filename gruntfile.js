@@ -37,15 +37,13 @@ module.exports = function (grunt) {
                     'src/js/showMeScalesApp.js',
 
                     //select
-                    'src/js/select/selectFx.js',
-                    'src/js/select/Select.js',
+                    'src/js/Select.js',
 
 
                     'src/js/Instrument.js',
 
                     //effects
                     // 'src/js/scroll.js',
-                    'src/js/add-removeClassFx.js'
                 ],
                 dest: 'dist/js/app.min.js',
             },
