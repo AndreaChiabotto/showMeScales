@@ -153,8 +153,6 @@ var Select = (function () {
 
         var sp = document.querySelector('.box.scales span');
         sp.innerHTML = string;
-
-        alert( index);
         showMeScalesApp.drawScales(index);
     }
 

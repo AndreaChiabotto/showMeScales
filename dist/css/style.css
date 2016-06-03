@@ -157,6 +157,7 @@
     background: 0;
     box-sizing: border-box;
     display: inline-block;
+    font-size: 16px;
     left: 50%;
     opacity: 0;
     position: absolute;

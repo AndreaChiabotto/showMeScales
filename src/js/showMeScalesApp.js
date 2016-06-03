@@ -61,13 +61,13 @@ var showMeScalesApp = (function () {
 
         drawTonic = function (i) {
             tonic = Notes.getNotesFromTonic(i).classes[0];
-            Instrument.drawTonic(tonic);
+            Instrument.drawNotes(tonic);
         },
 
         drawScales = function (i) {
             var intervals = Notes.getScaleIntervals(i);
             scale = Notes.getScale(intervals);
-            Instrument.drawScales(scale);
+            Instrument.drawNotes(scale);
         },
 
         setNotes = function () {

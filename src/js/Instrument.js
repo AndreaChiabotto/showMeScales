@@ -76,43 +76,61 @@ var Instrument = (function () {
         return _interval_semitones;
     }
 
-    var paintTonic = function (tonic) {
+    //var paintTonic = function (tonic) {
+    //
+    //    PaintNotes(tonic, 'tonic');
+    //};
 
-        PaintNotes(tonic, 'tonic');
+    var paintNotes = function (notesOfScale) {
+
+        PaintNotes(notesOfScale);
     };
 
-    var paintScales = function (notesOfScale) {
+    function PaintNotes(noteToHighlight) {
 
-        PaintNotes(notesOfScale, 'highlighted');
-    };
+        var removeTonic = _instrument.querySelectorAll('.tonic'),
+            regt = new RegExp('(\\s|^)' + 'tonic' + '(\\s|$)'),
+            removeHighlight = _instrument.querySelectorAll('.highlighted'),
+            reghl = new RegExp('(\\s|^)' + 'highlighted' + '(\\s|$)');
 
-    function PaintNotes(noteToHighlight, typeOfHighlighting) {
-
-        console.log(noteToHighlight + '/' + noteToHighlight.length);
-
-        var removeNotes = _instrument.querySelectorAll('.' + typeOfHighlighting),
-            reg = new RegExp('(\\s|^)' + typeOfHighlighting + '(\\s|$)');
-
-        for (var a = 0; a < removeNotes.length; a++) {
-            removeNotes[a].className = removeNotes[a].className.replace(reg, ' ');
+        for (var a = 0; a < removeTonic.length; a++) {
+            removeTonic[a].className = removeTonic[a].className.replace(regt, ' ');
         }
+
+        for (var b = 0; b < removeHighlight.length; b++) {
+            removeHighlight[b].className = removeHighlight[a].className.replace(reghl, ' ');
+        }
+
 
         for (var z = 0; z < noteToHighlight.length; z++) {
 
+
             var notes_name = noteToHighlight[z],
                 notes = _instrument.querySelectorAll('.' + notes_name),
-                typeOfNote = " " + typeOfHighlighting;
+                typeOfNote;
+
+            if (z !== 0) {
+                typeOfNote = " highlighted";
+            }
+            else {
+                typeOfNote = " tonic";
+            }
+
 
             for (var i = 0; i < notes.length; i++) {
+                console.log(noteToHighlight + ' : ' + noteToHighlight[z] + "(" + z + ")," + typeOfNote);
+
                 notes[i].className += typeOfNote;
             }
+
+            console.log('--------------');
         }
     }
 
     return {
         draw: drawFretboard,
-       // remove: removeInstrument,
-        drawTonic: paintTonic,
-        drawScales: paintScales
+        // remove: removeInstrument,
+        drawNotes: paintNotes,
+        // drawScales: paintScales
     };
 })();
