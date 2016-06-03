@@ -15,32 +15,33 @@ var showMeScalesApp = (function () {
                 strings: [0, 7, 0, 5, 10, 0],
                 number: 20,
                 inlays: 9
-            },
-            Bass_4_strings = {
-                name: '4 Strings Bass',
-                strings: [0, 7, 0, 5, 0],
-                number: 20,
-                inlays: 9
-            },
-
-            Ukulele = {
-                name: 'Ukulele',
-                strings: [0, 10, 4, 7, 0, 0],
-                number: 18,
-                inlays: 9
-            },
-            Banjo = {
-                name: 'Banjo',
-                strings: [0, 10, 4, 7, 0, 0],
-                number: 18,
-                inlays: 9
-            },
-            Mandolino = {
-                name: 'Mandolino',
-                strings: [0, 10, 4, 7, 0, 0],
-                number: 18,
-                inlays: 9
             }
+            //,
+            //Bass_4_strings = {
+            //    name: '4 Strings Bass',
+            //    strings: [0, 7, 0, 5, 0],
+            //    number: 20,
+            //    inlays: 9
+            //},
+            //
+            //Ukulele = {
+            //    name: 'Ukulele',
+            //    strings: [0, 10, 4, 7, 0, 0],
+            //    number: 18,
+            //    inlays: 9
+            //},
+            //Banjo = {
+            //    name: 'Banjo',
+            //    strings: [0, 10, 4, 7, 0, 0],
+            //    number: 18,
+            //    inlays: 9
+            //},
+            //Mandolino = {
+            //    name: 'Mandolino',
+            //    strings: [0, 10, 4, 7, 0, 0],
+            //    number: 18,
+            //    inlays: 9
+            //}
         ],
 
         drawInstrument = function (i) {

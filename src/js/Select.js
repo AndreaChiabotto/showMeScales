@@ -123,8 +123,6 @@ var Select = (function () {
             var notes = document.querySelector('.box.disabled.notes');
             notes.className = 'box notes';
 
-            console.log('////' + sel);
-            console.log('////' + sel.innerHTML);
         }
 
         var sp = document.querySelector('.box.playinginstrument span');
@@ -137,7 +135,6 @@ var Select = (function () {
     function setTonic(note, string) {
 
         if (tonic === '') {
-            console.log("tonica");
             var sel = _selection.querySelector('.box.notes p');
             sel.innerHTML = 'of tonic';
             var notes = _selection.querySelector('.box.scales.disabled');
