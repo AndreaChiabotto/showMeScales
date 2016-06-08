@@ -31,18 +31,13 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-
                     'src/js/Notes.js',
-                    // Main File
+                    'src/js/Instrument.js',
                     'src/js/showMeScalesApp.js',
 
-                    //select
                     'src/js/Select.js',
 
 
-                    'src/js/Instrument.js',
-
-                    //effects
                     // 'src/js/scroll.js',
                 ],
                 dest: 'dist/js/app.min.js',

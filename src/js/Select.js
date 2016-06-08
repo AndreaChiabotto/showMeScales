@@ -10,7 +10,7 @@ var Select = (function () {
     // CREATE THE ELEMENTS
     fillSelectWithContent('Show me the', 'scales', showMeScalesApp.setScaleName());
     fillSelectWithContent('Show me tonic', 'notes', showMeScalesApp.setNotes());
-    fillSelectWithContent('Show me the', 'playinginstrument', showMeScalesApp.setInstrument());
+   // fillSelectWithContent('Show me the', 'playinginstrument', showMeScalesApp.setInstrument());
 
     function fillSelectWithContent(text, name, content) {
 
@@ -43,7 +43,7 @@ var Select = (function () {
             case 'notes' :
                 span.innerHTML = 'notes';
                 span.className = 'notes ';
-                box.className = 'box notes disabled';
+                box.className = 'box notes ';
                 break;
             case 'playinginstrument' :
                 span.innerHTML = 'instrument';
@@ -145,15 +145,19 @@ var Select = (function () {
         sp.innerHTML = string;
 
         tonic = note;
-        showMeScalesApp.drawTonic(tonic);
+
+        //console.log('select js: tonic is ' + tonic);
+        showMeScalesApp.drawNotes(true, tonic);
 
     }
 
-    function setScale(index, string) {
+    function setScale(scale, string) {
 
         var sp = document.querySelector('.box.scales span');
         sp.innerHTML = string;
-        showMeScalesApp.drawScales(index);
+
+        //console.log('select js: scale is ' + scale);
+        showMeScalesApp.drawNotes( false, scale);
     }
 
 

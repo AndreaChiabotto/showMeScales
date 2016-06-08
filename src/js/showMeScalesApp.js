@@ -1,8 +1,9 @@
 var showMeScalesApp = (function () {
 
-    var tonic,
-        scale,
-        instrument_to_play,
+    var tonic = '',
+        scale = '',
+        notesArray = '',
+    instrument_to_play,
         instruments_Available = [
             Guitar = {
                 name: 'guitar',
@@ -59,15 +60,34 @@ var showMeScalesApp = (function () {
             return instrumentNames;
         },
 
-        drawTonic = function (i) {
-            tonic = Notes.getNotesFromTonic(i).classes[0];
-            Instrument.drawNotes(tonic);
-        },
+        drawNotes = function (bool, i) {
 
-        drawScales = function (i) {
-            var intervals = Notes.getScaleIntervals(i);
-            scale = Notes.getScale(intervals);
-            Instrument.drawNotes(scale);
+            var isTonic = bool;
+
+            console.log(isTonic);
+
+            if (isTonic === true ) {
+                tonic = i;
+                notesArray = Notes.getNotesFromTonic(tonic).classes[0];
+                //console.log('showMeScales: tonic is ' + notesArray + ',tonic index is ' + tonic + ', scale is undefined');
+
+                if(scale !== '') {
+                    buildScale();
+                }
+            }
+            else {
+                scale = i;
+                buildScale();
+            }
+
+            function buildScale(){
+                var intervals = Notes.getScaleIntervals(scale);
+                notesArray = Notes.getScale(intervals);
+                //console.log('showMeScales: scale is ' + notesArray + ',tonic index is ' + tonic + ', scale is '+ scale);
+            }
+
+            Instrument.drawNotes( notesArray );
+
         },
 
         setNotes = function () {
@@ -79,12 +99,16 @@ var showMeScalesApp = (function () {
         };
 
 
+        drawInstrument(0);
+
+
     return {
         instruments: instruments_Available,
         drawInstrument: drawInstrument,
         setInstrument: setInstrument,
-        drawTonic: drawTonic,
-        drawScales: drawScales,
+
+        drawNotes: drawNotes,
+
         setNotes: setNotes,
         setScaleName: setScaleName
     };

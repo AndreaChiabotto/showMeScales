@@ -76,34 +76,28 @@ var Instrument = (function () {
         return _interval_semitones;
     }
 
-    //var paintTonic = function (tonic) {
-    //
-    //    PaintNotes(tonic, 'tonic');
-    //};
 
     var paintNotes = function (notesOfScale) {
-
         PaintNotes(notesOfScale);
     };
 
     function PaintNotes(noteToHighlight) {
 
         var removeTonic = _instrument.querySelectorAll('.tonic'),
-            regt = new RegExp('(\\s|^)' + 'tonic' + '(\\s|$)'),
-            removeHighlight = _instrument.querySelectorAll('.highlighted'),
-            reghl = new RegExp('(\\s|^)' + 'highlighted' + '(\\s|$)');
+            removeHighlighted = _instrument.querySelectorAll('.highlighted'),
+            indexTonic,
+            indexHighlighted;
 
-        for (var a = 0; a < removeTonic.length; a++) {
-            removeTonic[a].className = removeTonic[a].className.replace(regt, ' ');
+        for( indexTonic = removeTonic.length; indexTonic--;){
+            removeClass(removeTonic[indexTonic], 'tonic');
         }
 
-        for (var b = 0; b < removeHighlight.length; b++) {
-            removeHighlight[b].className = removeHighlight[a].className.replace(reghl, ' ');
+        for( indexHighlighted = removeHighlighted.length; indexHighlighted--;){
+            removeClass(removeHighlighted[indexHighlighted], 'highlighted');
         }
 
-
+        // highlighting notes on fretboard
         for (var z = 0; z < noteToHighlight.length; z++) {
-
 
             var notes_name = noteToHighlight[z],
                 notes = _instrument.querySelectorAll('.' + notes_name),
@@ -116,10 +110,8 @@ var Instrument = (function () {
                 typeOfNote = " tonic";
             }
 
-
             for (var i = 0; i < notes.length; i++) {
                 console.log(noteToHighlight + ' : ' + noteToHighlight[z] + "(" + z + ")," + typeOfNote);
-
                 notes[i].className += typeOfNote;
             }
 
@@ -127,10 +119,28 @@ var Instrument = (function () {
         }
     }
 
+    function removeClass(node, className) {
+        if (hasClass(node, className)) {
+            var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+            node.className = node.className.replace(reg, ' ');
+        }
+    }
+
+    function hasClass(node, className) {
+
+        console.log(node +' / ' + node.className);
+
+        if (node.className) {
+            return node.className.match(
+                new RegExp('(\\s|^)' + className + '(\\s|$)'));
+        } else {
+            return false;
+        }
+    }
+
     return {
         draw: drawFretboard,
         // remove: removeInstrument,
-        drawNotes: paintNotes,
-        // drawScales: paintScales
+        drawNotes: paintNotes
     };
 })();

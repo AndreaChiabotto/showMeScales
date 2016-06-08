@@ -65,10 +65,10 @@ var Notes = (function () {
 
 
     /*
-    --------------------------------------
-    TO POPULATE SELECT
-    --------------------------------------
-    */
+     --------------------------------------
+     TO POPULATE SELECT
+     --------------------------------------
+     */
 
     var getNotes = function () {
         return NOTES_NAME[_way_to_show_notes];
@@ -78,8 +78,8 @@ var Notes = (function () {
     var getScaleName = function () {
         var scalesName = [];
 
-        for (var i=0;i< SCALE.length;i++){
-            scalesName.push( SCALE[i].name);
+        for (var i = 0; i < SCALE.length; i++) {
+            scalesName.push(SCALE[i].name);
         }
 
         return scalesName;
@@ -87,14 +87,14 @@ var Notes = (function () {
 
 
     var getScaleIntervals = function (index) {
-            return SCALE[index].intervals;
+        return SCALE[index].intervals;
     };
 
     /*
-    --------------------------------------
-    GET THE SCALE STARTING FROM THE TONIC NOTE
-    --------------------------------------
-    */
+     --------------------------------------
+     GET THE SCALE STARTING FROM THE TONIC NOTE
+     --------------------------------------
+     */
 
     var getNotesFromTonic = function (interval) {
 
@@ -127,10 +127,10 @@ var Notes = (function () {
 
 
     /*
-    --------------------------------------
-    GET THE SCALE WE WANT
-    --------------------------------------
-    */
+     --------------------------------------
+     GET THE SCALE WE WANT
+     --------------------------------------
+     */
 
     var getScale = function (intervals) {
         var single_interval = 0;
@@ -139,17 +139,8 @@ var Notes = (function () {
 
         for (var i = 0; i < intervals.length - 1; i++) {
             single_interval += intervals[i];
+            THE_SCALE.push(_notes_from_tonic_classes[single_interval]);
 
-            if (_notes_from_tonic_classes === []) {
-
-                THE_SCALE.push(NOTES[single_interval]);
-
-            }
-            else {
-
-                THE_SCALE.push(_notes_from_tonic_classes[single_interval]);
-
-            }
         }
 
         return THE_SCALE;
