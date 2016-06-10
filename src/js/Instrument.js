@@ -1,12 +1,29 @@
 var Instrument = (function () {
 
     var _instrument = document.querySelector(".instrument .container"),
-        _interval_semitones = 0;
+        _interval_semitones = 0,
+        instrumentsOnStage = [],
+        drawFretboard = function (Instrument) {
+            var obj = Instrument;
+            renderIt(obj);
+        },
 
-    var drawFretboard = function (Instrument) {
-        var obj = Instrument;
-        renderIt(obj);
-    };
+        paintNotes = function (notesOfScale) {
+            PaintNotes(notesOfScale);
+        },
+
+        showFretboard = function (int) {
+
+            var removeInstrument = _instrument.querySelectorAll('.on'),
+                indexInstrument;
+
+            for (indexInstrument = removeInstrument.length; indexInstrument--;) {
+                removeClass(removeInstrument[indexInstrument], 'on');
+            }
+
+            instrumentsOnStage[int].className += ' on';
+        }
+        ;
 
     function renderIt(object) {
 
@@ -14,6 +31,9 @@ var Instrument = (function () {
             _fretboard = document.createElement('div'),
             note_name = [],
             note_class = [];
+
+        instrumentsOnStage.push(_fretboard);
+        console.log('rendering' + instrumentsOnStage);
 
         for (var i = 0; i < obj.strings.length; i++) {
 
@@ -33,9 +53,9 @@ var Instrument = (function () {
                     resetInterval();
                 }
 
-
                 var _semitone = document.createElement('div');
                 _semitone.className = 'note ' + note_class[_interval_semitones];
+
                 if (i !== 0) {
                     var _p = document.createElement('p');
                     _p.innerHTML = note_name[_interval_semitones];
@@ -66,7 +86,9 @@ var Instrument = (function () {
             _fretboard.insertBefore(_inlay, _fretboard.firstChild);
         }
 
-        _fretboard.className = 'fretboard on-stage ' + obj.name;
+        _fretboard.className = 'fretboard ' + obj.name;
+
+
         _instrument.appendChild(_fretboard);
 
     }
@@ -77,10 +99,6 @@ var Instrument = (function () {
     }
 
 
-    var paintNotes = function (notesOfScale) {
-        PaintNotes(notesOfScale);
-    };
-
     function PaintNotes(noteToHighlight) {
 
         var removeTonic = _instrument.querySelectorAll('.tonic'),
@@ -88,11 +106,11 @@ var Instrument = (function () {
             indexTonic,
             indexHighlighted;
 
-        for( indexTonic = removeTonic.length; indexTonic--;){
+        for (indexTonic = removeTonic.length; indexTonic--;) {
             removeClass(removeTonic[indexTonic], 'tonic');
         }
 
-        for( indexHighlighted = removeHighlighted.length; indexHighlighted--;){
+        for (indexHighlighted = removeHighlighted.length; indexHighlighted--;) {
             removeClass(removeHighlighted[indexHighlighted], 'highlighted');
         }
 
@@ -111,11 +129,11 @@ var Instrument = (function () {
             }
 
             for (var i = 0; i < notes.length; i++) {
-                console.log(noteToHighlight + ' : ' + noteToHighlight[z] + "(" + z + ")," + typeOfNote);
+                // console.log(noteToHighlight + ' : ' + noteToHighlight[z] + "(" + z + ")," + typeOfNote);
                 notes[i].className += typeOfNote;
             }
 
-            console.log('--------------');
+            // console.log('--------------');
         }
     }
 
@@ -128,7 +146,7 @@ var Instrument = (function () {
 
     function hasClass(node, className) {
 
-        console.log(node +' / ' + node.className);
+        // console.log(node + ' / ' + node.className);
 
         if (node.className) {
             return node.className.match(
@@ -139,8 +157,8 @@ var Instrument = (function () {
     }
 
     return {
+        show: showFretboard,
         draw: drawFretboard,
-        // remove: removeInstrument,
         drawNotes: paintNotes
     };
 })();

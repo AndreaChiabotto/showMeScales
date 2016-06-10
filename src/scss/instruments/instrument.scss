@@ -10,35 +10,27 @@
     z-index: 0;
   }
 }
-
+//
 .fretboard {
-  @include transition(transform $animation-time, opacity $animation-time);
-
- // @include shadow(0 15px 20px 0 $shadow);
+  @include transition(opacity $animation-time, transform $animation-time);
+  @include shadow(0 15px 20px 0 $shadow);
   box-sizing: content-box;
   margin-top: 90px;
   opacity: 0;
-  position: relative;
-  transform: translate3d(0, 50px, 0);
+  position: absolute;
+  transform: translate3d(0, 0, 0);
   z-index: -2;
 
-  &.on-stage {
-    @include transition(transform $animation-time, opacity $animation-time);
+  &.on {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-
-  &.deleting {
-    @include transition(transform $animation-time, opacity $animation-time);
-    opacity: 0;
-    transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50%, 0);
   }
 }
-
+//
 .string {
   z-index: 1;
 }
-
+//
 .note {
   @include transition(color $animation-time);
   color: $note;
@@ -63,16 +55,14 @@
   }
 
   p {
-    @include transition(background $animation-time);
-    @include transition(opacity $animation-time);
+    @include transition(background $animation-time, opacity $animation-time);
     @include border-radius(50%);
     @include shadow(0 2px 3px 0 $shadow);
-    @include calc('bottom' , '-#{$note-size}/2');
-    @include calc('margin-left' , '-#{$note-size}/2');
-    @include calc('height' , '#{$note-size}');
-    @include calc('line-height' , '#{$note-size}');
-    @include calc('width' , '#{$note-size}');
-
+    @include calc('bottom', '-#{$note-size}/2');
+    @include calc('margin-left', '-#{$note-size}/2');
+    @include calc('height', '#{$note-size}');
+    @include calc('line-height', '#{$note-size}');
+    @include calc('width', '#{$note-size}');
     background: 0;
     box-sizing: border-box;
     display: inline-block;
@@ -82,26 +72,19 @@
     position: absolute;
     text-align: center;
     top: auto;
-
   }
 
   &.tonic p {
-
-    @include transition(background $animation-time);
-    @include transition(opacity $animation-time);
     background: $tonic-note;
     opacity: 1;
   }
 
   &.highlighted p {
-    @include transition(background $animation-time);
-    @include transition(opacity $animation-time);
     background: $highlighted-note;
     opacity: 1;
   }
-
 }
-
+//
 .inlays {
   @include border-radius(50%);
   height: 30px;

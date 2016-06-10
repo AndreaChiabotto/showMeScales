@@ -3,7 +3,8 @@ var showMeScalesApp = (function () {
     var tonic = '',
         scale = '',
         notesArray = '',
-    instrument_to_play,
+        instrument_to_play,
+
         instruments_Available = [
             Guitar = {
                 name: 'guitar',
@@ -45,19 +46,20 @@ var showMeScalesApp = (function () {
             //}
         ],
 
-        drawInstrument = function (i) {
-            instrument_to_play = instruments_Available[i];
-            Instrument.draw(instrument_to_play);
-        },
-
-        setInstrument = function () {
+        getInstrument = function () {
             var instrumentNames = [];
 
             for (var i = 0; i < instruments_Available.length; i++) {
                 instrumentNames.push(instruments_Available[i].name);
+                drawInstrument(i);
             }
 
             return instrumentNames;
+        },
+
+        showInstrument = function (i) {
+            instrument_to_play = i;
+            Instrument.show(instrument_to_play);
         },
 
         drawNotes = function (bool, i) {
@@ -66,12 +68,12 @@ var showMeScalesApp = (function () {
 
             console.log(isTonic);
 
-            if (isTonic === true ) {
+            if (isTonic === true) {
                 tonic = i;
                 notesArray = Notes.getNotesFromTonic(tonic).classes[0];
                 //console.log('showMeScales: tonic is ' + notesArray + ',tonic index is ' + tonic + ', scale is undefined');
 
-                if(scale !== '') {
+                if (scale !== '') {
                     buildScale();
                 }
             }
@@ -80,37 +82,36 @@ var showMeScalesApp = (function () {
                 buildScale();
             }
 
-            function buildScale(){
+            function buildScale() {
                 var intervals = Notes.getScaleIntervals(scale);
                 notesArray = Notes.getScale(intervals);
                 //console.log('showMeScales: scale is ' + notesArray + ',tonic index is ' + tonic + ', scale is '+ scale);
             }
 
-            Instrument.drawNotes( notesArray );
-
+            Instrument.drawNotes(notesArray);
         },
 
-        setNotes = function () {
+        getNotes = function () {
             return Notes.getNotes();
         },
 
-        setScaleName = function () {
+        getScaleName = function () {
             return Notes.getScaleName();
         };
 
-
-        drawInstrument(0);
-
+    function drawInstrument(i) {
+        Instrument.draw(instruments_Available[i]);
+    }
 
     return {
         instruments: instruments_Available,
-        drawInstrument: drawInstrument,
-        setInstrument: setInstrument,
 
         drawNotes: drawNotes,
+        showInstrument: showInstrument,
 
-        setNotes: setNotes,
-        setScaleName: setScaleName
+        getInstrument: getInstrument,
+        getNotes: getNotes,
+        getScaleName: getScaleName
     };
 
 
