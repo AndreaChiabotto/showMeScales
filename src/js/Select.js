@@ -3,6 +3,7 @@ var Select = (function () {
 
     //VARS
     var _selection = document.querySelector(".selection .container"),
+         _selection_parent = document.querySelector(".selection"),
         _body = document.querySelector("body"),
         instrument_to_play = '',
         tonic = '';
@@ -123,6 +124,7 @@ var Select = (function () {
             var notes = document.querySelector('.box.disabled.notes');
             notes.className = 'box notes';
 
+            _selection_parent.className += ' selected';
         }
 
         var sp = document.querySelector('.box.playinginstrument span');

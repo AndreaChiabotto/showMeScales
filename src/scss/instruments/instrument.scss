@@ -1,29 +1,29 @@
 .instrument {
-  height: 90%;
+  height: 100%;
   padding-right: 50px;
   width: 100%;
   z-index: 0;
 
   .container {
-    min-height: 600px;
+   // min-height: 600px;
+    height: 100%;
     position: relative;
     z-index: 0;
   }
 }
 //
 .fretboard {
-  @include transition(opacity $animation-time, transform $animation-time);
+  @include transition(opacity $animation-time, top $animation-time);
   @include shadow(0 15px 20px 0 $shadow);
   box-sizing: content-box;
-  margin-top: 90px;
   opacity: 0;
   position: absolute;
-  transform: translate3d(0, 0, 0);
+  top: 45%;
   z-index: -2;
 
   &.on {
     opacity: 1;
-    transform: translate3d(0, 50%, 0);
+    top: 50%;
   }
 }
 //

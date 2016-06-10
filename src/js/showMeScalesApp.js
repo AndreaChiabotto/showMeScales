@@ -54,6 +54,8 @@ var showMeScalesApp = (function () {
                 drawInstrument(i);
             }
 
+            Instrument.show(0);
+
             return instrumentNames;
         },
 

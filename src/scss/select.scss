@@ -1,12 +1,22 @@
 
 .selection {
-  height: 10%;
-  margin-left: 0;
+  @include transition(background $animation-time, top $animation-time, padding $animation-time);
+  background: $background;
+  bottom: 0;
+  padding: 25% 0 0;
   position: absolute;
   text-align: center;
-  top: 50%;
+  top: 0;
   width: 100%;
   z-index: 3;
+
+  &.selected {
+    background: $white;
+    min-height: 100px;
+    padding: 15px 0 0;
+    top: 85%;
+  }
+
 }
 //
 .box {
@@ -61,10 +71,5 @@
     list-style-type: none;
     min-height: 150px;
     text-align: center;
-
-    // &:hover {
-    //  line-height: 200px;
-    //  min-height: 200px;
-    // }
   }
 }
