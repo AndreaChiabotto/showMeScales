@@ -118,7 +118,7 @@ var Select = (function () {
         if (instrument_to_play === '') {
 
             var sel = document.querySelector('.box.playinginstrument p');
-            sel.innerHTML = 'on ' ;
+            sel.innerHTML = 'on ';
 
             var notes = document.querySelector('.box.disabled.notes');
             notes.className = 'box notes';
@@ -157,7 +157,7 @@ var Select = (function () {
         sp.innerHTML = string;
 
         //console.log('select js: scale is ' + scale);
-        showMeScalesApp.drawNotes( false, scale);
+        showMeScalesApp.drawNotes(false, scale);
     }
 
 

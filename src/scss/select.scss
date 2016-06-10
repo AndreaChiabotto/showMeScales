@@ -33,8 +33,7 @@
 }
 //
 .list {
-  @include transition(transform $animation-time, opacity $animation-time);
-  border: 1px solid $black;
+  @include transition(opacity $animation-time);
   bottom: 0;
   display: none;
   left: 0;
@@ -42,27 +41,30 @@
   position: absolute;
   right: 0;
   top: 0;
-  transform: translate3d(0, -50px, 0);
   z-index: 5;
 
   &.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
     opacity: 1;
-    transform: translate3d(0, 0, 0);
   }
 
   li {
     @include transition(min-height $animation-time, line-height $animation-time);
     background: $white;
     border-bottom: 1px solid $fret-darker;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
     line-height: 150px;
     list-style-type: none;
     min-height: 150px;
     text-align: center;
 
-    &:hover {
-      line-height: 200px;
-      min-height: 200px;
-    }
+    // &:hover {
+    //  line-height: 200px;
+    //  min-height: 200px;
+    // }
   }
 }
