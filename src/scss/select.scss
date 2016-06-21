@@ -1,9 +1,8 @@
 
 .selection {
-  @include transition(background $animation-time, top $animation-time, padding $animation-time);
+  @include transition(all $animation-time);
   background: $background;
   bottom: 0;
-  padding: 25% 0 0;
   position: absolute;
   text-align: center;
   top: 0;
@@ -11,12 +10,27 @@
   z-index: 3;
 
   &.selected {
-    background: $white;
-    min-height: 100px;
-    padding: 15px 0 0;
-    top: 85%;
+    bottom: 0;
+ //   height: 15%;
+    top: auto;
+    border: 1px dotted $test;
+
+    .container {
+      top: 23%;
+    }
   }
 
+  .container {
+    @include border-radius(6px);
+    @include shadow(0 2px 5px 0 $shadow);
+    background: $white;
+    border: 1px solid $test;
+    left: 0;
+    margin-top: -22px;
+    position: absolute;
+    right: 0;
+    top: calc(50% - 1px);
+  }
 }
 //
 .box {
@@ -28,48 +42,90 @@
   }
 
   p {
+    color: $text-normal;
     display: inline-block;
+    font-size: 45px;
+    line-height: 45px;
     padding: 0 5px;
     width: auto;
   }
 
   span {
-    border-bottom: 2px solid $note;
+    @include transition(color 200ms);
+    color: $text-highlight;
     cursor: pointer;
     display: block;
     float: right;
+    font-size: 45px;
+    line-height: 49px;
+    margin: 43px 0 0;
     padding: 0 5px;
+
+    &:hover {
+      color: $test;
+    }
   }
 }
 //
+//
+//
+//
+//
+//
+//
+//
 .list {
-  @include transition(opacity $animation-time);
-  bottom: 0;
+  @include transition(transform $animation-time);
+  bottom: 20px;
   display: none;
-  left: 0;
-  opacity: 0;
+  left: 20px;
+  margin: 0;
+  padding: 0;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 20px;
+  top: 20px;
   z-index: 5;
+
 
   &.active {
     display: flex;
     flex-direction: column;
-    opacity: 1;
+  }
+
+  &.playinginstrument {
+
+    li:last-child {
+      margin-bottom: 0;
+    }
   }
 
   li {
-    @include transition(min-height $animation-time, line-height $animation-time);
+    @include transition(all $animation-time);
+    @include shadow(0 2px 5px 0 $shadow);
     background: $white;
-    border-bottom: 1px solid $fret-darker;
+    border-bottom: 3px solid $background;
+    cursor: pointer;
     display: flex;
     flex: 1;
     flex-direction: column;
+    font-size: 24px;
     justify-content: center;
     line-height: 150px;
     list-style-type: none;
     min-height: 150px;
     text-align: center;
+
+    &:hover {
+      color: $test;
+    }
+
+    &:first-child {
+      @include border-radius(6px 6px 0 0);
+    }
+
+    &:last-child {
+      @include border-radius(0 0 6px 6px);
+      margin-bottom: 20px;
+    }
   }
 }

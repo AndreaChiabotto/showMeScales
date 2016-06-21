@@ -1,11 +1,14 @@
 .instrument {
-  height: 100%;
+  @include border-radius(6px);
+  @include shadow(inset 0 0 2px 2px $shadow);
+  background: $background-instrument;
+  height: 85%;
+  overflow: hidden;
   padding-right: 50px;
   width: 100%;
   z-index: 0;
 
   .container {
-   // min-height: 600px;
     height: 100%;
     position: relative;
     z-index: 0;
@@ -13,7 +16,7 @@
 }
 //
 .fretboard {
-  @include transition(opacity $animation-time, top $animation-time);
+  @include transition(all $animation-time);
   @include shadow(0 15px 20px 0 $shadow);
   box-sizing: content-box;
   opacity: 0;
@@ -55,7 +58,7 @@
   }
 
   p {
-    @include transition(background $animation-time, opacity $animation-time);
+    @include transition(all $animation-time);
     @include border-radius(50%);
     @include shadow(0 2px 3px 0 $shadow);
     @include calc('bottom', '-#{$note-size}/2');

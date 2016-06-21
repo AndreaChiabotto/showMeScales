@@ -2,12 +2,15 @@ $animation-time: .75s;
 $test: #ff6347;
 
 
-$background: #48a8df;
+$background-instrument: #48a8df;
+$background: #eee;
+
 $background-select: #e0e2ee;
 
 
 $white: #fff;
-$black: #292929;
+$text-normal: #3a3a3a;
+$text-highlight: #8a8a8a;
 
 // STRINGS
 $string: #eee;
@@ -20,7 +23,7 @@ $tonic-note: #ffeb3b;
 $highlighted-note: #ffb74d;
 
 
-$shadow: rgba(66, 66, 66, .45);
+$shadow: rgba(66, 66, 66, .3);
 
 // GUITAR
 $guitar: #cd622a;
