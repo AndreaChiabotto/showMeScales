@@ -1,41 +1,34 @@
 
 .selection {
-  @include transition(all $animation-time);
-  background: $background;
+  @include transition(height $animation-time);
   bottom: 0;
+  height: 100%;
+  left: 0;
   position: absolute;
+  right: 0;
   text-align: center;
-  top: 0;
-  width: 100%;
   z-index: 3;
 
   &.selected {
-    bottom: 0;
- //   height: 15%;
-    top: auto;
-    border: 1px dotted $test;
-
-    .container {
-      top: 23%;
-    }
+    height: 130px;
   }
 
   .container {
     @include border-radius(6px);
     @include shadow(0 2px 5px 0 $shadow);
     background: $white;
-    border: 1px solid $test;
-    left: 0;
-    margin-top: -22px;
-    position: absolute;
-    right: 0;
-    top: calc(50% - 1px);
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    text-align: center;
+    top: calc(50% - 53px);
+    width: auto;
   }
 }
 //
 .box {
   display: inline-block;
-  width: auto;
 
   &.disabled {
     display: none;
@@ -46,22 +39,27 @@
     display: inline-block;
     font-size: 45px;
     line-height: 45px;
+    margin: 30px 0;
     padding: 0 5px;
     width: auto;
   }
 
   span {
-    @include transition(color 200ms);
+    @include transition(all $animation-time-faster);
+    border-color: $white;
+    border-style: solid;
+    border-width: 0 0 2px;
     color: $text-highlight;
     cursor: pointer;
     display: block;
     float: right;
     font-size: 45px;
-    line-height: 49px;
-    margin: 43px 0 0;
+    line-height: 45px;
+    margin: 30px 0;
     padding: 0 5px;
 
     &:hover {
+      border-color: $test;
       color: $test;
     }
   }

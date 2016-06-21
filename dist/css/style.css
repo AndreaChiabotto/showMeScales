@@ -1,21 +1,18 @@
 .selection {
-  -webkit-transition: all 0.75s;
-  -moz-transition: all 0.75s;
-  -ms-transition: all 0.75s;
-  -o-transition: all 0.75s;
-  transition: all 0.75s;
-  background: #eee;
+  -webkit-transition: height 0.75s;
+  -moz-transition: height 0.75s;
+  -ms-transition: height 0.75s;
+  -o-transition: height 0.75s;
+  transition: height 0.75s;
   bottom: 0;
+  height: 100%;
+  left: 0;
   position: absolute;
+  right: 0;
   text-align: center;
-  top: 0;
-  width: 100%;
   z-index: 3; }
   .selection.selected {
-    bottom: 0;
-    top: auto; }
-    .selection.selected .container {
-      top: 23%; }
+    height: 130px; }
   .selection .container {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -24,16 +21,16 @@
     -moz-box-shadow: 0 2px 5px 0 rgba(66, 66, 66, 0.3);
     box-shadow: 0 2px 5px 0 rgba(66, 66, 66, 0.3);
     background: #fff;
-    border: 1px solid #ff6347;
-    left: 0;
-    margin-top: -22px;
-    position: absolute;
-    right: 0;
-    top: calc(50% - 1px); }
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    text-align: center;
+    top: calc(50% - 53px);
+    width: auto; }
 
 .box {
-  display: inline-block;
-  width: auto; }
+  display: inline-block; }
   .box.disabled {
     display: none; }
   .box p {
@@ -41,23 +38,28 @@
     display: inline-block;
     font-size: 45px;
     line-height: 45px;
+    margin: 30px 0;
     padding: 0 5px;
     width: auto; }
   .box span {
-    -webkit-transition: color 200ms;
-    -moz-transition: color 200ms;
-    -ms-transition: color 200ms;
-    -o-transition: color 200ms;
-    transition: color 200ms;
+    -webkit-transition: all 0.45s;
+    -moz-transition: all 0.45s;
+    -ms-transition: all 0.45s;
+    -o-transition: all 0.45s;
+    transition: all 0.45s;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 0 2px;
     color: #8a8a8a;
     cursor: pointer;
     display: block;
     float: right;
     font-size: 45px;
-    line-height: 49px;
-    margin: 43px 0 0;
+    line-height: 45px;
+    margin: 30px 0;
     padding: 0 5px; }
     .box span:hover {
+      border-color: #ff6347;
       color: #ff6347; }
 
 .list {
