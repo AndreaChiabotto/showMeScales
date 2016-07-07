@@ -1,29 +1,38 @@
 .instrument {
-  height: 90%;
+  @include border-radius(6px);
+  @include shadow(inset 0 0 2px 2px $shadow);
+  @include transform(opacity $animation-time);
+  background: $background-instrument;
+  height: calc(100% - 75px);
+  opacity: 0;
+  overflow: hidden;
   padding-right: 50px;
   width: 100%;
   z-index: 0;
 
+  &.visible {
+    opacity: 1;
+  }
+
   .container {
-    min-height: 600px;
+    height: 100%;
     position: relative;
     z-index: 0;
   }
 }
 //
 .fretboard {
-  @include transition(opacity $animation-time, transform $animation-time);
+  @include transition(all $animation-time);
   @include shadow(0 15px 20px 0 $shadow);
   box-sizing: content-box;
-  margin-top: 90px;
   opacity: 0;
   position: absolute;
-  transform: translate3d(0, 0, 0);
+  top: 45%;
   z-index: -2;
 
   &.on {
     opacity: 1;
-    transform: translate3d(0, 50%, 0);
+    top: 50%;
   }
 }
 //
@@ -55,32 +64,34 @@
   }
 
   p {
-    @include transition(background $animation-time, opacity $animation-time);
+    @include transition(all $animation-time);
     @include border-radius(50%);
-    @include shadow(0 2px 3px 0 $shadow);
-    @include calc('bottom', '-#{$note-size}/2');
-    @include calc('margin-left', '-#{$note-size}/2');
-    @include calc('height', '#{$note-size}');
-    @include calc('line-height', '#{$note-size}');
-    @include calc('width', '#{$note-size}');
     background: 0;
+    bottom: 0;
     box-sizing: border-box;
     display: inline-block;
     font-size: 16px;
+    height: $note-size;
     left: 50%;
+    line-height: $note-size;
+    margin: 0;
     opacity: 0;
     position: absolute;
     text-align: center;
     top: auto;
+    transform: translate3d(-50%, 50%, 0);
+    width: $note-size;
   }
 
   &.tonic p {
-    background: $tonic-note;
+    @include shadow(0 3px 5px 0 $bass-shadow);
+    background: $highlighted-note;
     opacity: 1;
   }
 
   &.highlighted p {
-    background: $highlighted-note;
+    @include shadow(0 2px 3px 0 $bass-shadow);
+    background: $tonic-note;
     opacity: 1;
   }
 }
