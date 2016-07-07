@@ -11,8 +11,6 @@
   right: 0;
   text-align: center;
   z-index: 3; }
-  .selection.selected {
-    height: 130px; }
   .selection .container {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -20,14 +18,22 @@
     -webkit-box-shadow: 0 2px 5px 0 rgba(66, 66, 66, 0.3);
     -moz-box-shadow: 0 2px 5px 0 rgba(66, 66, 66, 0.3);
     box-shadow: 0 2px 5px 0 rgba(66, 66, 66, 0.3);
+    -webkit-transition: top 0.75s;
+    -moz-transition: top 0.75s;
+    -ms-transition: top 0.75s;
+    -o-transition: top 0.75s;
+    transition: top 0.75s;
     background: #fff;
     display: inline-block;
     margin: 0 auto;
     padding: 0 30px;
     position: relative;
     text-align: center;
-    top: calc(50% - 53px);
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
     width: auto; }
+  .selection.selected .container {
+    top: calc(100% - 75px); }
 
 .box {
   display: inline-block; }
@@ -122,12 +128,20 @@
   -webkit-box-shadow: inset 0 0 2px 2px rgba(66, 66, 66, 0.3);
   -moz-box-shadow: inset 0 0 2px 2px rgba(66, 66, 66, 0.3);
   box-shadow: inset 0 0 2px 2px rgba(66, 66, 66, 0.3);
+  -moz-transform: opacity 0.75s;
+  -o-transform: opacity 0.75s;
+  -ms-transform: opacity 0.75s;
+  -webkit-transform: opacity 0.75s;
+  transform: opacity 0.75s;
   background: #48a8df;
-  height: 85%;
+  height: calc(100% - 75px);
+  opacity: 0;
   overflow: hidden;
   padding-right: 50px;
   width: 100%;
   z-index: 0; }
+  .instrument.visible {
+    opacity: 1; }
   .instrument .container {
     height: 100%;
     position: relative;
@@ -184,38 +198,32 @@
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    -webkit-box-shadow: 0 2px 3px 0 rgba(66, 66, 66, 0.3);
-    -moz-box-shadow: 0 2px 3px 0 rgba(66, 66, 66, 0.3);
-    box-shadow: 0 2px 3px 0 rgba(66, 66, 66, 0.3);
-    bottom: -webkit-calc(-50px/2);
-    bottom: -moz-calc(-50px/2);
-    bottom: calc(-50px/2);
-    margin-left: -webkit-calc(-50px/2);
-    margin-left: -moz-calc(-50px/2);
-    margin-left: calc(-50px/2);
-    height: -webkit-calc(50px);
-    height: -moz-calc(50px);
-    height: calc(50px);
-    line-height: -webkit-calc(50px);
-    line-height: -moz-calc(50px);
-    line-height: calc(50px);
-    width: -webkit-calc(50px);
-    width: -moz-calc(50px);
-    width: calc(50px);
     background: 0;
+    bottom: 0;
     box-sizing: border-box;
     display: inline-block;
     font-size: 16px;
+    height: 50px;
     left: 50%;
+    line-height: 50px;
+    margin: 0;
     opacity: 0;
     position: absolute;
     text-align: center;
-    top: auto; }
+    top: auto;
+    transform: translate3d(-50%, 50%, 0);
+    width: 50px; }
   .note.tonic p {
-    background: #ffeb3b;
+    -webkit-box-shadow: 0 3px 5px 0 rgba(66, 66, 66, 0.65);
+    -moz-box-shadow: 0 3px 5px 0 rgba(66, 66, 66, 0.65);
+    box-shadow: 0 3px 5px 0 rgba(66, 66, 66, 0.65);
+    background: #ffee58;
     opacity: 1; }
   .note.highlighted p {
-    background: #ffb74d;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(66, 66, 66, 0.65);
+    -moz-box-shadow: 0 2px 3px 0 rgba(66, 66, 66, 0.65);
+    box-shadow: 0 2px 3px 0 rgba(66, 66, 66, 0.65);
+    background: #fbc02d;
     opacity: 1; }
 
 .inlays {
@@ -433,6 +441,8 @@ html {
   border-radius: 6px;
   bottom: 20px;
   left: 20px;
+  min-height: 640px;
+  min-width: 920px;
   position: absolute;
   top: 20px;
   width: calc(100% - 40px); }
