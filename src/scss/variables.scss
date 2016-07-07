@@ -1,7 +1,8 @@
 $animation-time: .75s;
 $animation-time-faster: .45s;
 $test: #ff6347;
-
+$min-height-window: 640px;
+$min-width-window: 920px;
 
 $background-instrument: #48a8df;
 $background: #eee;
@@ -21,8 +22,7 @@ $fret-darker: #808080;
 // NOTES
 $note: #424242;
 $tonic-note: #ffeb3b;
-$highlighted-note: #ffb74d;
-
+$highlighted-note: #f57f17;
 
 $shadow: rgba(66, 66, 66, .3);
 

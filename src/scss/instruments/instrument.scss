@@ -1,12 +1,18 @@
 .instrument {
   @include border-radius(6px);
   @include shadow(inset 0 0 2px 2px $shadow);
+  @include transform(opacity $animation-time);
   background: $background-instrument;
-  height: 85%;
+  height: calc(100% - 75px);
+  opacity: 0;
   overflow: hidden;
   padding-right: 50px;
   width: 100%;
   z-index: 0;
+
+  &.visible {
+    opacity: 1;
+  }
 
   .container {
     height: 100%;

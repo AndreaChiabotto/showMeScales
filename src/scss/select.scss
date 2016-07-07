@@ -9,21 +9,25 @@
   text-align: center;
   z-index: 3;
 
-  &.selected {
-    height: 130px;
-  }
-
   .container {
     @include border-radius(6px);
     @include shadow(0 2px 5px 0 $shadow);
+    @include transition(top $animation-time);
     background: $white;
     display: inline-block;
     margin: 0 auto;
     padding: 0 30px;
     position: relative;
     text-align: center;
-    top: calc(50% - 53px);
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
     width: auto;
+  }
+
+  &.selected {
+    .container {
+      top: calc(100% - 75px);
+    }
   }
 }
 //
@@ -65,13 +69,6 @@
   }
 }
 //
-//
-//
-//
-//
-//
-//
-//
 .list {
   @include transition(transform $animation-time);
   bottom: 20px;
@@ -83,7 +80,6 @@
   right: 20px;
   top: 20px;
   z-index: 5;
-
 
   &.active {
     display: flex;

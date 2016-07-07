@@ -106,6 +106,9 @@ var Select = (function () {
             var notes = document.querySelector('.box.disabled.notes');
             notes.className = 'box notes';
 
+            var instrument = document.querySelector('.instrument');
+            instrument.className += ' visible';
+
             _selection_parent.className += ' selected';
         }
 
