@@ -54,6 +54,8 @@ var showMeScalesApp = (function () {
                 drawInstrument(i);
             }
 
+            //Instrument.show(0);
+
             return instrumentNames;
         },
 
@@ -71,7 +73,6 @@ var showMeScalesApp = (function () {
             if (isTonic === true) {
                 tonic = i;
                 notesArray = Notes.getNotesFromTonic(tonic).classes[0];
-                //console.log('showMeScales: tonic is ' + notesArray + ',tonic index is ' + tonic + ', scale is undefined');
 
                 if (scale !== '') {
                     buildScale();
@@ -85,7 +86,6 @@ var showMeScalesApp = (function () {
             function buildScale() {
                 var intervals = Notes.getScaleIntervals(scale);
                 notesArray = Notes.getScale(intervals);
-                //console.log('showMeScales: scale is ' + notesArray + ',tonic index is ' + tonic + ', scale is '+ scale);
             }
 
             Instrument.drawNotes(notesArray);
@@ -105,10 +105,8 @@ var showMeScalesApp = (function () {
 
     return {
         instruments: instruments_Available,
-
         drawNotes: drawNotes,
         showInstrument: showInstrument,
-
         getInstrument: getInstrument,
         getNotes: getNotes,
         getScaleName: getScaleName

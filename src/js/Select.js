@@ -3,6 +3,7 @@ var Select = (function () {
 
     //VARS
     var _selection = document.querySelector(".selection .container"),
+         _selection_parent = document.querySelector(".selection"),
         _body = document.querySelector("body"),
         instrument_to_play = '',
         tonic = '';
@@ -57,7 +58,6 @@ var Select = (function () {
             var opt = document.createElement('li');
             opt.innerHTML = content[i];
             setValue(opt, i, name, content[i]);
-            //  toggleDisplay(select);
             select.appendChild(opt);
         }
 
@@ -66,23 +66,6 @@ var Select = (function () {
         _body.appendChild(select);
         _selection.appendChild(box);
     }
-
-
-    function toggleDisplay(el) {
-        var y = el.style && el.style.display ? el.style.display : 'block';
-
-        if (y == 'block') {
-            // console.log('this element has display block');
-            // el.style.opacity='0';
-            // setTimeout( function(){ el.style.display = 'none'; }, 750 );
-        }
-        else {
-            // console.log('this element has not block!');
-            // el.style.display='block';
-            // setTimeout( function(){ el.style.opacity = '1'; }, 10 );
-        }
-    }
-
 
     function setValue(el, i, c, s) {
 
@@ -123,6 +106,10 @@ var Select = (function () {
             var notes = document.querySelector('.box.disabled.notes');
             notes.className = 'box notes';
 
+            var instrument = document.querySelector('.instrument');
+            instrument.className += ' visible';
+
+            _selection_parent.className += ' selected';
         }
 
         var sp = document.querySelector('.box.playinginstrument span');

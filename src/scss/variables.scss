@@ -1,14 +1,18 @@
 $animation-time: .75s;
+$animation-time-faster: .45s;
 $test: #ff6347;
+$min-height-window: 640px;
+$min-width-window: 920px;
 
+$background-instrument: #48a8df;
+$background: #eee;
 
-// $background: #48a8df;
-$background: #dadada;
 $background-select: #e0e2ee;
 
 
 $white: #fff;
-$black: #292929;
+$text-normal: #3a3a3a;
+$text-highlight: #8a8a8a;
 
 // STRINGS
 $string: #eee;
@@ -17,11 +21,10 @@ $fret-darker: #808080;
 
 // NOTES
 $note: #424242;
-$tonic-note: #ffeb3b;
-$highlighted-note: #ffb74d;
+$tonic-note: #fbc02d;
+$highlighted-note: #ffee58;
 
-
-$shadow: rgba(66, 66, 66, .45);
+$shadow: rgba(66, 66, 66, .3);
 
 // GUITAR
 $guitar: #cd622a;

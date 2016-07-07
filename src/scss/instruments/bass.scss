@@ -4,6 +4,7 @@
   background: $bass;
   border-bottom: 7px solid $bass-shadow;
   border-top: 7px solid $bass-shadow;
+  margin-top: -132px;
   //
   .string {
     @include calc('width', '#{$bass-fret-width} * #{$number-of-frets-on-bass}');

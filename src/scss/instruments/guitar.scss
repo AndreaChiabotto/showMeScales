@@ -4,6 +4,7 @@
   background: $guitar;
   border-bottom: 7px solid $guitar-shadow;
   border-top: 7px solid $guitar-shadow;
+  margin-top: -175px;
   //
   .string {
     @include calc('width', '#{$guitar-fret-width}*22');
