@@ -20,8 +20,8 @@ module.exports = function (grunt) {
         jshint: {
             // when this task is run, lint the Gruntfile and all js files in src
             build: ['Gruntfile.js',
-                    'src/js/**.*',
-                    'src/js/select/**.*']
+                'src/js/**.*',
+                'src/js/select/**.*']
         },
 
 
@@ -34,10 +34,7 @@ module.exports = function (grunt) {
                     'src/js/Notes.js',
                     'src/js/Instrument.js',
                     'src/js/showMeScalesApp.js',
-
                     'src/js/Select.js',
-
-
                     // 'src/js/scroll.js',
                 ],
                 dest: 'dist/js/app.min.js',
@@ -110,8 +107,24 @@ module.exports = function (grunt) {
             // for scripts, run jshint and uglify
             scripts: {
                 files: ['src/js/**.*',
-                        'src/js/select/**.*'],
+                    'src/js/select/**.*'],
                 tasks: ['jshint', 'concat']
+            }
+        },
+
+
+        browserSync: {
+            bsFiles: {
+                src: ['dist/css/*.css',
+                    'dist/js/*.js',
+                    'dist/index.html']
+            },
+            options: {
+                watchTask: true,
+                port: 3000,
+                server: {
+                    baseDir: "dist/"
+                }
             }
         }
 
@@ -148,6 +161,7 @@ module.exports = function (grunt) {
         'scsslint',
         'sass',
         'cssmin',
+        'browserSync',
         'watch'
     ]);
 
