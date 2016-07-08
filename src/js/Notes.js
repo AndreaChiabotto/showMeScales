@@ -50,9 +50,14 @@ var Notes = (function () {
                 intervals: [0, 3, 2, 1, 1, 3, 2]
             },
 
-            EolianMode = {
-                name: 'Eolian mode',
+            AeolianMode = {
+                name: 'Aeolian mode',
                 intervals: [0, 2, 1, 2, 2, 1, 2, 2]
+            },
+
+            DorianMode = {
+                name: 'Dorian mode',
+                intervals: [0, 2, 1, 2, 2, 2, 1, 2]
             }
         ],
 
