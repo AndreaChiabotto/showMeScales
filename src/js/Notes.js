@@ -48,6 +48,11 @@ var Notes = (function () {
             Blues = {
                 name: 'blues',
                 intervals: [0, 3, 2, 1, 1, 3, 2]
+            },
+
+            EolianMode = {
+                name: 'Eolian mode',
+                intervals: [0, 2, 1, 2, 2, 1, 2, 2]
             }
         ],
 
