@@ -4,10 +4,6 @@ var Notes = (function () {
         NOTES_NAME = [['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'], ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']],
 
         SCALE = [
-            Cromatic = {
-                name: 'Cromatic Scale',
-                intervals: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-            },
 
             MajorScale = {
                 name: 'Major',
