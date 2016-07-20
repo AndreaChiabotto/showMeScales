@@ -16,6 +16,43 @@ var Notes = (function () {
             //},
 
 
+            //todo MODE/COLORS
+            //Ionian = {
+            //    name: 'Ionian',
+            //    intervals: [0, 2, 2, 1, 2, 2, 2, 1]
+            //},
+            //
+            //Dorian = {
+            //    name: 'Dorian',
+            //    intervals: [0, 2, 1, 2, 2, 2, 1, 2]
+            //},
+            //
+            //Phrygian = {
+            //    name: 'Phrygian',
+            //    intervals: [0, 1, 2, 2, 2, 1, 2, 2]
+            //},
+            //
+            //Lydian = {
+            //    name: 'Lydian',
+            //    intervals: [0, 2, 2, 2, 1, 2, 2, 1]
+            //},
+            //
+            //Mixolydian = {
+            //    name: 'Mixolydian',
+            //    intervals: [0, 2, 2, 1, 2, 2, 1, 2]
+            //},
+            //
+            //Aeolian = {
+            //    name: 'Aeolian',
+            //    intervals: [0, 2, 1, 2, 2, 1, 2, 2]
+            //},
+            //
+            //Locrian = {
+            //    name: 'Locrian',
+            //    intervals: [0, 1, 2, 2, 1, 2, 2, 2]
+            //}
+
+
             //todo ARMONIC - jazzy things
             //HarmonicMajor = {
             //    name : 'Harmonic major',
@@ -70,41 +107,21 @@ var Notes = (function () {
             //},
 
 
-            //todo MODE/COLORS
-            //Ionian = {
-            //    name: 'Ionian',
-            //    intervals: [0, 2, 2, 1, 2, 2, 2, 1]
-            //},
-            //
-            //Dorian = {
-            //    name: 'Dorian',
-            //    intervals: [0, 2, 1, 2, 2, 2, 1, 2]
-            //},
-            //
-            //Phrygian = {
-            //    name: 'Phrygian',
-            //    intervals: [0, 1, 2, 2, 2, 1, 2, 2]
-            //},
-            //
-            //Lydian = {
-            //    name: 'Lydian',
-            //    intervals: [0, 2, 2, 2, 1, 2, 2, 1]
-            //},
-            //
-            //Mixolydian = {
-            //    name: 'Mixolydian',
-            //    intervals: [0, 2, 2, 1, 2, 2, 1, 2]
-            //},
-            //
-            //Aeolian = {
-            //    name: 'Aeolian',
-            //    intervals: [0, 2, 1, 2, 2, 1, 2, 2]
-            //},
-            //
-            //Locrian = {
-            //    name: 'Locrian',
-            //    intervals: [0, 1, 2, 2, 1, 2, 2, 2]
-            //}
+            //todo COMMON SCALES
+            Diminished = {
+                name: 'Diminished',
+                intervals: [0, 2, 1, 2, 1, 2, 1, 2, 1 ]
+            },
+
+            Augmented = {
+                name: 'Augmented',
+                intervals: [0, 3, 1, 3, 1, 3, 1]
+            },
+
+            WholeTone = {
+                name: 'Whole Tone',
+                intervals: [0, 2, 2, 2, 2, 2, 2]
+            }
         ],
 
         _way_to_show_notes = 0,
