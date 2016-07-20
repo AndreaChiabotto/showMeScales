@@ -4,7 +4,7 @@ var Notes = (function () {
         NOTES_NAME = [['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'], ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']],
 
         SCALE = [
-
+            //todo Basic Ones
             //MajorScale = {
             //    name: 'Major',
             //    intervals: [0, 2, 2, 1, 2, 2, 2, 1]
@@ -15,16 +15,20 @@ var Notes = (function () {
             //    intervals: [0, 2, 1, 2, 2, 1, 2, 2]
             //},
 
-            // HarmonicMajor = {
-            //     name : 'Harmonic major',
-            //     intervals : [0, 2, 2, 1, 2, 1, 2, 3]
-            //     },
 
-            // HarmonicMinor = {
-            //     name : 'Harmonic Minor',
-            //     intervals : [0, 2, 1, 2, 2, 1, 3, 1]
-            //     },
+            //todo ARMONIC - jazzy things
+            //HarmonicMajor = {
+            //    name : 'Harmonic major',
+            //    intervals : [0, 2, 2, 1, 2, 1, 3, 2]
+            //    },
+            //
+            //HarmonicMinor = {
+            //    name : 'Harmonic Minor',
+            //    intervals : [0, 2, 1, 2, 2, 1, 3, 1]
+            //    },
 
+
+            //todo MELODIC
             //MelodicMajor = {
             //    name: 'Melodic Major',
             //    intervals: [0, 2, 2, 1, 2, 1, 2, 2]
@@ -49,20 +53,20 @@ var Notes = (function () {
 
 
             //todo Blues
-            Blues = {
-                name: 'Blues Mode',
-                intervals: [0, 3, 2, 1, 1, 2, 3]
-            },
-
-            BluesMajor = {
-                name: 'Blues Major',
-                intervals: [0, 2, 1, 1, 3, 2, 3]
-            },
-
-            BluesMinor = {
-                name: 'Blues Minor',
-                intervals: [0, 3, 2, 1, 1, 3, 2]
-            },
+            //Blues = {
+            //    name: 'Blues Mode',
+            //    intervals: [0, 3, 2, 1, 1, 2, 3]
+            //},
+            //
+            //BluesMajor = {
+            //    name: 'Blues Major',
+            //    intervals: [0, 2, 1, 1, 3, 2, 3]
+            //},
+            //
+            //BluesMinor = {
+            //    name: 'Blues Minor',
+            //    intervals: [0, 3, 2, 1, 1, 3, 2]
+            //},
 
 
             //todo MODE/COLORS
