@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                     'src/js/Instrument.js',
                     'src/js/showMeScalesApp.js',
                     'src/js/Select.js',
-                    // 'src/js/scroll.js',
+                    //'src/js/ScrollElementOnStage.js'
                 ],
                 dest: 'dist/js/app.min.js',
             },
@@ -58,7 +58,8 @@ module.exports = function (grunt) {
         // configure scsslint to validate scss files -----------------------------
         scsslint: {
             allFiles: [
-                'src/scss/**.*', 'src/scss/instruments/**.*'
+                'src/scss/**.*',
+                'src/scss/instruments/**.*'
             ],
             options: {
                 colorizeOutput: true,
