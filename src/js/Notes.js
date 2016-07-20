@@ -29,15 +29,16 @@ var Notes = (function () {
 
 
             //todo MELODIC
+            //MelodicMinor = {
+            //    name: 'Melodic Minor',
+            //    intervals: [0, 2, 1, 2, 2, 2, 2, 1]
+            //},
+            //
             //MelodicMajor = {
             //    name: 'Melodic Major',
             //    intervals: [0, 2, 2, 1, 2, 1, 2, 2]
             //},
-            //
-            //MelodicMinor = {
-            //    name: 'Melodic Minor',
-            //    intervals: [0, 2, 1, 2, 2, 2, 2, 2]
-            //},
+
 
 
             //todo Pentatonic
