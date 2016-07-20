@@ -5,15 +5,15 @@ var Notes = (function () {
 
         SCALE = [
 
-            MajorScale = {
-                name: 'Major',
-                intervals: [0, 2, 2, 1, 2, 2, 2, 1]
-            },
-
-            MinorScale = {
-                name: 'Minor',
-                intervals: [0, 2, 1, 2, 2, 1, 2, 2]
-            },
+            //MajorScale = {
+            //    name: 'Major',
+            //    intervals: [0, 2, 2, 1, 2, 2, 2, 1]
+            //},
+            //
+            //MinorScale = {
+            //    name: 'Minor',
+            //    intervals: [0, 2, 1, 2, 2, 1, 2, 2]
+            //},
 
             // HarmonicMajor = {
             //     name : 'Harmonic major',
@@ -25,40 +25,81 @@ var Notes = (function () {
             //     intervals : [0, 2, 1, 2, 2, 1, 3, 1]
             //     },
 
-            MelodicMajor = {
-                name: 'Melodic Major',
-                intervals: [0, 2, 2, 1, 2, 1, 2, 2]
-            },
+            //MelodicMajor = {
+            //    name: 'Melodic Major',
+            //    intervals: [0, 2, 2, 1, 2, 1, 2, 2]
+            //},
+            //
+            //MelodicMinor = {
+            //    name: 'Melodic Minor',
+            //    intervals: [0, 2, 1, 2, 2, 2, 2, 2]
+            //},
 
-            MelodicMinor = {
-                name: 'Melodic Minor',
-                intervals: [0, 2, 1, 2, 2, 2, 2, 2]
-            },
 
-            PentatonicMajor = {
-                name: 'Major Pentatonic',
-                intervals: [0, 2, 2, 3, 2, 3]
-            },
+            //todo Pentatonic
+            //PentatonicMajor = {
+            //    name: 'Pentatonic Major',
+            //    intervals: [0, 2, 2, 3, 2, 3]
+            //},
+            //
+            //PentatonicMinor = {
+            //    name: 'Pentatonic Minor',
+            //    intervals: [0, 3, 2, 2, 3, 2]
+            //},
 
-            PentatonicMinor = {
-                name: 'Pentatonic Minor',
-                intervals: [0, 3, 2, 2, 3, 2]
-            },
 
+            //todo Blues
             Blues = {
-                name: 'blues',
+                name: 'Blues Mode',
+                intervals: [0, 3, 2, 1, 1, 2, 3]
+            },
+
+            BluesMajor = {
+                name: 'Blues Major',
+                intervals: [0, 2, 1, 1, 3, 2, 3]
+            },
+
+            BluesMinor = {
+                name: 'Blues Minor',
                 intervals: [0, 3, 2, 1, 1, 3, 2]
             },
 
-            AeolianMode = {
-                name: 'Aeolian mode',
-                intervals: [0, 2, 1, 2, 2, 1, 2, 2]
-            },
 
-            DorianMode = {
-                name: 'Dorian mode',
-                intervals: [0, 2, 1, 2, 2, 2, 1, 2]
-            }
+            //todo MODE/COLORS
+            //Ionian = {
+            //    name: 'Ionian',
+            //    intervals: [0, 2, 2, 1, 2, 2, 2, 1]
+            //},
+            //
+            //Dorian = {
+            //    name: 'Dorian',
+            //    intervals: [0, 2, 1, 2, 2, 2, 1, 2]
+            //},
+            //
+            //Phrygian = {
+            //    name: 'Phrygian',
+            //    intervals: [0, 1, 2, 2, 2, 1, 2, 2]
+            //},
+            //
+            //Lydian = {
+            //    name: 'Lydian',
+            //    intervals: [0, 2, 2, 2, 1, 2, 2, 1]
+            //},
+            //
+            //Mixolydian = {
+            //    name: 'Mixolydian',
+            //    intervals: [0, 2, 2, 1, 2, 2, 1, 2]
+            //},
+            //
+            //Aeolian = {
+            //    name: 'Aeolian',
+            //    intervals: [0, 2, 1, 2, 2, 1, 2, 2]
+            //},
+            //
+            //Locrian = {
+            //    name: 'Locrian',
+            //    intervals: [0, 1, 2, 2, 1, 2, 2, 2]
+            //}
         ],
 
         _way_to_show_notes = 0,
