@@ -1,93 +1,93 @@
 .guitar {
-  @include calc('height', '#{$guitar-fret-height} * #{$number-of-strings-on-guitar}');
-  @include calc('width', '#{$fret-width}* #{$number-of-frets-on-guitar}');
-  background: $guitar;
-  border-bottom: 7px solid $guitar-shadow;
-  border-top: 7px solid $guitar-shadow;
-  margin-top: -175px;
-  //
-  .string {
-    @include calc('width', '#{$fret-width}*22');
-    @include shadow(0 3px 2px 0 $shadow);
-    border-bottom: 2px solid $string;
-    height: $guitar-fret-height;
+	height: calc(#{$guitar-fret-height} * #{$number-of-strings-on-guitar});
+	width: calc(#{$fret-width} * #{$number-of-frets-on-guitar});
+	background: $guitar;
+	border-bottom: 7px solid $guitar-shadow;
+	border-top: 7px solid $guitar-shadow;
+	margin-top: -175px;
 
-    &:nth-child(11),
-    &:nth-child(17) {
-      @include calc('height', '#{$guitar-fret-height}/2');
-    }
+	.string {
+		width: calc(#{$fret-width} * 22);
+		@include shadow(0 3px 2px 0 $shadow);
+		border-bottom: 2px solid $string;
+		height: $guitar-fret-height;
 
-    &:nth-child(17) {
-      border-bottom: 0;
-    }
-  }
-  //
-  .note {
-    height: $guitar-fret-height;
-    width: $fret-width;
+		&:nth-child(11),
+		&:nth-child(17) {
+			height: calc(#{$guitar-fret-height} / 2);
+		}
 
-    &::before,
-    &::after {
-      @include calc('width', '#{$fret-width}/18');
-      @include calc('bottom', '#{$fret-width}/40');
-    }
-  }
-  //
-  // JUST FOR GUITAR
-  .string:nth-child(11) .note,
-  .string:nth-child(17) .note {
-    @include calc('height', '#{$guitar-fret-height}*.5');
-  }
+		&:nth-child(17) {
+			border-bottom: 0;
+		}
+	}
 
-  .string:nth-child(17) .note::before,
-  .string:nth-child(17) .note::after {
-    bottom: 0;
-  }
-  //
-  .inlays {
-    background: $guitar-inlay;
+	.note {
+		height: $guitar-fret-height;
+		width: $fret-width;
 
-    &:nth-child(1) {
-      @include calc('left', '#{$fret-width}*2.5');
-    }
+		&::before,
+		&::after {
+			width: calc(#{$fret-width} / 18);
+			bottom: calc(#{$fret-width} / 40);
+		}
+	}
 
-    &:nth-child(2) {
-      @include calc('left', '#{$fret-width}*4.5');
-    }
+	/* JUST FOR GUITAR */
+	.string:nth-child(11) .note,
+	.string:nth-child(17) .note {
+		height: calc(#{$guitar-fret-height} * .5);
+	}
 
-    &:nth-child(3) {
-      @include calc('left', '#{$fret-width}*6.5');
-    }
+	.string:nth-child(17) .note::before,
+	.string:nth-child(17) .note::after {
+		bottom: 0;
+	}
 
-    &:nth-child(4) {
-      @include calc('left', '#{$fret-width}*8.5');
-    }
+	.inlays {
+		background: $guitar-inlay;
 
-    &:nth-child(5) {
-      @include calc('top', '#{$guitar-fret-height}*1');
-      @include calc('left', '#{$fret-width}*11.5');
-    }
+		&:nth-child(1) {
+			left: calc(#{$fret-width} * 2.5);
+		}
 
-    &:nth-child(6) {
-      @include calc('top', '#{$guitar-fret-height}*5');
-      @include calc('left', '#{$fret-width}*11.5');
-    }
+		&:nth-child(2) {
+			left: calc(#{$fret-width} * 4.5);
+		}
 
-    &:nth-child(7) {
-      @include calc('left', '#{$fret-width}*14.5');
-    }
+		&:nth-child(3) {
+			left: calc(#{$fret-width} * 6.5);
+		}
 
-    &:nth-child(8) {
-      @include calc('left', '#{$fret-width}*16.5');
-    }
+		&:nth-child(4) {
+			left: calc(#{$fret-width} * 8.5);
+		}
 
-    &:nth-child(9) {
-      @include calc('left', '#{$fret-width}*18.5');
-    }
+		&:nth-child(5) {
+			top: calc(#{$guitar-fret-height} * 1);
+			left: calc(#{$fret-width} * 11.5);
+		}
 
-    &:nth-child(10) {
-      @include calc('left', '#{$fret-width}*20.5');
-    }
-  }
+		&:nth-child(6) {
+			top: calc(#{$guitar-fret-height} * 5);
+			left: calc(#{$fret-width} * 11.5);
+		}
+
+		&:nth-child(7) {
+			left: calc(#{$fret-width} * 14.5);
+		}
+
+		&:nth-child(8) {
+			left: calc(#{$fret-width} * 16.5);
+		}
+
+		&:nth-child(9) {
+			left: calc(#{$fret-width} * 18.5);
+		}
+
+		&:nth-child(10) {
+			left: calc(#{$fret-width} * 20.5);
+		}
+	}
 }
 

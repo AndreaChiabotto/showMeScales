@@ -4,31 +4,30 @@
 @import 'instruments/instrument';
 @import 'instruments/guitar';
 @import 'instruments/bass';
-//
+
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
-//
+
 body,
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  margin: 0;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	margin: 0;
+}
 
-}
-//
 html {
-  background: $background;
+	background: $background;
 }
-//
+
 .body {
-  @include border-radius(6px);
-  bottom: 20px;
-  left: 20px;
-  min-height: $min-height-window;
-  min-width: $min-width-window;
-  position: absolute;
-  top: 20px;
-  width: calc(100% - 40px);
+	@include border-radius(6px);
+	bottom: 20px;
+	left: 20px;
+	min-height: $min-height-window;
+	min-width: $min-width-window;
+	position: absolute;
+	top: 20px;
+	width: calc(100% - 40px);
 }
 

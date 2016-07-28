@@ -1,109 +1,113 @@
 .instrument {
-  @include border-radius(6px);
-  @include shadow(inset 0 0 2px 2px $shadow);
-  @include transform(opacity $animation-time);
-  background: $background-instrument;
-  height: calc(100% - 75px);
-  opacity: 0;
-  overflow: hidden;
-  padding-right: 50px;
-  width: 100%;
-  z-index: 0;
+	@include border-radius(6px);
+	@include shadow(inset 0 0 2px 2px $shadow);
+	@include transform(opacity $animation-time);
+	background: $background-instrument;
+	height: calc(100% - 75px);
+	opacity: 0;
+	overflow: hidden;
+	width: 100%;
+	z-index: 0;
 
-  &.visible {
-    opacity: 1;
-  }
+	&.visible {
+		opacity: 1;
+	}
 
-  .container {
-    height: 100%;
-    position: relative;
-    z-index: 0;
-  }
+	.container {
+		height: 100%;
+		position: relative;
+		z-index: 0;
+	}
 }
-//
+
 .fretboard {
-  @include transition(all $animation-time);
-  @include shadow(0 15px 20px 0 $shadow);
-  box-sizing: content-box;
-  opacity: 0;
-  position: absolute;
-  top: 45%;
-  z-index: -2;
+	@include transition(opacity $animation-time, top $animation-time);
+	@include shadow(0 15px 20px 0 $shadow);
+	box-sizing: content-box;
+	opacity: 0;
+	position: absolute;
+	top: 35%;
+	z-index: -2;
 
-  &.on {
-    opacity: 1;
-    top: 50%;
-  }
+	&.on {
+		opacity: 1;
+		top: 40%;
+	}
 }
-//
+
 .string {
-  z-index: 1;
+	z-index: 1;
 }
-//
+
 .note {
-  @include transition(color $animation-time);
-  color: $note;
-  float: left;
-  position: relative;
-  z-index: 2;
+	color: $note;
+	float: left;
+	position: relative;
+	z-index: 2;
 
-  &::before,
-  &::after {
-    background: $fret;
-    content: '';
-    display: block;
-    left: 0;
-    position: absolute;
-    top: 0;
-  }
+	&::before,
+	&::after {
+		background: $fret;
+		content: '';
+		display: block;
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
 
-  &::after {
-    background: $fret-darker;
-    left: auto;
-    right: 0;
-  }
+	&::after {
+		background: $fret-darker;
+		left: auto;
+		right: 0;
+	}
 
-  p {
-    @include transition(all $animation-time);
-    @include border-radius(50%);
-    background: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 500;
-    height: $note-size;
-    left: 50%;
-    line-height: $note-size;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    text-align: center;
-    top: auto;
-    transform: translate3d(-50%, 50%, 0);
-    width: $note-size;
-  }
+	p {
+		@include transition(opacity $animation-time);
+		@include border-radius(50%);
+		@include shadow(0 3px 5px 0 $bass-shadow);
+		background: 0;
+		bottom: 0;
+		box-sizing: border-box;
+		display: inline-block;
+		font-size: 16px;
+		font-weight: 500;
+		height: $note-size;
+		left: 50%;
+		line-height: $note-size;
+		margin: 0;
+		opacity: 0;
+		position: absolute;
+		text-align: center;
+		top: auto;
+		transform: translate3d(-50%, 50%, 0);
+		width: $note-size;
+	}
 
-  &.tonic p {
-    @include shadow(0 3px 5px 0 $bass-shadow);
-    background: $highlighted-note;
-    opacity: 1;
-  }
+	&.tonic p {
+		background: $highlighted-note;
+		opacity: 1;
+	}
 
-  &.highlighted p {
-    @include shadow(0 2px 3px 0 $bass-shadow);
-    background: $tonic-note;
-    opacity: 1;
-  }
+	&.highlighted p {
+		background: $tonic-note;
+		opacity: 1;
+	}
 }
-//
+
 .inlays {
-  @include border-radius(50%);
-  height: 30px;
-  margin: -15px 0 0 -15px;
-  position: absolute;
-  top: 50%;
-  width: 30px;
-  z-index: -1;
+	@include border-radius(50%);
+	height: 30px;
+	margin: -15px 0 0 -15px;
+	position: absolute;
+	top: 50%;
+	width: 30px;
+	z-index: -1;
+}
+
+.info {
+	background: $white;
+	margin: 0 auto;
+	text-align: center;
+	width: auto;
 }
 
