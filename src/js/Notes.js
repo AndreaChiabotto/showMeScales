@@ -2,21 +2,36 @@ var Notes = (function () {
 
     var NOTES = [['A', 'As', 'B', 'C', 'Cs', 'D', 'Ds', 'E', 'F', 'Fs', 'G', 'Gs'], ['A', 'Bf', 'B', 'C', 'Df', 'D', 'Ef', 'E', 'F', 'Gf', 'G', 'Af']],
         NOTES_NAME = [['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'], ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']],
-
+        NOTES_EMBELLISHMENTS = ['1', 'b9', '2', 'm3', 'M3', '4', 'b5', '5', '#5', '6', 'm7', 'M7'],
         SCALE = [
+<<<<<<< HEAD
             //todo Basic Ones
             MajorScale = {
                 name: 'Major',
                 intervals: [0, 2, 2, 1, 2, 2, 2, 1]
             },
 
+=======
+
+            //#### BASIC ONES ####
+>>>>>>> development
             MinorScale = {
                 name: 'Minor',
                 intervals: [0, 2, 1, 2, 2, 1, 2, 2]
             },
 
+<<<<<<< HEAD
 
             //todo MODE/COLORS
+=======
+            MajorScale = {
+                name: 'Major',
+                intervals: [0, 2, 2, 1, 2, 2, 2, 1]
+            },
+
+
+            //#### MODE/COLORS ####
+>>>>>>> development
             Ionian = {
                 name: 'Ionian',
                 intervals: [0, 2, 2, 1, 2, 2, 2, 1]
@@ -53,6 +68,7 @@ var Notes = (function () {
             },
 
 
+<<<<<<< HEAD
             //todo ARMONIC - jazzy things
             HarmonicMajor = {
                 name : 'Harmonic major',
@@ -66,6 +82,21 @@ var Notes = (function () {
 
 
             //todo MELODIC
+=======
+            //#### ARMONIC #### jazzy things
+            HarmonicMinor = {
+                name: 'Harmonic Minor',
+                intervals: [0, 2, 1, 2, 2, 1, 3, 1]
+            },
+
+            HarmonicMajor = {
+                name: 'Harmonic Major',
+                intervals: [0, 2, 2, 1, 2, 1, 3, 2]
+            },
+
+
+            //#### MELODIC ####
+>>>>>>> development
             MelodicMinor = {
                 name: 'Melodic Minor',
                 intervals: [0, 2, 1, 2, 2, 2, 2, 1]
@@ -77,13 +108,23 @@ var Notes = (function () {
             },
 
 
+<<<<<<< HEAD
 
             //todo Pentatonic
+=======
+            //#### PENTATONIC ####
+            PentatonicMinor = {
+                name: 'Pentatonic Minor',
+                intervals: [0, 3, 2, 2, 3, 2]
+            },
+
+>>>>>>> development
             PentatonicMajor = {
                 name: 'Pentatonic Major',
                 intervals: [0, 2, 2, 3, 2, 3]
             },
 
+<<<<<<< HEAD
             PentatonicMinor = {
                 name: 'Pentatonic Minor',
                 intervals: [0, 3, 2, 2, 3, 2]
@@ -91,26 +132,43 @@ var Notes = (function () {
 
 
             //todo Blues
+=======
+
+            //#### BLUES #####
+>>>>>>> development
             Blues = {
                 name: 'Blues Mode',
                 intervals: [0, 3, 2, 1, 1, 2, 3]
             },
 
+<<<<<<< HEAD
             BluesMajor = {
                 name: 'Blues Major',
                 intervals: [0, 2, 1, 1, 3, 2, 3]
             },
 
+=======
+>>>>>>> development
             BluesMinor = {
                 name: 'Blues Minor',
                 intervals: [0, 3, 2, 1, 1, 3, 2]
             },
 
+<<<<<<< HEAD
 
             //todo COMMON SCALES
+=======
+            BluesMajor = {
+                name: 'Blues Major',
+                intervals: [0, 2, 1, 1, 3, 2, 3]
+            },
+
+
+            //#### COMMON SCALES ####
+>>>>>>> development
             Diminished = {
                 name: 'Diminished',
-                intervals: [0, 2, 1, 2, 1, 2, 1, 2, 1 ]
+                intervals: [0, 2, 1, 2, 1, 2, 1, 2, 1]
             },
 
             Augmented = {
@@ -131,6 +189,8 @@ var Notes = (function () {
         _notes_from_tonic_name = [],
 
         THE_SCALE = [];
+
+        THE_EMBELLISHMENTS = [];
 
 
     /*
@@ -215,11 +275,26 @@ var Notes = (function () {
         return THE_SCALE;
     };
 
+    var getEmbellishments = function (intervals) {
+        var single_interval = 0;
+
+        THE_EMBELLISHMENTS = [];
+
+        for (var i = 0; i < intervals.length - 1; i++) {
+            single_interval += intervals[i];
+            THE_EMBELLISHMENTS.push(NOTES_EMBELLISHMENTS[single_interval]);
+
+        }
+
+        return THE_EMBELLISHMENTS;
+    };
+
     return {
         getNotes: getNotes,
         getScaleName: getScaleName,
         getScaleIntervals: getScaleIntervals,
         getScale: getScale,
+        getEmbellishments: getEmbellishments,
         getNotesFromTonic: getNotesFromTonic
     };
 

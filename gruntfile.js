@@ -7,6 +7,8 @@
 // all configuration goes inside this function
 module.exports = function (grunt) {
 
+    "use strict";
+
     // ===========================================================================
     // CONFIGURE GRUNT ===========================================================
     // ===========================================================================
@@ -15,8 +17,9 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-
-        // configure jshint to validate js files ---------------------------------
+        // ===========================================================================
+        // LINTER FOR JS FILES  ======================================================
+        // ===========================================================================
         jshint: {
             // when this task is run, lint the Gruntfile and all js files in src
             build: ['Gruntfile.js',
@@ -24,59 +27,58 @@ module.exports = function (grunt) {
                 'src/js/select/**.*']
         },
 
-
+        // ===========================================================================
+        // ALL JS IN ONE FILE  =======================================================
+        // ===========================================================================
         concat: {
             options: {
-                separator: ';',
+                separator: ';'
             },
             dist: {
                 src: [
                     'src/js/Notes.js',
                     'src/js/Instrument.js',
                     'src/js/showMeScalesApp.js',
-                    'src/js/Select.js',
+                    'src/js/Select.js'
                     //'src/js/ScrollElementOnStage.js'
                 ],
-                dest: 'dist/js/app.min.js',
-            },
+                dest: 'dist/js/app.min.js'
+            }
         },
 
-
-        // configure uglify to minify js files -----------------------------------
-        //uglify: {
-        //    options: {
-        //        banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
-        //    },
-        //   build: {
-        //        files: {
-        //            'dist/js/app.min.js':['src/js/*.js']
-        //        }
-        //    }
-        //} ,
-
-
-        // configure scsslint to validate scss files -----------------------------
-        scsslint: {
-            allFiles: [
-                'src/scss/**.*',
-                'src/scss/instruments/**.*'
-            ],
+        // ===========================================================================
+        // JS MINIFIER AFTER VALIDATION  =============================================
+        // ===========================================================================
+        uglify: {
             options: {
-                colorizeOutput: true,
-                quiet: true,
-                NestingDepth: {
-                    enabled: true,
-                    max_depth: 5,
-                    ignore_parent_selectors: false
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+            },
+            build: {
+                files: {
+                    'dist/js/app.min.js': ['src/js/*.js']
                 }
             }
         },
 
+        // ===========================================================================
+        // LINTER FOR SASS FILES  ====================================================
+        // ===========================================================================
+        stylelint: {
+            simple: {
+                options: {
+                    configFile: 'config/.stylelintrc.json'
+                },
+                src: ['src/scss/*.scss',
+                    'src/scss/instruments/*.scss']
+            }
+        },
 
-        // configure compass to transform sscss files into css -------------------
+        // ===========================================================================
+        // TRANSFORM FROM SASS TO CSS FILES  =========================================
+        // ===========================================================================
         sass: {
             options: {
-                sourceMap: true
+                sourceMap: false
             },
             dist: {
                 files: {
@@ -85,25 +87,30 @@ module.exports = function (grunt) {
             }
         },
 
-
-        // configure cssmin to minify css files ---------------------------------
+        // ===========================================================================
+        // CSS MINIFIER AFTER VALIDATION  ============================================
+        // ===========================================================================
         cssmin: {
             options: {
                 banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             build: {
                 files: {
-                    'dist/css/style.min.css': ['src/css/style.css', 'src/css/animsition.min.css']
+                    'dist/css/style.min.css': ['src/css/style.css']
                 }
             }
         },
 
-
+        // ===========================================================================
+        // WATCHER FOR CHANGES IN FILES  =============================================
+        // ===========================================================================
         watch: {
-            // for stylesheets, watch css and less files
             stylesheets: {
-                files: ['src/scss/**.*', 'src/scss/instruments/**.*'],
-                tasks: ['scsslint', 'sass'/*, 'cssmin'*/]
+                files: ['src/scss/**.*',
+                    'src/scss/instruments/**.*'],
+                tasks: ['stylelint',
+                    'sass'
+                    /*, 'cssmin'*/]
             },
             // for scripts, run jshint and uglify
             scripts: {
@@ -113,7 +120,9 @@ module.exports = function (grunt) {
             }
         },
 
-
+        // ===========================================================================
+        // BROWSERSYNC FOR FASTER DEVELOPMENT  =======================================
+        // ===========================================================================
         browserSync: {
             bsFiles: {
                 src: ['dist/css/*.css',
@@ -128,8 +137,6 @@ module.exports = function (grunt) {
                 }
             }
         }
-
-
     });
 
     // ===========================================================================
@@ -138,14 +145,14 @@ module.exports = function (grunt) {
     // we can only load these if they are in our package.json
     // make sure you have run npm install so our app can find these
 
-
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-scss-lint');
+    
+    grunt.loadNpmTasks('grunt-stylelint');
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
@@ -155,15 +162,15 @@ module.exports = function (grunt) {
     // TASK GRUNT ================================================================
     // ===========================================================================
 
-
-    grunt.registerTask('default', ['jshint',
-        // 'uglify',
-        'concat',
-        'scsslint',
-        'sass',
-        'cssmin',
-        'browserSync',
-        'watch'
-    ]);
+    grunt.registerTask('default',
+        ['jshint',
+        //'uglify',
+         'concat',
+         'stylelint',
+         'sass',
+        //'cssmin',
+         'browserSync',
+         'watch'
+        ]);
 
 };

@@ -1,140 +1,138 @@
-
 .selection {
-  @include transition(height $animation-time);
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  z-index: 3;
+	@include transition(height $animation-time);
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	z-index: 3;
 
-  .container {
-    @include border-radius(6px);
-    @include shadow(0 2px 5px 0 $shadow);
-    @include transition(top $animation-time);
-    background: $white;
-    display: inline-block;
-    margin: 0 auto;
-    padding: 0 30px;
-    position: relative;
-    text-align: center;
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
-    width: auto;
-  }
+	.container {
+		@include border-radius(6px);
+		@include shadow(0 2px 5px 0 $shadow);
+		@include transition(top $animation-time);
+		background: $white;
+		display: inline-block;
+		margin: 0 auto;
+		padding: 0 30px;
+		position: relative;
+		text-align: center;
+		top: 50%;
+		transform: translate3d(0, -50%, 0);
+		width: auto;
+	}
 
-  &.selected {
-    .container {
-      top: calc(100% - 75px);
-    }
-  }
+	&.selected {
+		.container {
+			top: calc(100% - 75px);
+		}
+	}
 }
-//
+
 .box {
-  display: inline-block;
+	display: inline-block;
 
-  &.disabled {
-    display: none;
-  }
+	&.disabled {
+		display: none;
+	}
 
-  p {
-    color: $text-highlight;
-    display: inline-block;
-    font-size: 45px;
-    line-height: 45px;
-    margin: 30px 0;
-    padding: 0 5px;
-    width: auto;
-  }
+	p {
+		color: $text-highlight;
+		display: inline-block;
+		font-size: 45px;
+		line-height: 45px;
+		margin: 30px 0;
+		padding: 0 5px;
+		width: auto;
+	}
 
-  span {
-    @include transition(all $animation-time-faster);
-    border-color: $white;
-    border-style: solid;
-    border-width: 0 0 2px;
-    color: $text-normal;
-    cursor: pointer;
-    display: block;
-    float: right;
-    font-size: 45px;
-    line-height: 45px;
-    margin: 30px 0;
-    padding: 0 5px;
+	span {
+		@include transition(border-color $animation-time-faster, color $animation-time-faster);
+		border-color: $white;
+		border-style: solid;
+		border-width: 0 0 2px;
+		color: $text-normal;
+		cursor: pointer;
+		display: block;
+		float: right;
+		font-size: 45px;
+		line-height: 45px;
+		margin: 30px 0;
+		padding: 0 5px;
 
-    &:hover {
-      border-color: $test;
-      color: $test;
-    }
-  }
+		&:hover {
+			border-color: $test;
+			color: $test;
+		}
+	}
 }
-//
+
 .list {
-  @include transition(all $animation-time-faster);
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  left: 0;
-  margin: 0;
-  max-height: 0;
-  min-height: 0;
-  opacity: 0;
-  padding: 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 5;
+	@include transition(opacity $animation-time-faster);
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	left: 0;
+	margin: 0;
+	max-height: 0;
+	min-height: 0;
+	opacity: 0;
+	padding: 0;
+	pointer-events: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 5;
 
-  &.active {
-    bottom: 20px;
-    height: auto;
-    left: 20px;
-    max-height: 9999px;
-    opacity: 1;
-    pointer-events: auto;
-    right: 20px;
-    top: 20px;
+	&.active {
+		bottom: 20px;
+		height: auto;
+		left: 20px;
+		max-height: 9999px;
+		opacity: 1;
+		pointer-events: auto;
+		right: 20px;
+		top: 20px;
 
-    li {
-      min-height: 150px;
-    }
-  }
+		li {
+			min-height: 150px;
+		}
+	}
 
-  &.playinginstrument {
+	&.playinginstrument {
+		li:last-child {
+			margin-bottom: 0;
+		}
+	}
 
-    li:last-child {
-      margin-bottom: 0;
-    }
-  }
+	li {
+		@include transition(all $animation-time);
+		@include shadow(0 2px 5px 0 $shadow);
+		background: $white;
+		border-bottom: 3px solid $background;
+		cursor: pointer;
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		font-size: 30px;
+		justify-content: center;
+		line-height: 150px;
+		list-style-type: none;
+		text-align: center;
+		text-transform: capitalize;
 
-  li {
-    @include transition(all $animation-time);
-    @include shadow(0 2px 5px 0 $shadow);
-    background: $white;
-    border-bottom: 3px solid $background;
-    cursor: pointer;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    font-size: 30px;
-    justify-content: center;
-    line-height: 150px;
-    list-style-type: none;
-    text-align: center;
-    text-transform: capitalize;
+		&:hover {
+			color: $test;
+		}
 
-    &:hover {
-      color: $test;
-    }
+		&:first-child {
+			@include border-radius(6px 6px 0 0);
+		}
 
-    &:first-child {
-      @include border-radius(6px 6px 0 0);
-    }
-
-    &:last-child {
-      @include border-radius(0 0 6px 6px);
-      margin-bottom: 20px;
-    }
-  }
+		&:last-child {
+			@include border-radius(0 0 6px 6px);
+			margin-bottom: 20px;
+		}
+	}
 }

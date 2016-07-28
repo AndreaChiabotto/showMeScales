@@ -1,14 +1,13 @@
+// GENERAL
 $animation-time: .75s;
 $animation-time-faster: .25s;
 $test: #ff6347;
 $min-height-window: 640px;
 $min-width-window: 920px;
-
+$shadow: rgba(66, 66, 66, .3);
 $background-instrument: #48a8df;
 $background: #eee;
-
 $background-select: #e0e2ee;
-
 $white: #fff;
 $text-normal: #3a3a3a;
 $text-highlight: #8a8a8a;
@@ -23,17 +22,15 @@ $fret-darker: #808080;
 $note: #424242;
 $tonic-note: #fbc02d;
 $highlighted-note: #ffee58;
-
-$shadow: rgba(66, 66, 66, .3);
+$note-size: 48px;
 
 // GUITAR
 $guitar: #cd622a;
-$guitar-shadow:  #6d4232;
+$guitar-shadow: #6d4232;
 $guitar-inlay: #292929;
 $number-of-strings-on-guitar: 6;
 $number-of-frets-on-guitar: 22;
 $guitar-fret-height: 56px;
-
 
 // BASS
 $bass: #523e39;
@@ -44,9 +41,6 @@ $number-of-frets-on-bass: 20;
 $bass-fret-height: 50px;
 $bass-shadow: rgba(66, 66, 66, .65);
 
-
 $select-background: #eee;
 $select-border: #bebebe;
 $select-gray-darker: #616161;
-
-$note-size: 48px;
