@@ -2,7 +2,7 @@ var Notes = (function () {
 
     var NOTES = [['A', 'As', 'B', 'C', 'Cs', 'D', 'Ds', 'E', 'F', 'Fs', 'G', 'Gs'], ['A', 'Bf', 'B', 'C', 'Df', 'D', 'Ef', 'E', 'F', 'Gf', 'G', 'Af']],
         NOTES_NAME = [['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'], ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']],
-
+        NOTES_EMBELLISHMENTS = ['1', 'b9', '2', 'm3', 'M3', '4', 'b5', '5', '#5', '6', 'm7', 'M7'],
         SCALE = [
 
             //#### BASIC ONES ####
@@ -132,6 +132,8 @@ var Notes = (function () {
 
         THE_SCALE = [];
 
+        THE_EMBELLISHMENTS = [];
+
 
     /*
      --------------------------------------
@@ -215,11 +217,26 @@ var Notes = (function () {
         return THE_SCALE;
     };
 
+    var getEmbellishments = function (intervals) {
+        var single_interval = 0;
+
+        THE_EMBELLISHMENTS = [];
+
+        for (var i = 0; i < intervals.length - 1; i++) {
+            single_interval += intervals[i];
+            THE_EMBELLISHMENTS.push(NOTES_EMBELLISHMENTS[single_interval]);
+
+        }
+
+        return THE_EMBELLISHMENTS;
+    };
+
     return {
         getNotes: getNotes,
         getScaleName: getScaleName,
         getScaleIntervals: getScaleIntervals,
         getScale: getScale,
+        getEmbellishments: getEmbellishments,
         getNotesFromTonic: getNotesFromTonic
     };
 

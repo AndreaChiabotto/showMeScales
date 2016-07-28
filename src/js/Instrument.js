@@ -1,6 +1,7 @@
 var Instrument = (function () {
 
     var _instrument = document.querySelector(".instrument .container"),
+        _info = _instrument.querySelectorAll('.info')[0],
         _interval_semitones = 0,
         instrumentsOnStage = [],
         drawFretboard = function (Instrument) {
@@ -22,8 +23,7 @@ var Instrument = (function () {
             }
 
             instrumentsOnStage[int].className += ' on';
-        }
-        ;
+        };
 
     function renderIt(object) {
 
@@ -33,7 +33,6 @@ var Instrument = (function () {
             note_class = [];
 
         instrumentsOnStage.push(_fretboard);
-        console.log('rendering' + instrumentsOnStage);
 
         for (var i = 0; i < obj.strings.length; i++) {
 
@@ -65,7 +64,6 @@ var Instrument = (function () {
                 _step.appendChild(_semitone);
             }
 
-
             resetInterval();
 
             if (_fretboard.firstChild === null) {
@@ -74,8 +72,6 @@ var Instrument = (function () {
             else {
                 _fretboard.insertBefore(_step, _fretboard.firstChild);
             }
-
-
         }
 
         for (var b = 0; b < obj.inlays; b++) {
@@ -85,12 +81,8 @@ var Instrument = (function () {
 
             _fretboard.insertBefore(_inlay, _fretboard.firstChild);
         }
-
         _fretboard.className = 'fretboard ' + obj.name;
-
-
         _instrument.appendChild(_fretboard);
-
     }
 
     function resetInterval() {
@@ -98,10 +90,32 @@ var Instrument = (function () {
         return _interval_semitones;
     }
 
+    function showInfo(notes, embellishment) {
+
+        //remove all paragraph inside info, to create new ones
+        while (_info.firstChild) {
+            _info.removeChild(_info.firstChild);
+        }
+
+        for (var d = 0; d < notes.length; d++) {
+            var _note = document.createElement('p');
+            _note.innerHTML = notes[d];
+
+            var _grades = document.createElement('span');
+            _grades.innerHTML = embellishment[d];
+
+            _note.appendChild(_grades);
+            _info.appendChild(_note);
+
+            console.log(_note +'/'+ _grades );
+        }
+
+        _instrument.appendChild(_info);
+    }
 
     function PaintNotes(noteToHighlight) {
 
-        var removeTonic = _instrument.querySelectorAll('.tonic'),
+        var removeTonic = _instrument.querySelectorAll('.tonic.on'),
             removeHighlighted = _instrument.querySelectorAll('.highlighted'),
             indexTonic,
             indexHighlighted;
@@ -129,11 +143,8 @@ var Instrument = (function () {
             }
 
             for (var i = 0; i < notes.length; i++) {
-                // console.log(noteToHighlight + ' : ' + noteToHighlight[z] + "(" + z + ")," + typeOfNote);
                 notes[i].className += typeOfNote;
             }
-
-            // console.log('--------------');
         }
     }
 
@@ -145,9 +156,6 @@ var Instrument = (function () {
     }
 
     function hasClass(node, className) {
-
-        // console.log(node + ' / ' + node.className);
-
         if (node.className) {
             return node.className.match(
                 new RegExp('(\\s|^)' + className + '(\\s|$)'));
@@ -159,6 +167,7 @@ var Instrument = (function () {
     return {
         show: showFretboard,
         draw: drawFretboard,
-        drawNotes: paintNotes
+        drawNotes: paintNotes,
+        showInfo: showInfo
     };
 })();

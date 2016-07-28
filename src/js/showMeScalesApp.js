@@ -3,6 +3,7 @@ var showMeScalesApp = (function () {
     var tonic = '',
         scale = '',
         notesArray = '',
+        embellishments = '',
         instrument_to_play,
 
         instruments_Available = [
@@ -54,8 +55,6 @@ var showMeScalesApp = (function () {
                 drawInstrument(i);
             }
 
-            //Instrument.show(0);
-
             return instrumentNames;
         },
 
@@ -67,8 +66,6 @@ var showMeScalesApp = (function () {
         drawNotes = function (bool, i) {
 
             var isTonic = bool;
-
-            console.log(isTonic);
 
             if (isTonic === true) {
                 tonic = i;
@@ -86,8 +83,10 @@ var showMeScalesApp = (function () {
             function buildScale() {
                 var intervals = Notes.getScaleIntervals(scale);
                 notesArray = Notes.getScale(intervals);
+                embellishments = Notes.getEmbellishments(intervals);
             }
 
+            Instrument.showInfo(notesArray, embellishments);
             Instrument.drawNotes(notesArray);
         },
 
