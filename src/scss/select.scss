@@ -1,75 +1,106 @@
 .selection {
-	@include transition(height $animation-time);
-	bottom: 0;
-	height: 100%;
 	left: 0;
-	position: absolute;
+	position: relative;
 	right: 0;
 	text-align: center;
 	z-index: 3;
 
-	.container {
+	&__container {
+		@include transition(top 450ms, opacity 450ms);
 		@include border-radius(6px);
 		@include shadow(0 2px 5px 0 $shadow);
-		@include transition(top $animation-time);
 		background: $white;
-		display: inline-block;
-		margin: 0 auto;
+		display: table;
 		padding: 0 30px;
-		position: relative;
+		position: absolute;
 		text-align: center;
-		top: 50%;
-		transform: translate3d(0, -50%, 0);
-		width: auto;
-	}
+		top: 20px;
+		opacity: 1;
+		left: 50%;
+		transform: translate3d(-50%, 0, 0);
 
-	&.selected {
-		.container {
-			top: calc(100% - 75px);
+		&--hide {
+			top: -50px;
+			opacity: 0;
+		}
+
+		&__boxes {
+			display: none;
+
+			&--active {
+				display: inline-block;
+			}
+
+			p {
+				color: $text-highlight;
+				display: inline-block;
+				font-size: 45px;
+				line-height: 45px;
+				margin: 30px 0;
+				padding: 0 5px;
+				width: auto;
+			}
+
+			span {
+				@include transition(border-color 450ms, color 450ms);
+				border-color: $white;
+				border-style: solid;
+				border-width: 0 0 2px;
+				color: $text-normal;
+				cursor: pointer;
+				display: block;
+				float: right;
+				font-size: 45px;
+				line-height: 45px;
+				margin: 30px 0;
+				padding: 0 5px;
+
+				&:hover {
+					border-color: $test;
+					color: $test;
+				}
+			}
 		}
 	}
 }
 
-.box {
-	display: inline-block;
+.bt {
+	@include transition(opacity 450ms, top 450ms, transform 450ms);
+	@include border-radius(50%);
+	@include shadow(0 2px 5px 0 $shadow);
+	box-sizing: border-box;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	background: $white;
+	position: absolute;
+	top: -10%;
+	left: 50%;
+	opacity: 0;
+	transform: rotate(90deg);
 
-	&.disabled {
-		display: none;
+	&--show {
+		top: 15px;
+		transform: rotate(-90deg);
+		opacity: 1;
+	}
+
+	&--hide {
+		top: 100px;
+		transform: rotate(90deg);
+		opacity: 1;
 	}
 
 	p {
-		color: $text-highlight;
-		display: inline-block;
-		font-size: 45px;
-		line-height: 45px;
-		margin: 30px 0;
-		padding: 0 5px;
-		width: auto;
-	}
-
-	span {
-		@include transition(border-color $animation-time-faster, color $animation-time-faster);
-		border-color: $white;
-		border-style: solid;
-		border-width: 0 0 2px;
-		color: $text-normal;
-		cursor: pointer;
-		display: block;
-		float: right;
-		font-size: 45px;
-		line-height: 45px;
-		margin: 30px 0;
-		padding: 0 5px;
-
-		&:hover {
-			border-color: $test;
-			color: $test;
-		}
+		font-size: 20px;
+		line-height: 20px;
+		margin: 0;
+		padding: 15px 0;
 	}
 }
 
-.list {
-	@include transition(opacity $animation-time-faster);
+.options {
+	@include transition(opacity 460ms);
 	bottom: 0;
 	display: flex;
 	flex-direction: column;
@@ -82,10 +113,10 @@
 	pointer-events: none;
 	position: absolute;
 	right: 0;
-	top: 0;
+	//top: 0;
 	z-index: 5;
 
-	&.active {
+	&--active {
 		bottom: 20px;
 		height: auto;
 		left: 20px;
@@ -107,7 +138,7 @@
 	}
 
 	li {
-		@include transition(all $animation-time);
+		@include transition(all 450ms);
 		@include shadow(0 2px 5px 0 $shadow);
 		background: $white;
 		border-bottom: 3px solid $background;

@@ -1,9 +1,10 @@
 var Instrument = (function () {
 
-    var _instrument = document.querySelector(".instrument .container"),
-        _info = _instrument.querySelectorAll('.info')[0],
+    var _instrument = document.querySelector('.instruments__container'),
+        _info = document.querySelector('.info'),
         _interval_semitones = 0,
         instrumentsOnStage = [],
+
         drawFretboard = function (Instrument) {
             var obj = Instrument;
             renderIt(obj);
@@ -15,14 +16,22 @@ var Instrument = (function () {
 
         showFretboard = function (int) {
 
-            var removeInstrument = _instrument.querySelectorAll('.on'),
-                indexInstrument;
+            var removeInstrument = _instrument.querySelector('.fretboard--active');
 
-            for (indexInstrument = removeInstrument.length; indexInstrument--;) {
-                removeClass(removeInstrument[indexInstrument], 'on');
+            if (removeInstrument !== null) {
+
+                removeInstrument.className += ' fretboard--no-more-active';
+
+                removeClass(removeInstrument, 'fretboard--active');
+
+                var removeAnimatingClass = _instrument.querySelector('.fretboard--no-more-active');
+                setTimeout(function () {
+                    removeClass(removeAnimatingClass, 'fretboard--no-more-active');
+                }, 500);
             }
 
-            instrumentsOnStage[int].className += ' on';
+            instrumentsOnStage[int].className += ' fretboard--active';
+
         };
 
     function renderIt(object) {
@@ -39,7 +48,7 @@ var Instrument = (function () {
             var _step = document.createElement('div'),
                 notes = Notes.getNotesFromTonic(obj.strings[i]);
 
-            _step.className = 'string';
+            _step.className = 'strings';
 
             note_name = notes.names;
             note_class = notes.classes;
@@ -58,7 +67,6 @@ var Instrument = (function () {
                 if (i !== 0) {
                     var _p = document.createElement('p');
                     _p.innerHTML = note_name[_interval_semitones];
-
                     _semitone.appendChild(_p);
                 }
                 _step.appendChild(_semitone);
@@ -81,7 +89,7 @@ var Instrument = (function () {
 
             _fretboard.insertBefore(_inlay, _fretboard.firstChild);
         }
-        _fretboard.className = 'fretboard ' + obj.name;
+        _fretboard.className = 'fretboard fretboard__' + obj.name;
         _instrument.appendChild(_fretboard);
     }
 
@@ -92,40 +100,38 @@ var Instrument = (function () {
 
     function showInfo(notes, embellishment) {
 
-        //remove all paragraph inside info, to create new ones
         while (_info.firstChild) {
             _info.removeChild(_info.firstChild);
         }
 
-        for (var d = 0; d < notes.length; d++) {
-            var _note = document.createElement('p');
-            _note.innerHTML = notes[d];
+        if (embellishment !== '') {
+            for (var d = 0; d < notes.length; d++) {
+                var _note = document.createElement('p');
 
-            var _grades = document.createElement('span');
-            _grades.innerHTML = embellishment[d];
+                _note.innerHTML = notes[d];
 
-            _note.appendChild(_grades);
-            _info.appendChild(_note);
+                var _grades = document.createElement('span');
+                _grades.innerHTML = embellishment[d];
 
-            console.log(_note +'/'+ _grades );
+                _note.appendChild(_grades);
+                _info.appendChild(_note);
+            }
         }
-
-        _instrument.appendChild(_info);
     }
 
     function PaintNotes(noteToHighlight) {
 
-        var removeTonic = _instrument.querySelectorAll('.tonic.on'),
-            removeHighlighted = _instrument.querySelectorAll('.highlighted'),
+        var removeTonic = _instrument.querySelectorAll('.note--tonic'),
+            removeHighlighted = _instrument.querySelectorAll('.note--highlighted'),
             indexTonic,
             indexHighlighted;
 
         for (indexTonic = removeTonic.length; indexTonic--;) {
-            removeClass(removeTonic[indexTonic], 'tonic');
+            removeClass(removeTonic[indexTonic], 'note--tonic');
         }
 
         for (indexHighlighted = removeHighlighted.length; indexHighlighted--;) {
-            removeClass(removeHighlighted[indexHighlighted], 'highlighted');
+            removeClass(removeHighlighted[indexHighlighted], 'note--highlighted');
         }
 
         // highlighting notes on fretboard
@@ -136,10 +142,10 @@ var Instrument = (function () {
                 typeOfNote;
 
             if (z !== 0) {
-                typeOfNote = " highlighted";
+                typeOfNote = " note--highlighted";
             }
             else {
-                typeOfNote = " tonic";
+                typeOfNote = " note--tonic";
             }
 
             for (var i = 0; i < notes.length; i++) {
@@ -149,6 +155,7 @@ var Instrument = (function () {
     }
 
     function removeClass(node, className) {
+
         if (hasClass(node, className)) {
             var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
             node.className = node.className.replace(reg, ' ');
