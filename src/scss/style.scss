@@ -14,10 +14,19 @@ html {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	margin: 0;
+	padding: 0;
 }
 
 html {
 	background: $background;
+}
+
+body {
+	overflow: hidden;
+
+	&.Options-scrollable {
+		overflow: auto;
+	}
 }
 
 .body {
@@ -29,5 +38,24 @@ html {
 	position: absolute;
 	top: 20px;
 	width: calc(100% - 40px);
+	background: $background-instrument;
+}
+
+.credit {
+	@include transition(opacity 350ms);
+	position: absolute;
+	bottom: 20px;
+	padding: 0;
+	margin: 0;
+	left: 50%;
+	font-size: 13px;
+	cursor: pointer;
+	text-align: center;
+	@include transform(translate3d(-50%, 0, 0));
+	opacity: .6;
+
+	&:hover {
+		opacity: 1;
+	}
 }
 
