@@ -1,6 +1,6 @@
 var Instrument = (function () {
 
-    var _instrument = document.querySelector('.instruments__container'),
+    var _instrument = document.querySelector('.instruments'),
         _info = document.querySelector('.info'),
         _interval_semitones = 0,
         instrumentsOnStage = [],

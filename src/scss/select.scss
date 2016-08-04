@@ -1,64 +1,53 @@
 .selection {
-	left: 0;
-	position: relative;
-	right: 0;
+	@include transition(top 450ms, opacity 450ms);
+	@include border-radius(6px);
+	@include shadow(0 2px 5px 0 $shadow);
+	@include transform(translate3d(-50%, 0, 0));
+	background: $white;
+	display: table;
+	padding: 0 30px;
+	position: absolute;
 	text-align: center;
-	z-index: 3;
+	top: 40px;
+	opacity: 1;
+	left: 50%;
+	z-index: 1;
 
-	&__container {
-		@include transition(top 450ms, opacity 450ms);
-		@include border-radius(6px);
-		@include shadow(0 2px 5px 0 $shadow);
-		background: $white;
-		display: table;
-		padding: 0 30px;
-		position: absolute;
-		text-align: center;
-		top: 20px;
-		opacity: 1;
-		left: 50%;
-		transform: translate3d(-50%, 0, 0);
+	&--hide {
+		top: -40px;
+		opacity: 0;
+	}
 
-		&--hide {
-			top: -50px;
-			opacity: 0;
+	&__boxes {
+		display: none;
+
+		&--active {
+			display: inline-block;
 		}
 
-		&__boxes {
-			display: none;
+		p {
+			color: $text-highlight;
+			display: inline-block;
+			font-size: 45px;
+			line-height: 45px;
+			margin: 30px 0;
+			padding: 0 5px;
+			width: auto;
+		}
 
-			&--active {
-				display: inline-block;
-			}
+		span {
+			@include transition(color 250ms);
+			color: $text-normal;
+			cursor: pointer;
+			display: block;
+			float: right;
+			font-size: 45px;
+			line-height: 45px;
+			margin: 30px 0;
+			padding: 0 5px;
 
-			p {
-				color: $text-highlight;
-				display: inline-block;
-				font-size: 45px;
-				line-height: 45px;
-				margin: 30px 0;
-				padding: 0 5px;
-				width: auto;
-			}
-
-			span {
-				@include transition(border-color 450ms, color 450ms);
-				border-color: $white;
-				border-style: solid;
-				border-width: 0 0 2px;
-				color: $text-normal;
-				cursor: pointer;
-				display: block;
-				float: right;
-				font-size: 45px;
-				line-height: 45px;
-				margin: 30px 0;
-				padding: 0 5px;
-
-				&:hover {
-					border-color: $test;
-					color: $test;
-				}
+			&:hover {
+				color: $test;
 			}
 		}
 	}
@@ -68,6 +57,8 @@
 	@include transition(opacity 450ms, top 450ms, transform 450ms);
 	@include border-radius(50%);
 	@include shadow(0 2px 5px 0 $shadow);
+	@include transform(rotate(90deg));
+	@include transform-origin(center center);
 	box-sizing: border-box;
 	height: 50px;
 	width: 50px;
@@ -77,25 +68,29 @@
 	top: -10%;
 	left: 50%;
 	opacity: 0;
-	transform: rotate(90deg);
+	z-index: 1;
 
 	&--show {
-		top: 15px;
-		transform: rotate(-90deg);
+		top: 40px;
+		@include transform(rotate(-90deg));
 		opacity: 1;
 	}
 
 	&--hide {
-		top: 100px;
-		transform: rotate(90deg);
+		top: 120px;
+		@include transform(rotate(90deg));
 		opacity: 1;
 	}
 
 	p {
+		box-sizing: border-box;
 		font-size: 20px;
 		line-height: 20px;
 		margin: 0;
-		padding: 15px 0;
+		padding: 14px 0 0;
+		text-align: center;
+		height: 50px;
+		width: 50px;
 	}
 }
 
@@ -113,7 +108,6 @@
 	pointer-events: none;
 	position: absolute;
 	right: 0;
-	//top: 0;
 	z-index: 5;
 
 	&--active {

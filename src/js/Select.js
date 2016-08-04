@@ -1,9 +1,7 @@
 var Select = (function () {
 
-
     //VARS
     var _selection = document.querySelector('.selection'),
-        _selection_child = _selection.querySelector('.selection__container'),
         _body = document.querySelector('body'),
         bt = document.createElement('div'),
         instrument_to_play = '',
@@ -38,17 +36,17 @@ var Select = (function () {
             case 'scales':
                 span.innerHTML = 'scales';
                 span.className = 'scales ';
-                box.className = 'selection__container__boxes scales';
+                box.className = 'selection__boxes scales';
                 break;
             case 'notes' :
                 span.innerHTML = 'notes';
                 span.className = 'notes ';
-                box.className = 'selection__container__boxes notes';
+                box.className = 'selection__boxes notes';
                 break;
             case 'playinginstrument' :
                 span.innerHTML = 'instrument';
                 span.className = 'playinginstrument';
-                box.className = 'selection__container__boxes selection__container__boxes--active playinginstrument';
+                box.className = 'selection__boxes selection__boxes--active playinginstrument';
                 break;
         }
 
@@ -63,7 +61,7 @@ var Select = (function () {
         box.appendChild(paragraph);
         box.appendChild(span);
         _body.appendChild(select);
-        _selection_child.appendChild(box);
+        _selection.appendChild(box);
     }
 
     function setValue(element, ind, classP, txt) {
@@ -99,11 +97,11 @@ var Select = (function () {
         // just once, the first time this function is called
         if (instrument_to_play === '') {
 
-            var sel = document.querySelector('.selection__container__boxes.playinginstrument p');
+            var sel = document.querySelector('.selection__boxes.playinginstrument p');
             sel.innerHTML = 'on ';
 
-            var notes = document.querySelector('.selection__container__boxes.notes');
-            notes.className = 'selection__container__boxes selection__container__boxes--active notes';
+            var notes = document.querySelector('.selection__boxes.notes');
+            notes.className = 'selection__boxes selection__boxes--active notes';
 
             var instrument = document.querySelector('.instruments');
             instrument.className += ' instruments--active';
@@ -111,7 +109,7 @@ var Select = (function () {
             _selection.className += ' selected';
         }
 
-        var sp = document.querySelector('.selection__container__boxes.playinginstrument span');
+        var sp = document.querySelector('.selection__boxes.playinginstrument span');
         sp.innerHTML = string;
 
         instrument_to_play = index;
@@ -121,13 +119,13 @@ var Select = (function () {
     function setTonic(note, string) {
         // just once, the first time this function is called
         if (tonic === '') {
-            var sel = _selection_child.querySelector('.selection__container__boxes.notes p');
+            var sel = _selection.querySelector('.selection__boxes.notes p');
             sel.innerHTML = 'of tonic';
-            var notes = _selection_child.querySelector('.selection__container__boxes.scales.scales');
-            notes.className = 'selection__container__boxes selection__container__boxes--active scales';
+            var notes = _selection.querySelector('.selection__boxes.scales.scales');
+            notes.className = 'selection__boxes selection__boxes--active scales';
         }
 
-        var sp = document.querySelector('.selection__container__boxes.notes span');
+        var sp = document.querySelector('.selection__boxes.notes span');
         sp.innerHTML = string;
 
         tonic = note;
@@ -144,25 +142,25 @@ var Select = (function () {
 
             if (bt.className === 'bt bt--show') {
                 bt.className = 'bt bt--hide';
-                _selection_child.className = 'selection__container';
-            }else{
+                _selection.className = 'selection';
+            } else {
                 bt.className = 'bt bt--show';
-                _selection_child.className = 'selection__container selection__container--hide';
+                _selection.className = 'selection selection--hide';
             }
         });
 
-        _selection.appendChild(bt);
+        _body.appendChild(bt);
     }
 
 
     function setScale(scale, string) {
 
-        var sp = document.querySelector('.selection__container__boxes.scales span');
+        var sp = document.querySelector('.selection__boxes.scales span');
         sp.innerHTML = string;
         showMeScalesApp.drawNotes(false, scale);
 
-        if (_selection_child.className !== '.selection__container.selection__container--hide') {
-            _selection_child.className += ' selection__container--hide';
+        if (_selection.className !== '.selection.selection--hide') {
+            _selection.className += ' selection--hide';
             bt.className += ' bt--show';
         }
     }

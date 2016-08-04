@@ -1,6 +1,7 @@
 @import 'mixins';
 @import 'variables';
 @import 'select';
+@import 'info-scales';
 @import 'instruments/instrument';
 @import 'instruments/guitar';
 @import 'instruments/bass';
@@ -36,6 +37,7 @@ body {
 	min-height: $min-height-window;
 	min-width: $min-width-window;
 	position: absolute;
+	overflow: hidden;
 	top: 20px;
 	width: calc(100% - 40px);
 	background: $background-instrument;
@@ -53,6 +55,7 @@ body {
 	text-align: center;
 	@include transform(translate3d(-50%, 0, 0));
 	opacity: .6;
+	display: none;
 
 	&:hover {
 		opacity: 1;

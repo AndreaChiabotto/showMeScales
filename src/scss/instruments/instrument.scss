@@ -1,22 +1,14 @@
 .instruments {
 	@include border-radius(6px);
 	@include shadow(inset 0 0 2px 2px $shadow);
-	@include transform(opacity 450ms ease-in);
-	background: $background-instrument;
+	@include transition(opacity 450ms);
 	height: 100%;
 	opacity: 0;
-	overflow: hidden;
 	width: 100%;
-	z-index: 0;
+	z-index: 1;
 
 	&--active {
 		opacity: 1;
-	}
-
-	&__container {
-		height: 100%;
-		position: relative;
-		z-index: 0;
 	}
 }
 
@@ -27,7 +19,6 @@
 	opacity: 0;
 	position: absolute;
 	top: 35%;
-	z-index: -2;
 
 	&--active {
 		opacity: 1;
@@ -69,6 +60,7 @@
 			@include transition(opacity 450ms);
 			@include border-radius(50%);
 			@include shadow(0 3px 5px 0 $bass-shadow);
+			@include transform(translate3d(-50%, 50%, 0));
 			background: 0;
 			bottom: 0;
 			box-sizing: border-box;
@@ -83,7 +75,6 @@
 			position: absolute;
 			text-align: center;
 			top: auto;
-			transform: translate3d(-50%, 50%, 0);
 			width: $note-size;
 		}
 
@@ -105,40 +96,6 @@
 		position: absolute;
 		top: 50%;
 		width: 30px;
-		z-index: -1;
+		//z-index: -1;
 	}
 }
-
-.info {
-	@include border-radius(6px);
-	/* @include shadow(0 2px 5px 0 $shadow); */
-	background: $white;
-	display: inline-block;
-	margin: 0 auto;
-	position: absolute;
-	text-align: center;
-	bottom: 20px;
-	padding: 0 20px;
-	left: 50%;
-	top: auto;
-	transform: translate3d(-50%, 0, 0);
-	width: auto;
-
-	p {
-		opacity: .7;
-		display: inline-block;
-		padding: 20px 12px;
-		margin: 0;
-		font-size: 30px;
-		font-weight: 500;
-
-		span {
-			display: block;
-			width: 100%;
-			font-size: 16px;
-			padding: 2px 0 0;
-		}
-	}
-
-}
-
