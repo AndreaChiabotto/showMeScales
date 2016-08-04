@@ -5,7 +5,8 @@ var Select = (function () {
         _body = document.querySelector('body'),
         bt = document.createElement('div'),
         instrument_to_play = '',
-        tonic = '';
+        tonic = '',
+        scaleChosen = '';
 
     // CREATE THE ELEMENTS
     fillSelectWithContent('Show me the', 'scales', showMeScalesApp.getScaleName());
@@ -100,22 +101,16 @@ var Select = (function () {
 
         // just once, the first time this function is called
         if (instrument_to_play === '') {
-
             var sel = document.querySelector('.selection__boxes.playinginstrument p');
             sel.innerHTML = 'on ';
-
             var notes = document.querySelector('.selection__boxes.notes');
             notes.className = 'selection__boxes selection__boxes--active notes';
-
             var instrument = document.querySelector('.instruments');
             instrument.className += ' instruments--active';
-
             _selection.className += ' selected';
         }
-
         var sp = document.querySelector('.selection__boxes.playinginstrument span');
         sp.innerHTML = string;
-
         instrument_to_play = index;
         showMeScalesApp.showInstrument(index);
     }
@@ -128,13 +123,22 @@ var Select = (function () {
             var notes = _selection.querySelector('.selection__boxes.scales.scales');
             notes.className = 'selection__boxes selection__boxes--active scales';
         }
-
         var sp = document.querySelector('.selection__boxes.notes span');
         sp.innerHTML = string;
-
         tonic = note;
-
         showMeScalesApp.drawNotes(true, tonic);
+    }
+
+    function setScale(scale, string) {
+        // just once, the first time this function is called
+        if (scaleChosen === '') {
+            _selection.className += ' selection--hide';
+            bt.className += ' bt--show';
+        }
+        var sp = document.querySelector('.selection__boxes.scales span');
+        sp.innerHTML = string;
+        scaleChosen = scale;
+        showMeScalesApp.drawNotes(false, scale);
     }
 
     function createButtonToSwitchOptions() {
@@ -155,18 +159,5 @@ var Select = (function () {
         _body.appendChild(bt);
     }
 
-
-    function setScale(scale, string) {
-
-        var sp = document.querySelector('.selection__boxes.scales span');
-        sp.innerHTML = string;
-        showMeScalesApp.drawNotes(false, scale);
-
-        if (_selection.className !== '.selection.selection--hide') {
-            _selection.className += ' selection--hide';
-            bt.className += ' bt--show';
-        }
-
-    }
 
 })();
