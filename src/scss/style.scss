@@ -1,6 +1,7 @@
 @import 'mixins';
 @import 'variables';
 @import 'select';
+@import 'options';
 @import 'info-scales';
 @import 'instruments/instrument';
 @import 'instruments/guitar';
@@ -22,13 +23,6 @@ html {
 	background: $background;
 }
 
-body {
-	overflow: hidden;
-
-	&.Options-scrollable {
-		overflow: auto;
-	}
-}
 
 .body {
 	@include border-radius(6px);
@@ -61,4 +55,3 @@ body {
 		opacity: 1;
 	}
 }
-

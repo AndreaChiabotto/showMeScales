@@ -27,6 +27,8 @@ var Select = (function () {
                 var ulToActive = el.target.className;
                 var ul = document.querySelector('ul.' + ulToActive);
                 ul.className += ' options--active';
+
+                _body.className = 'scrollable-Options';
             }
         );
 
@@ -88,6 +90,8 @@ var Select = (function () {
                         setInstrument(index, string);
                         break;
                 }
+
+                _body.className = '';
             }
         );
     }
@@ -131,7 +135,6 @@ var Select = (function () {
         tonic = note;
 
         showMeScalesApp.drawNotes(true, tonic);
-
     }
 
     function createButtonToSwitchOptions() {
@@ -163,6 +166,7 @@ var Select = (function () {
             _selection.className += ' selection--hide';
             bt.className += ' bt--show';
         }
+
     }
 
 })();
