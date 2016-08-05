@@ -39,8 +39,8 @@ module.exports = function (grunt) {
                     'src/js/Notes.js',
                     'src/js/Instrument.js',
                     'src/js/showMeScalesApp.js',
-                    'src/js/Select.js'
-                    //'src/js/ScrollElementOnStage.js'
+                    'src/js/Select.js',
+                    'src/js/dragInstrument.js'
                 ],
                 dest: 'dist/js/app.min.js'
             }
