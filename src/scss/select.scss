@@ -1,138 +1,96 @@
 .selection {
-	@include transition(height $animation-time);
-	bottom: 0;
-	height: 100%;
-	left: 0;
+	@include transition(top 450ms, opacity 450ms);
+	@include border-radius(6px);
+	@include shadow(0 2px 5px 0 $shadow);
+	@include transform(translate3d(-50%, 0, 0));
+	background: $white;
+	display: table;
+	padding: 0 30px;
 	position: absolute;
-	right: 0;
 	text-align: center;
-	z-index: 3;
+	top: 40px;
+	opacity: 1;
+	left: 50%;
+	z-index: 1;
 
-	.container {
-		@include border-radius(6px);
-		@include shadow(0 2px 5px 0 $shadow);
-		@include transition(top $animation-time);
-		background: $white;
-		display: inline-block;
-		margin: 0 auto;
-		padding: 0 30px;
-		position: relative;
-		text-align: center;
-		top: 50%;
-		transform: translate3d(0, -50%, 0);
-		width: auto;
+	&--hide {
+		top: -40px;
+		opacity: 0;
 	}
 
-	&.selected {
-		.container {
-			top: calc(100% - 75px);
+	&__boxes {
+		display: none;
+
+		&--active {
+			display: inline-block;
+		}
+
+		p {
+			color: $text-highlight;
+			display: inline-block;
+			font-size: 45px;
+			line-height: 45px;
+			margin: 30px 0;
+			padding: 0 5px;
+			width: auto;
+		}
+
+		span {
+			@include transition(color 250ms);
+			color: $text-normal;
+			cursor: pointer;
+			display: block;
+			float: right;
+			font-size: 45px;
+			line-height: 45px;
+			margin: 30px 0;
+			padding: 0 5px;
+
+			&:hover {
+				color: $test;
+			}
 		}
 	}
 }
 
-.box {
-	display: inline-block;
+.bt {
+	@include transition(opacity 450ms, top 450ms, transform 450ms);
+	@include border-radius(50%);
+	@include shadow(0 2px 5px 0 $shadow);
+	@include transform(rotate(90deg));
+	@include transform-origin(center center);
+	box-sizing: border-box;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	background: $white;
+	position: absolute;
+	top: -10%;
+	left: 50%;
+	opacity: 0;
+	z-index: 1;
 
-	&.disabled {
-		display: none;
+	&--show {
+		top: 40px;
+		@include transform(rotate(-90deg));
+		opacity: 1;
+	}
+
+	&--hide {
+		top: 120px;
+		@include transform(rotate(90deg));
+		opacity: 1;
 	}
 
 	p {
-		color: $text-highlight;
-		display: inline-block;
-		font-size: 45px;
-		line-height: 45px;
-		margin: 30px 0;
-		padding: 0 5px;
-		width: auto;
-	}
-
-	span {
-		@include transition(border-color $animation-time-faster, color $animation-time-faster);
-		border-color: $white;
-		border-style: solid;
-		border-width: 0 0 2px;
-		color: $text-normal;
-		cursor: pointer;
-		display: block;
-		float: right;
-		font-size: 45px;
-		line-height: 45px;
-		margin: 30px 0;
-		padding: 0 5px;
-
-		&:hover {
-			border-color: $test;
-			color: $test;
-		}
-	}
-}
-
-.list {
-	@include transition(opacity $animation-time-faster);
-	bottom: 0;
-	display: flex;
-	flex-direction: column;
-	left: 0;
-	margin: 0;
-	max-height: 0;
-	min-height: 0;
-	opacity: 0;
-	padding: 0;
-	pointer-events: none;
-	position: absolute;
-	right: 0;
-	top: 0;
-	z-index: 5;
-
-	&.active {
-		bottom: 20px;
-		height: auto;
-		left: 20px;
-		max-height: 9999px;
-		opacity: 1;
-		pointer-events: auto;
-		right: 20px;
-		top: 20px;
-
-		li {
-			min-height: 150px;
-		}
-	}
-
-	&.playinginstrument {
-		li:last-child {
-			margin-bottom: 0;
-		}
-	}
-
-	li {
-		@include transition(all $animation-time);
-		@include shadow(0 2px 5px 0 $shadow);
-		background: $white;
-		border-bottom: 3px solid $background;
-		cursor: pointer;
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-		font-size: 30px;
-		justify-content: center;
-		line-height: 150px;
-		list-style-type: none;
+		box-sizing: border-box;
+		font-size: 20px;
+		line-height: 20px;
+		margin: 0;
+		padding: 14px 0 0;
 		text-align: center;
-		text-transform: capitalize;
-
-		&:hover {
-			color: $test;
-		}
-
-		&:first-child {
-			@include border-radius(6px 6px 0 0);
-		}
-
-		&:last-child {
-			@include border-radius(0 0 6px 6px);
-			margin-bottom: 20px;
-		}
+		height: 50px;
+		width: 50px;
 	}
 }
+
