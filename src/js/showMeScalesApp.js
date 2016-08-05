@@ -18,7 +18,7 @@ var showMeScalesApp = (function () {
                 strings: [0, 7, 0, 5, 10, 0],
                 number: 20,
                 inlays: 9
-            }
+            },
             //,
             //Bass_4_strings = {
             //    name: '4 Strings Bass',
@@ -27,12 +27,12 @@ var showMeScalesApp = (function () {
             //    inlays: 9
             //},
             //
-            //Ukulele = {
-            //    name: 'Ukulele',
-            //    strings: [0, 10, 4, 7, 0, 0],
-            //    number: 18,
-            //    inlays: 9
-            //},
+            Ukulele = {
+                name: 'ukulele',
+                strings: [0, 10, 3, 7, 0],
+                number: 15,
+                inlays: 6
+            }
             //Banjo = {
             //    name: 'Banjo',
             //    strings: [0, 10, 4, 7, 0, 0],
