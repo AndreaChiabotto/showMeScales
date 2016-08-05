@@ -4,26 +4,12 @@ var Notes = (function () {
         NOTES_NAME = [['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'], ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']],
         NOTES_EMBELLISHMENTS = ['1', 'b9', '2', 'm3', 'M3', '4', 'b5', '5', '#5', '6', 'm7', 'M7'],
         SCALE = [
-<<<<<<< HEAD
-            //todo Basic Ones
-            MajorScale = {
-                name: 'Major',
-                intervals: [0, 2, 2, 1, 2, 2, 2, 1]
-            },
 
-=======
-
-            //#### BASIC ONES ####
->>>>>>> development
             MinorScale = {
                 name: 'Minor',
                 intervals: [0, 2, 1, 2, 2, 1, 2, 2]
             },
 
-<<<<<<< HEAD
-
-            //todo MODE/COLORS
-=======
             MajorScale = {
                 name: 'Major',
                 intervals: [0, 2, 2, 1, 2, 2, 2, 1]
@@ -31,7 +17,6 @@ var Notes = (function () {
 
 
             //#### MODE/COLORS ####
->>>>>>> development
             Ionian = {
                 name: 'Ionian',
                 intervals: [0, 2, 2, 1, 2, 2, 2, 1]
@@ -67,22 +52,6 @@ var Notes = (function () {
                 intervals: [0, 1, 2, 2, 1, 2, 2, 2]
             },
 
-
-<<<<<<< HEAD
-            //todo ARMONIC - jazzy things
-            HarmonicMajor = {
-                name : 'Harmonic major',
-                intervals : [0, 2, 2, 1, 2, 1, 3, 2]
-                },
-
-            HarmonicMinor = {
-                name : 'Harmonic Minor',
-                intervals : [0, 2, 1, 2, 2, 1, 3, 1]
-            },
-
-
-            //todo MELODIC
-=======
             //#### ARMONIC #### jazzy things
             HarmonicMinor = {
                 name: 'Harmonic Minor',
@@ -96,7 +65,7 @@ var Notes = (function () {
 
 
             //#### MELODIC ####
->>>>>>> development
+
             MelodicMinor = {
                 name: 'Melodic Minor',
                 intervals: [0, 2, 1, 2, 2, 2, 2, 1]
@@ -107,65 +76,41 @@ var Notes = (function () {
                 intervals: [0, 2, 2, 1, 2, 1, 2, 2]
             },
 
-
-<<<<<<< HEAD
-
-            //todo Pentatonic
-=======
             //#### PENTATONIC ####
             PentatonicMinor = {
                 name: 'Pentatonic Minor',
                 intervals: [0, 3, 2, 2, 3, 2]
             },
 
->>>>>>> development
             PentatonicMajor = {
                 name: 'Pentatonic Major',
                 intervals: [0, 2, 2, 3, 2, 3]
             },
 
-<<<<<<< HEAD
             PentatonicMinor = {
                 name: 'Pentatonic Minor',
                 intervals: [0, 3, 2, 2, 3, 2]
             },
 
-
-            //todo Blues
-=======
-
             //#### BLUES #####
->>>>>>> development
             Blues = {
                 name: 'Blues Mode',
                 intervals: [0, 3, 2, 1, 1, 2, 3]
             },
 
-<<<<<<< HEAD
+
             BluesMajor = {
                 name: 'Blues Major',
                 intervals: [0, 2, 1, 1, 3, 2, 3]
             },
 
-=======
->>>>>>> development
             BluesMinor = {
                 name: 'Blues Minor',
                 intervals: [0, 3, 2, 1, 1, 3, 2]
             },
 
-<<<<<<< HEAD
-
-            //todo COMMON SCALES
-=======
-            BluesMajor = {
-                name: 'Blues Major',
-                intervals: [0, 2, 1, 1, 3, 2, 3]
-            },
-
-
             //#### COMMON SCALES ####
->>>>>>> development
+
             Diminished = {
                 name: 'Diminished',
                 intervals: [0, 2, 1, 2, 1, 2, 1, 2, 1]
