@@ -1,4 +1,4 @@
-.guitar {
+.fretboard__guitar {
 	height: calc(#{$guitar-fret-height} * #{$number-of-strings-on-guitar});
 	width: calc(#{$fret-width} * #{$number-of-frets-on-guitar});
 	background: $guitar;
@@ -6,7 +6,7 @@
 	border-top: 7px solid $guitar-shadow;
 	margin-top: -175px;
 
-	.string {
+	.strings {
 		width: calc(#{$fret-width} * 22);
 		@include shadow(0 3px 2px 0 $shadow);
 		border-bottom: 2px solid $string;
@@ -34,13 +34,13 @@
 	}
 
 	/* JUST FOR GUITAR */
-	.string:nth-child(11) .note,
-	.string:nth-child(17) .note {
+	.strings:nth-child(11) .note,
+	.strings:nth-child(17) .note {
 		height: calc(#{$guitar-fret-height} * .5);
 	}
 
-	.string:nth-child(17) .note::before,
-	.string:nth-child(17) .note::after {
+	.strings:nth-child(17) .note::before,
+	.strings:nth-child(17) .note::after {
 		bottom: 0;
 	}
 

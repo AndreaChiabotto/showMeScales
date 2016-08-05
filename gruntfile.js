@@ -39,8 +39,8 @@ module.exports = function (grunt) {
                     'src/js/Notes.js',
                     'src/js/Instrument.js',
                     'src/js/showMeScalesApp.js',
-                    'src/js/Select.js'
-                    //'src/js/ScrollElementOnStage.js'
+                    'src/js/Select.js',
+                    'src/js/dragInstrument.js'
                 ],
                 dest: 'dist/js/app.min.js'
             }
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
         // ===========================================================================
         cssmin: {
             options: {
-                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+                banner:'/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             build: {
                 files: {
@@ -107,15 +107,15 @@ module.exports = function (grunt) {
         watch: {
             stylesheets: {
                 files: ['src/scss/**.*',
-                    'src/scss/instruments/**.*'],
+                        'src/scss/instruments/**.*'],
                 tasks: ['stylelint',
-                    'sass'
+                        'sass'
                     /*, 'cssmin'*/]
             },
             // for scripts, run jshint and uglify
             scripts: {
                 files: ['src/js/**.*',
-                    'src/js/select/**.*'],
+                        'src/js/select/**.*'],
                 tasks: ['jshint', 'concat']
             }
         },
@@ -126,14 +126,14 @@ module.exports = function (grunt) {
         browserSync: {
             bsFiles: {
                 src: ['dist/css/*.css',
-                    'dist/js/*.js',
-                    'dist/index.html']
+                      'dist/js/*.js',
+                      'index.html']
             },
             options: {
                 watchTask: true,
                 port: 3000,
                 server: {
-                    baseDir: "dist/"
+                    baseDir: ""
                 }
             }
         }
@@ -151,7 +151,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    
+
     grunt.loadNpmTasks('grunt-stylelint');
 
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -164,13 +164,13 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default',
         ['jshint',
-        //'uglify',
-         'concat',
-         'stylelint',
-         'sass',
-        //'cssmin',
-         'browserSync',
-         'watch'
+            //'uglify',
+            'concat',
+            'stylelint',
+            'sass',
+            //'cssmin',
+            'browserSync',
+            'watch'
         ]);
 
 };

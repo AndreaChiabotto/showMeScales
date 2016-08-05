@@ -1,6 +1,8 @@
 @import 'mixins';
 @import 'variables';
 @import 'select';
+@import 'options';
+@import 'info-scales';
 @import 'instruments/instrument';
 @import 'instruments/guitar';
 @import 'instruments/bass';
@@ -14,11 +16,13 @@ html {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	margin: 0;
+	padding: 0;
 }
 
 html {
 	background: $background;
 }
+
 
 .body {
 	@include border-radius(6px);
@@ -27,7 +31,27 @@ html {
 	min-height: $min-height-window;
 	min-width: $min-width-window;
 	position: absolute;
+	overflow: hidden;
 	top: 20px;
 	width: calc(100% - 40px);
+	background: $background-instrument;
 }
 
+.credit {
+	@include transition(opacity 350ms);
+	position: absolute;
+	bottom: 20px;
+	padding: 0;
+	margin: 0;
+	left: 50%;
+	font-size: 13px;
+	cursor: pointer;
+	text-align: center;
+	@include transform(translate3d(-50%, 0, 0));
+	opacity: .6;
+	display: none;
+
+	&:hover {
+		opacity: 1;
+	}
+}

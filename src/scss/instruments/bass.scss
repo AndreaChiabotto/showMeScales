@@ -1,4 +1,4 @@
-.bass {
+.fretboard__bass {
 	background: $bass;
 	border-bottom: 7px solid $bass-shadow;
 	border-top: 7px solid $bass-shadow;
@@ -6,7 +6,7 @@
 	height: calc(#{$bass-fret-height} * #{$number-of-strings-on-bass});
 	width: calc(#{$fret-width} * #{$number-of-frets-on-bass});
 
-	.string {
+	.strings {
 		@include shadow(0 3px 2px 0 $bass-shadow);
 		border-bottom: 2px solid $string;
 		height: $bass-fret-height;
@@ -34,13 +34,13 @@
 	}
 
 	/* JUST FOR BASS */
-	.string:nth-child(10) .note,
-	.string:nth-child(15) .note {
+	.strings:nth-child(10) .note,
+	.strings:nth-child(15) .note {
 		height: calc(#{$bass-fret-height} * .5);
 	}
 
-	.string:nth-child(15) .note::before,
-	.string:nth-child(15) .note::after {
+	.strings:nth-child(15) .note::before,
+	.strings:nth-child(15) .note::after {
 		bottom: 0;
 	}
 

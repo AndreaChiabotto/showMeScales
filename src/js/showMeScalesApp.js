@@ -54,11 +54,16 @@ var showMeScalesApp = (function () {
                 instrumentNames.push(instruments_Available[i].name);
                 drawInstrument(i);
             }
-
+           //Instrument.show(0);
             return instrumentNames;
         },
 
         showInstrument = function (i) {
+
+            if(instrument_to_play===undefined){
+                Draggable.dragIt();
+            }
+
             instrument_to_play = i;
             Instrument.show(instrument_to_play);
         },
