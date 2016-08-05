@@ -3,8 +3,7 @@
 	@include shadow(inset 0 0 2px 2px $shadow);
 	@include transition(opacity 450ms);
 	height: 100%;
-	// todo set opacity to 0
-	opacity: 1;
+	opacity: 0;
 	width: 100%;
 	z-index: 1;
 
@@ -99,6 +98,5 @@
 		position: absolute;
 		top: 50%;
 		width: 30px;
-		//z-index: -1;
 	}
 }

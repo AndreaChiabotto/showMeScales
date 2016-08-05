@@ -227,7 +227,7 @@
   -o-transition: opacity 450ms;
   transition: opacity 450ms;
   height: 100%;
-  opacity: 1;
+  opacity: 0;
   width: 100%;
   z-index: 1; }
   .instruments--active {
@@ -477,7 +477,6 @@ html {
   -ms-transform: translate3d(-50%, 0, 0);
   -webkit-transform: translate3d(-50%, 0, 0);
   transform: translate3d(-50%, 0, 0);
-  opacity: .6;
-  display: none; }
+  opacity: .6; }
   .credit:hover {
     opacity: 1; }
