@@ -1,11 +1,14 @@
 @import 'mixins';
 @import 'variables';
 @import 'select';
+@import 'credit';
 @import 'options';
 @import 'info-scales';
 @import 'instruments/instrument';
 @import 'instruments/guitar';
 @import 'instruments/bass';
+@import 'instruments/ukulele';
+@import 'instruments/banjo';
 
 * {
 	box-sizing: border-box;
@@ -23,7 +26,6 @@ html {
 	background: $background;
 }
 
-
 .body {
 	@include border-radius(6px);
 	bottom: 20px;
@@ -37,6 +39,7 @@ html {
 	background: $background-instrument;
 }
 
+<<<<<<< HEAD
 .credit {
 	@include transition(opacity 350ms);
 	position: absolute;
@@ -49,8 +52,6 @@ html {
 	text-align: center;
 	@include transform(translate3d(-50%, 0, 0));
 	opacity: .6;
+=======
+>>>>>>> master
 
-	&:hover {
-		opacity: 1;
-	}
-}

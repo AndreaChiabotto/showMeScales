@@ -7,7 +7,7 @@
 	margin-top: -175px;
 
 	.strings {
-		width: calc(#{$fret-width} * 22);
+		width: calc(#{$fret-width} * #{$number-of-frets-on-guitar});
 		@include shadow(0 3px 2px 0 $shadow);
 		border-bottom: 2px solid $string;
 		height: $guitar-fret-height;
@@ -29,7 +29,6 @@
 		&::before,
 		&::after {
 			width: calc(#{$fret-width} / 18);
-			bottom: calc(#{$fret-width} / 40);
 		}
 	}
 
@@ -69,7 +68,8 @@
 		}
 
 		&:nth-child(6) {
-			top: calc(#{$guitar-fret-height} * 5);
+			bottom: calc(#{$guitar-fret-height} * .5);
+			top: auto;
 			left: calc(#{$fret-width} * 11.5);
 		}
 
@@ -87,6 +87,52 @@
 
 		&:nth-child(10) {
 			left: calc(#{$fret-width} * 20.5);
+		}
+	}
+
+	/* JUST FOR 7 STRINS GUITAR */
+
+	&--seven {
+		height: calc(#{$guitar-seven-fret-height} * #{$number-of-strings-on-guitar-seven});
+
+		.note,
+		.strings {
+			height: $guitar-seven-fret-height;
+		}
+		.strings {
+
+			&:nth-child(17) {
+				height: $guitar-seven-fret-height;
+				border-bottom: 2px solid $string;
+			}
+
+			&:nth-child(11),
+			&:nth-child(18) {
+				height: calc(#{$guitar-seven-fret-height} / 2);
+			}
+
+			&:nth-child(18) {
+				border-bottom: 0;
+			}
+		}
+
+		.strings:nth-child(11) .note,
+		.strings:nth-child(18) .note {
+			height: calc(#{$guitar-seven-fret-height} * .5);
+		}
+
+		.strings:nth-child(17) .note {
+			height: calc(#{$guitar-seven-fret-height});
+		}
+
+		.strings:nth-child(17) .note::before,
+		.strings:nth-child(17) .note::after {
+			bottom: 2px;
+		}
+
+		.strings:nth-child(18) .note::before,
+		.strings:nth-child(18) .note::after {
+			bottom: 0;
 		}
 	}
 }

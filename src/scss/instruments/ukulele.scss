@@ -1,0 +1,77 @@
+.fretboard__ukulele {
+	height: calc(#{$ukulele-fret-height} * #{$number-of-strings-on-ukulele});
+	width: calc(#{$fret-width} * #{$number-of-frets-on-ukulele});
+	background: $ukulele;
+	border-bottom: 7px solid $ukulele-shadow;
+	border-top: 7px solid $ukulele-shadow;
+	margin-top: -175px;
+
+	.strings {
+		width: calc(#{$fret-width} * #{$number-of-frets-on-ukulele});
+		@include shadow(0 3px 2px 0 $shadow);
+		border-bottom: 2px solid $string;
+		height: $ukulele-fret-height;
+
+		&:nth-child(7),
+		&:nth-child(11) {
+			height: calc(#{$ukulele-fret-height} / 2);
+		}
+
+		&:nth-child(11) {
+			border-bottom: 0;
+
+		}
+	}
+
+	.note {
+		height: $ukulele-fret-height;
+		width: $fret-width;
+
+		&::before,
+		&::after {
+			width: calc(#{$fret-width} / 18);
+		}
+	}
+
+	/* JUST FOR UKULELE */
+	.strings:nth-child(7) .note,
+	.strings:nth-child(11) .note {
+		height: calc(#{$ukulele-fret-height} * .5);
+	}
+
+	.strings:nth-child(11) .note::before,
+	.strings:nth-child(11) .note::after {
+		bottom: 0;
+	}
+
+	.inlays {
+		background: $ukulele-inlay;
+
+		&:nth-child(1) {
+			left: calc(#{$fret-width} * 2.5);
+		}
+
+		&:nth-child(2) {
+			left: calc(#{$fret-width} * 4.5);
+		}
+
+		&:nth-child(3) {
+			left: calc(#{$fret-width} * 6.5);
+		}
+
+		&:nth-child(4) {
+			left: calc(#{$fret-width} * 8.5);
+		}
+
+		&:nth-child(5) {
+			top: calc(#{$ukulele-fret-height} * 1);
+			left: calc(#{$fret-width} * 11.5);
+		}
+
+		&:nth-child(6) {
+			top: calc(#{$ukulele-fret-height} * 3);
+			left: calc(#{$fret-width} * 11.5);
+		}
+	}
+}
+

@@ -89,7 +89,13 @@ var Instrument = (function () {
 
             _fretboard.insertBefore(_inlay, _fretboard.firstChild);
         }
-        _fretboard.className = 'fretboard fretboard__' + obj.name;
+
+        if (obj.class) {
+            _fretboard.className = 'fretboard fretboard__' + obj.class;
+        } else {
+            _fretboard.className = 'fretboard fretboard__' + obj.name;
+        }
+
         _instrument.appendChild(_fretboard);
     }
 
