@@ -17,8 +17,9 @@
 			height: calc(#{$ukulele-fret-height} / 2);
 		}
 
-		&:nth-child(17) {
+		&:nth-child(11) {
 			border-bottom: 0;
+
 		}
 	}
 
@@ -29,7 +30,6 @@
 		&::before,
 		&::after {
 			width: calc(#{$fret-width} / 18);
-			bottom: calc(#{$fret-width} / 40);
 		}
 	}
 

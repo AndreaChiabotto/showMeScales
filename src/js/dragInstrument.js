@@ -29,7 +29,7 @@ var Draggable = (function () {
     }
 
     function _destroy() {
-        console.error('destroyng...');
+        //  console.error('destroyng...');
         //selected = null;
         document.removeEventListener("mousemove", _move_elem);
     }
@@ -49,7 +49,7 @@ var Draggable = (function () {
 
     function attachEventToFretboard() {
         // console.warn('attached');
-        console.warn(selected);
+        //console.warn(selected);
         selected.addEventListener("mousedown", function () {
             _drag_init(this);
             // console.log('mouse down');
@@ -58,7 +58,7 @@ var Draggable = (function () {
     }
 
     function init() {
-        console.log('starting');
+        //console.log('starting');
         document.addEventListener("mouseup", _destroy);
         document.addEventListener("mousedown", _check);
     }
