@@ -13,32 +13,39 @@ var showMeScalesApp = (function () {
                 number: 22,
                 inlays: 10
             },
+            Guitar = {
+                name: 'guitar 7 strings',
+                class: 'guitar fretboard__guitar--seven', //class is optional
+                strings: [0,2, 7, 0, 5, 10, 2, 7],
+                number: 22,
+                inlays: 10
+            },
             Bass_5_strings = {
                 name: 'bass',
                 strings: [0, 7, 0, 5, 10, 0],
                 number: 20,
                 inlays: 9
-            }
-            //,
-            //Bass_4_strings = {
-            //    name: '4 Strings Bass',
-            //    strings: [0, 7, 0, 5, 0],
-            //    number: 20,
-            //    inlays: 9
-            //},
-            //
-            //Ukulele = {
-            //    name: 'Ukulele',
-            //    strings: [0, 10, 4, 7, 0, 0],
-            //    number: 18,
-            //    inlays: 9
-            //},
-            //Banjo = {
-            //    name: 'Banjo',
-            //    strings: [0, 10, 4, 7, 0, 0],
-            //    number: 18,
-            //    inlays: 9
-            //},
+            },
+            Bass_4_strings = {
+                name: 'Bass 4 Strings',
+                class: 'bass fretboard__bass--four',
+                strings: [0, 7, 0, 5, 0],
+                number: 20,
+                inlays: 9
+            },
+
+            Ukulele = {
+                name: 'ukulele',
+                strings: [0, 10, 3, 7, 0],
+                number: 15,
+                inlays: 6
+            },
+            Banjo = {
+                name: 'banjo',
+                strings: [0, 10, 5, 10, 2, 5],
+                number: 22,
+                inlays: 10
+            },
             //Mandolino = {
             //    name: 'Mandolino',
             //    strings: [0, 10, 4, 7, 0, 0],

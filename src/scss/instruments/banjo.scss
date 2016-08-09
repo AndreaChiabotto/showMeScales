@@ -1,0 +1,91 @@
+.fretboard__banjo {
+	background: $banjo;
+	border-bottom: 7px solid $banjo-shadow;
+	border-top: 7px solid $banjo-shadow;
+	margin-top: -132px;
+	height: calc(#{$banjo-fret-height} * #{$number-of-strings-on-banjo});
+	width: calc(#{$fret-width} * #{$number-of-frets-on-banjo});
+
+	.strings {
+		@include shadow(0 3px 2px 0 $banjo-shadow);
+		border-bottom: 2px solid $string;
+		height: $banjo-fret-height;
+		width: calc(#{$fret-width} * #{$number-of-frets-on-banjo});
+
+		&:nth-child(11),
+		&:nth-child(16) {
+			height: calc(#{$banjo-fret-height} / 2);
+		}
+
+		&:nth-child(16) {
+			border-bottom: 0;
+		}
+	}
+
+	.note {
+		height: $banjo-fret-height;
+		width: $fret-width;
+
+		&::before,
+		&::after {
+			width: calc(#{$fret-width} / 18);
+		}
+	}
+
+	/* JUST FOR BANJO */
+	.strings:nth-child(11) .note,
+	.strings:nth-child(16) .note {
+		height: calc(#{$banjo-fret-height} * .5);
+	}
+
+	.strings:nth-child(16) .note::before,
+	.strings:nth-child(16) .note::after {
+		bottom: 0;
+	}
+
+	.inlays {
+		background: $banjo-inlay;
+
+		&:nth-child(1) {
+			left: calc(#{$fret-width} * 2.5);
+		}
+
+		&:nth-child(2) {
+			left: calc(#{$fret-width} * 4.5);
+		}
+
+		&:nth-child(3) {
+			left: calc(#{$fret-width} * 6.5);
+		}
+
+		&:nth-child(4) {
+			left: calc(#{$fret-width} * 8.5);
+		}
+
+		&:nth-child(5) {
+			top: calc(#{$banjo-fret-height} * 1);
+			left: calc(#{$fret-width} * 11.5);
+		}
+
+		&:nth-child(6) {
+			top: calc(#{$banjo-fret-height} * 4);
+			left: calc(#{$fret-width} * 11.5);
+		}
+
+		&:nth-child(7) {
+			left: calc(#{$fret-width} * 14.5);
+		}
+
+		&:nth-child(8) {
+			left: calc(#{$fret-width} * 16.5);
+		}
+
+		&:nth-child(9) {
+			left: calc(#{$fret-width} * 18.5);
+		}
+
+		&:nth-child(10) {
+			left: calc(#{$fret-width} * 20.5);
+		}
+	}
+}

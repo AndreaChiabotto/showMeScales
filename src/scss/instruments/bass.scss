@@ -29,7 +29,6 @@
 		&::before,
 		&::after {
 			width: calc(#{$fret-width} / 18);
-			bottom: calc(#{$fret-width} / 40);
 		}
 	}
 
@@ -87,6 +86,34 @@
 
 		&:nth-child(10) {
 			left: calc(#{$fret-width} * 20.5);
+		}
+	}
+
+	&--four {
+		height: calc(#{$bass-fret-height} * #{$number-of-strings-on-bass-four});
+
+		.inlays {
+
+			&:nth-child(6) {
+				top: calc(#{$bass-fret-height} * 3);
+			}
+		}
+
+		.strings {
+
+			&:nth-child(14) {
+				height: calc(#{$bass-fret-height} * .5);
+				border-bottom: 0;
+			}
+		}
+
+		.strings:nth-child(14) .note {
+			height: calc(#{$bass-fret-height} * .5);
+		}
+
+		.strings:nth-child(14) .note::before,
+		.strings:nth-child(14) .note::after {
+			bottom: 0;
 		}
 	}
 }

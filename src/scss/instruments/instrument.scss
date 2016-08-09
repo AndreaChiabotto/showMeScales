@@ -21,11 +21,14 @@
 	position: absolute;
 	top: 35%;
 
-
 	&--active {
 		opacity: 1;
 		top: 50%;
 		cursor: move;
+
+		* {
+			cursor: move;
+		}
 	}
 
 	&--no-more-active {
@@ -51,6 +54,7 @@
 			left: 0;
 			position: absolute;
 			top: 0;
+			bottom: 2px;
 		}
 
 		&::after {
@@ -94,11 +98,10 @@
 
 	.inlays {
 		@include border-radius(50%);
+		@include transform(translate3d(-50%, -50%, 0));
 		height: 30px;
-		margin: -15px 0 0 -15px;
 		position: absolute;
 		top: 50%;
 		width: 30px;
-		//z-index: -1;
 	}
 }
