@@ -22,9 +22,7 @@ module.exports = function (grunt) {
         // ===========================================================================
         jshint: {
             // when this task is run, lint the Gruntfile and all js files in src
-            build: ['Gruntfile.js',
-                'src/js/**.*',
-                'src/js/select/**.*']
+            build: ['Gruntfile.js', 'src/js/**.*', 'src/js/select/**.*']
         },
 
         // ===========================================================================
@@ -36,11 +34,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    'src/js/Notes.js',
-                    'src/js/Instrument.js',
-                    'src/js/showMeScalesApp.js',
-                    'src/js/Select.js',
-                    'src/js/dragInstrument.js'
+                    'src/js/Notes.js', 'src/js/Instrument.js', 'src/js/showMeScalesApp.js', 'src/js/Select.js', 'src/js/dragInstrument.js'
                 ],
                 dest: 'dist/js/app.js'
             }
@@ -68,8 +62,7 @@ module.exports = function (grunt) {
                 options: {
                     configFile: 'config/.stylelintrc.json'
                 },
-                src: ['src/scss/*.scss',
-                    'src/scss/instruments/*.scss']
+                src: ['src/scss/*.scss', 'src/scss/instruments/*.scss']
             }
         },
 
@@ -106,16 +99,12 @@ module.exports = function (grunt) {
         // ===========================================================================
         watch: {
             stylesheets: {
-                files: ['src/scss/**.*',
-                    'src/scss/instruments/**.*'],
-                tasks: ['stylelint',
-                    'sass'
-                    /*, 'cssmin'*/]
+                files: ['src/scss/**.*', 'src/scss/instruments/**.*'],
+                tasks: ['stylelint', 'sass', 'cssmin']
             },
             // for scripts, run jshint and uglify
             scripts: {
-                files: ['src/js/**.*',
-                    'src/js/select/**.*'],
+                files: ['src/js/**.*', 'src/js/select/**.*'],
                 tasks: ['jshint', 'concat']
             }
         },
@@ -125,9 +114,7 @@ module.exports = function (grunt) {
         // ===========================================================================
         browserSync: {
             bsFiles: {
-                src: ['dist/css/*.css',
-                    'dist/js/*.js',
-                    'index.html']
+                src: ['dist/css/*.css', 'dist/js/*.js', 'index.html']
             },
             options: {
                 watchTask: true,
@@ -174,12 +161,12 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build',
         ['jshint',
-         'concat',
-         'uglify',
-         'stylelint',
-         'sass',
-         'cssmin',
-         'browserSync',
-         'watch'
+            'concat',
+            'uglify',
+            'stylelint',
+            'sass',
+            'cssmin',
+            'browserSync',
+            'watch'
         ]);
 };
