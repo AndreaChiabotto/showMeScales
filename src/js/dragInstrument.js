@@ -10,7 +10,7 @@ var Draggable = (function () {
             return selected.offsetWidth - elemHiding.offsetWidth;
         };
 
-    function _drag_init(elem) {
+    function _drag_init() {
         x_elem = x_pos - selected.offsetLeft;
     }
 
@@ -29,8 +29,6 @@ var Draggable = (function () {
     }
 
     function _destroy() {
-        //  console.error('destroyng...');
-        //selected = null;
         document.removeEventListener("mousemove", _move_elem);
     }
 
@@ -38,27 +36,20 @@ var Draggable = (function () {
         document.addEventListener("mousemove", _move_elem);
 
         if (elemToStore !== document.querySelector('.fretboard--active')) {
-            //console.log('non uguale');
             selected = document.querySelector('.fretboard--active');
             elemToStore = selected;
             attachEventToFretboard();
-        } //else {
-          //  console.log('uguale');
-        // }
+        }
     }
 
     function attachEventToFretboard() {
-        // console.warn('attached');
-        //console.warn(selected);
         selected.addEventListener("mousedown", function () {
             _drag_init(this);
-            // console.log('mouse down');
             return false;
         });
     }
 
     function init() {
-        //console.log('starting');
         document.addEventListener("mouseup", _destroy);
         document.addEventListener("mousedown", _check);
     }

@@ -15,7 +15,6 @@ var Notes = (function () {
                 intervals: [0, 2, 2, 1, 2, 2, 2, 1]
             },
 
-
             //#### MODE/COLORS ####
             Ionian = {
                 name: 'Ionian',
@@ -138,11 +137,7 @@ var Notes = (function () {
         THE_EMBELLISHMENTS = [];
 
 
-    /*
-     --------------------------------------
-     TO POPULATE SELECT
-     --------------------------------------
-     */
+    /* TO POPULATE SELECT */
 
     var getNotes = function () {
         return NOTES_NAME[_way_to_show_notes];
@@ -152,7 +147,7 @@ var Notes = (function () {
     var getScaleName = function () {
         var scalesName = [];
 
-        for (var i = 0; i < SCALE.length; i++) {
+        for (var i = SCALE.length; i--;) {
             scalesName.push(SCALE[i].name);
         }
 
@@ -164,11 +159,7 @@ var Notes = (function () {
         return SCALE[index].intervals;
     };
 
-    /*
-     --------------------------------------
-     GET THE SCALE STARTING FROM THE TONIC NOTE
-     --------------------------------------
-     */
+    /*  GET THE SCALE STARTING FROM THE TONIC NOTE */
 
     var getNotesFromTonic = function (interval) {
 
@@ -181,7 +172,7 @@ var Notes = (function () {
         var notes_from_tonic_note_classes = NOTES[_way_to_show_notes].slice(0),
             notes_from_tonic_note_name = NOTES_NAME[_way_to_show_notes].slice(0);
 
-        for (var i = 0; i < int; i++) {
+        for (var i = int; i--;) {
             var classe = notes_from_tonic_note_classes.shift();
             notes_from_tonic_note_classes.push(classe);
 
@@ -200,18 +191,14 @@ var Notes = (function () {
     }
 
 
-    /*
-     --------------------------------------
-     GET THE SCALE WE WANT
-     --------------------------------------
-     */
+    /* GET THE SCALE WE WANT */
 
     var getScale = function (intervals) {
         var single_interval = 0;
 
         THE_SCALE = [];
 
-        for (var i = 0; i < intervals.length - 1; i++) {
+        for (var i = intervals.length; i--;) {
             single_interval += intervals[i];
             THE_SCALE.push(_notes_from_tonic_classes[single_interval]);
 
@@ -225,7 +212,7 @@ var Notes = (function () {
 
         THE_EMBELLISHMENTS = [];
 
-        for (var i = 0; i < intervals.length - 1; i++) {
+        for (var i = intervals.length - 1; i--;) {
             single_interval += intervals[i];
             THE_EMBELLISHMENTS.push(NOTES_EMBELLISHMENTS[single_interval]);
 

@@ -15,7 +15,6 @@ var Notes = (function () {
                 intervals: [0, 2, 2, 1, 2, 2, 2, 1]
             },
 
-
             //#### MODE/COLORS ####
             Ionian = {
                 name: 'Ionian',
@@ -138,11 +137,7 @@ var Notes = (function () {
         THE_EMBELLISHMENTS = [];
 
 
-    /*
-     --------------------------------------
-     TO POPULATE SELECT
-     --------------------------------------
-     */
+    /* TO POPULATE SELECT */
 
     var getNotes = function () {
         return NOTES_NAME[_way_to_show_notes];
@@ -152,7 +147,7 @@ var Notes = (function () {
     var getScaleName = function () {
         var scalesName = [];
 
-        for (var i = 0; i < SCALE.length; i++) {
+        for (var i = SCALE.length; i--;) {
             scalesName.push(SCALE[i].name);
         }
 
@@ -164,11 +159,7 @@ var Notes = (function () {
         return SCALE[index].intervals;
     };
 
-    /*
-     --------------------------------------
-     GET THE SCALE STARTING FROM THE TONIC NOTE
-     --------------------------------------
-     */
+    /*  GET THE SCALE STARTING FROM THE TONIC NOTE */
 
     var getNotesFromTonic = function (interval) {
 
@@ -181,7 +172,7 @@ var Notes = (function () {
         var notes_from_tonic_note_classes = NOTES[_way_to_show_notes].slice(0),
             notes_from_tonic_note_name = NOTES_NAME[_way_to_show_notes].slice(0);
 
-        for (var i = 0; i < int; i++) {
+        for (var i = int; i--;) {
             var classe = notes_from_tonic_note_classes.shift();
             notes_from_tonic_note_classes.push(classe);
 
@@ -200,18 +191,14 @@ var Notes = (function () {
     }
 
 
-    /*
-     --------------------------------------
-     GET THE SCALE WE WANT
-     --------------------------------------
-     */
+    /* GET THE SCALE WE WANT */
 
     var getScale = function (intervals) {
         var single_interval = 0;
 
         THE_SCALE = [];
 
-        for (var i = 0; i < intervals.length - 1; i++) {
+        for (var i = intervals.length; i--;) {
             single_interval += intervals[i];
             THE_SCALE.push(_notes_from_tonic_classes[single_interval]);
 
@@ -225,7 +212,7 @@ var Notes = (function () {
 
         THE_EMBELLISHMENTS = [];
 
-        for (var i = 0; i < intervals.length - 1; i++) {
+        for (var i = intervals.length - 1; i--;) {
             single_interval += intervals[i];
             THE_EMBELLISHMENTS.push(NOTES_EMBELLISHMENTS[single_interval]);
 
@@ -267,7 +254,6 @@ var Notes = (function () {
             if (removeInstrument !== null) {
 
                 removeInstrument.className += ' fretboard--no-more-active';
-
                 removeClass(removeInstrument, 'fretboard--active');
 
                 var removeAnimatingClass = _instrument.querySelector('.fretboard--no-more-active');
@@ -289,7 +275,7 @@ var Notes = (function () {
 
         instrumentsOnStage.push(_fretboard);
 
-        for (var i = 0; i < obj.strings.length; i++) {
+        for (var i = obj.strings.length; i--;) {
 
             var _step = document.createElement('div'),
                 notes = Notes.getNotesFromTonic(obj.strings[i]);
@@ -299,7 +285,7 @@ var Notes = (function () {
             note_name = notes.names;
             note_class = notes.classes;
 
-            for (var j = 0; j < obj.number; j++) {
+            for (var j = obj.number; j--;) {
 
                 _interval_semitones++;
 
@@ -328,7 +314,7 @@ var Notes = (function () {
             }
         }
 
-        for (var b = 0; b < obj.inlays; b++) {
+        for (var b = obj.inlays; b--;) {
             var _inlay = document.createElement('div');
             _inlay.className = 'inlays';
             _fretboard.appendChild(_inlay);
@@ -357,7 +343,7 @@ var Notes = (function () {
         }
 
         if (embellishment !== '') {
-            for (var d = 0; d < notes.length; d++) {
+            for (var d = notes.length; d--;) {
                 var _note = document.createElement('p');
 
                 _note.innerHTML = notes[d];
@@ -387,7 +373,7 @@ var Notes = (function () {
         }
 
         // highlighting notes on fretboard
-        for (var z = 0; z < noteToHighlight.length; z++) {
+        for (var z = noteToHighlight.length; z--;) {
 
             var notes_name = noteToHighlight[z],
                 notes = _instrument.querySelectorAll('.' + notes_name),
@@ -400,7 +386,7 @@ var Notes = (function () {
                 typeOfNote = " note--tonic";
             }
 
-            for (var i = 0; i < notes.length; i++) {
+            for (var i = notes.length; i--;) {
                 notes[i].className += typeOfNote;
             }
         }
@@ -489,7 +475,7 @@ var Notes = (function () {
         getInstrument = function () {
             var instrumentNames = [];
 
-            for (var i = 0; i < instruments_Available.length; i++) {
+            for (var i = instruments_Available.length; i--;) {
                 instrumentNames.push(instruments_Available[i].name);
                 drawInstrument(i);
             }
@@ -613,7 +599,7 @@ var Notes = (function () {
         }
 
         // populate the list with real content
-        for (var i = 0; i < content.length; i++) {
+        for (var i = content.length; i--;) {
             var opt = document.createElement('li');
             opt.innerHTML = content[i];
             setValue(opt, i, name, content[i]);
@@ -731,7 +717,7 @@ var Notes = (function () {
             return selected.offsetWidth - elemHiding.offsetWidth;
         };
 
-    function _drag_init(elem) {
+    function _drag_init() {
         x_elem = x_pos - selected.offsetLeft;
     }
 
@@ -750,8 +736,6 @@ var Notes = (function () {
     }
 
     function _destroy() {
-        //  console.error('destroyng...');
-        //selected = null;
         document.removeEventListener("mousemove", _move_elem);
     }
 
@@ -759,27 +743,20 @@ var Notes = (function () {
         document.addEventListener("mousemove", _move_elem);
 
         if (elemToStore !== document.querySelector('.fretboard--active')) {
-            //console.log('non uguale');
             selected = document.querySelector('.fretboard--active');
             elemToStore = selected;
             attachEventToFretboard();
-        } //else {
-          //  console.log('uguale');
-        // }
+        }
     }
 
     function attachEventToFretboard() {
-        // console.warn('attached');
-        //console.warn(selected);
         selected.addEventListener("mousedown", function () {
             _drag_init(this);
-            // console.log('mouse down');
             return false;
         });
     }
 
     function init() {
-        //console.log('starting');
         document.addEventListener("mouseup", _destroy);
         document.addEventListener("mousedown", _check);
     }

@@ -57,7 +57,7 @@ var showMeScalesApp = (function () {
         getInstrument = function () {
             var instrumentNames = [];
 
-            for (var i = 0; i < instruments_Available.length; i++) {
+            for (var i = instruments_Available.length; i--;) {
                 instrumentNames.push(instruments_Available[i].name);
                 drawInstrument(i);
             }

@@ -21,7 +21,6 @@ var Instrument = (function () {
             if (removeInstrument !== null) {
 
                 removeInstrument.className += ' fretboard--no-more-active';
-
                 removeClass(removeInstrument, 'fretboard--active');
 
                 var removeAnimatingClass = _instrument.querySelector('.fretboard--no-more-active');
@@ -43,7 +42,7 @@ var Instrument = (function () {
 
         instrumentsOnStage.push(_fretboard);
 
-        for (var i = 0; i < obj.strings.length; i++) {
+        for (var i = obj.strings.length; i--;) {
 
             var _step = document.createElement('div'),
                 notes = Notes.getNotesFromTonic(obj.strings[i]);
@@ -53,7 +52,7 @@ var Instrument = (function () {
             note_name = notes.names;
             note_class = notes.classes;
 
-            for (var j = 0; j < obj.number; j++) {
+            for (var j = obj.number; j--;) {
 
                 _interval_semitones++;
 
@@ -82,7 +81,7 @@ var Instrument = (function () {
             }
         }
 
-        for (var b = 0; b < obj.inlays; b++) {
+        for (var b = obj.inlays; b--;) {
             var _inlay = document.createElement('div');
             _inlay.className = 'inlays';
             _fretboard.appendChild(_inlay);
@@ -111,7 +110,7 @@ var Instrument = (function () {
         }
 
         if (embellishment !== '') {
-            for (var d = 0; d < notes.length; d++) {
+            for (var d = notes.length; d--;) {
                 var _note = document.createElement('p');
 
                 _note.innerHTML = notes[d];
@@ -141,7 +140,7 @@ var Instrument = (function () {
         }
 
         // highlighting notes on fretboard
-        for (var z = 0; z < noteToHighlight.length; z++) {
+        for (var z = noteToHighlight.length; z--;) {
 
             var notes_name = noteToHighlight[z],
                 notes = _instrument.querySelectorAll('.' + notes_name),
@@ -154,7 +153,7 @@ var Instrument = (function () {
                 typeOfNote = " note--tonic";
             }
 
-            for (var i = 0; i < notes.length; i++) {
+            for (var i = notes.length; i--;) {
                 notes[i].className += typeOfNote;
             }
         }

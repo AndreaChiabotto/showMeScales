@@ -54,7 +54,7 @@ var Select = (function () {
         }
 
         // populate the list with real content
-        for (var i = 0; i < content.length; i++) {
+        for (var i = content.length; i--;) {
             var opt = document.createElement('li');
             opt.innerHTML = content[i];
             setValue(opt, i, name, content[i]);
