@@ -4,13 +4,13 @@
 	border-top: 7px solid $bass-shadow;
 	margin-top: -132px;
 	height: calc(#{$bass-fret-height} * #{$number-of-strings-on-bass});
-	width: calc(#{$fret-width} * #{$number-of-frets-on-bass});
+	width: calc(#{$bass-fret-width} * #{$number-of-frets-on-bass});
 
 	.strings {
 		@include shadow(0 3px 2px 0 $bass-shadow);
 		border-bottom: 2px solid $string;
 		height: $bass-fret-height;
-		width: calc(#{$fret-width} * #{$number-of-frets-on-bass});
+		width: calc(#{$bass-fret-width} * #{$number-of-frets-on-bass});
 
 		&:nth-child(10),
 		&:nth-child(15) {
@@ -24,11 +24,11 @@
 
 	.note {
 		height: $bass-fret-height;
-		width: $fret-width;
+		width: $bass-fret-width;
 
 		&::before,
 		&::after {
-			width: calc(#{$fret-width} / 18);
+			width: calc(#{$bass-fret-width} / 18);
 		}
 	}
 
@@ -47,45 +47,45 @@
 		background: $bass-inlay;
 
 		&:nth-child(1) {
-			left: calc(#{$fret-width} * 2.5);
+			left: calc(#{$bass-fret-width} * 2.5);
 		}
 
 		&:nth-child(2) {
-			left: calc(#{$fret-width} * 4.5);
+			left: calc(#{$bass-fret-width} * 4.5);
 		}
 
 		&:nth-child(3) {
-			left: calc(#{$fret-width} * 6.5);
+			left: calc(#{$bass-fret-width} * 6.5);
 		}
 
 		&:nth-child(4) {
-			left: calc(#{$fret-width} * 8.5);
+			left: calc(#{$bass-fret-width} * 8.5);
 		}
 
 		&:nth-child(5) {
 			top: calc(#{$bass-fret-height} * 1);
-			left: calc(#{$fret-width} * 11.5);
+			left: calc(#{$bass-fret-width} * 11.5);
 		}
 
 		&:nth-child(6) {
 			top: calc(#{$bass-fret-height} * 4);
-			left: calc(#{$fret-width} * 11.5);
+			left: calc(#{$bass-fret-width} * 11.5);
 		}
 
 		&:nth-child(7) {
-			left: calc(#{$fret-width} * 14.5);
+			left: calc(#{$bass-fret-width} * 14.5);
 		}
 
 		&:nth-child(8) {
-			left: calc(#{$fret-width} * 16.5);
+			left: calc(#{$bass-fret-width} * 16.5);
 		}
 
 		&:nth-child(9) {
-			left: calc(#{$fret-width} * 18.5);
+			left: calc(#{$bass-fret-width} * 18.5);
 		}
 
 		&:nth-child(10) {
-			left: calc(#{$fret-width} * 20.5);
+			left: calc(#{$bass-fret-width} * 20.5);
 		}
 	}
 

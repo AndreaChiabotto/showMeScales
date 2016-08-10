@@ -1,7 +1,7 @@
 .info {
 	@include border-radius(3px);
 	@include transform(translate3d(-50%, 0, 0));
-	background: $white;
+	/* background: $white; */
 	display: inline-block;
 	margin: 0 auto;
 	position: absolute;

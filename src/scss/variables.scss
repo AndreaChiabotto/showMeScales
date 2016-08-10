@@ -1,24 +1,21 @@
 // GENERAL
-// $animation-time: .75s;
-// $animation-time-faster: .25s;
-//
 $test: #ff6347;
 $black: #000;
 $white: #fff;
-
 
 $min-height-window: 640px;
 $min-width-window: 920px;
 $shadow: rgba(66, 66, 66, .3);
 $background-instrument: #48a8df;
-$background: #eee;
-$background-select: #e0e2ee;
-$white: #fff;
-$text-normal: #3a3a3a;
-$text-highlight: #8a8a8a;
+
+// TEXT
+$text: #3a3a3a;
+$text-size: 40px;
+$text-highlight: #141414;
+$text-highlight-hover: #ebebeb;
+$text-letter-spacing: .05em;
 
 // STRINGS
-$fret-width: 85px;
 $string: #eee;
 $fret: #9e9e9e;
 $fret-darker: #808080;
@@ -27,7 +24,8 @@ $fret-darker: #808080;
 $note: #424242;
 $tonic-note: #fbc02d;
 $highlighted-note: #ffee58;
-$note-size: 48px;
+$note-font-size: 14px;
+$note-size: 40px;
 
 // GUITAR
 $guitar: #cd622a;
@@ -37,8 +35,9 @@ $number-of-strings-on-guitar: 6;
 $number-of-strings-on-guitar-seven: 7;
 $number-of-strings-on-guitar-twelve: 12;
 $number-of-frets-on-guitar: 22;
-$guitar-fret-height: 56px;
-$guitar-seven-fret-height: 52px;
+$guitar-fret-width: 70px;
+$guitar-fret-height: 50px;
+$guitar-seven-fret-height: 46px;
 
 // BASS
 $bass: #523e39;
@@ -47,6 +46,7 @@ $bass-inlay: #fcf4f4;
 $number-of-strings-on-bass: 5;
 $number-of-strings-on-bass-four: 4;
 $number-of-frets-on-bass: 20;
+$bass-fret-width: 86px;
 $bass-fret-height: 52px;
 $bass-shadow: rgba(66, 66, 66, .65);
 
@@ -56,6 +56,7 @@ $ukulele-shadow: #ba6222;
 $ukulele-inlay: #6d4232;
 $number-of-strings-on-ukulele: 4;
 $number-of-frets-on-ukulele: 15;
+$ukulele-fret-width: 70px;
 $ukulele-fret-height: 56px;
 
 // BANJO
@@ -64,8 +65,14 @@ $banjo-shadow: #362b28;
 $banjo-inlay: #fcf4f4;
 $number-of-strings-on-banjo: 5;
 $number-of-frets-on-banjo: 22;
+$banjo-fret-width: 70px;
 $banjo-fret-height: 48px;
 
+/*
 $select-background: #eee;
 $select-border: #bebebe;
 $select-gray-darker: #616161;
+$background-select: #e0e2ee;
+*/
+
+$background: #eee;

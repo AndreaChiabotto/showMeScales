@@ -40,6 +40,7 @@
 	}
 
 	.note {
+
 		color: $note;
 		float: left;
 		position: relative;
@@ -67,11 +68,12 @@
 			@include border-radius(50%);
 			@include shadow(0 3px 5px 0 $bass-shadow);
 			@include transform(translate3d(-50%, 50%, 0));
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 			background: 0;
 			bottom: 0;
 			box-sizing: border-box;
 			display: inline-block;
-			font-size: 16px;
+			font-size: $note-font-size;
 			font-weight: 500;
 			height: $note-size;
 			left: 50%;

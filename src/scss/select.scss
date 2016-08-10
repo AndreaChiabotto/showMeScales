@@ -1,9 +1,7 @@
 .selection {
 	@include transition(top 450ms, opacity 450ms);
 	@include border-radius(6px);
-	@include shadow(0 2px 5px 0 $shadow);
 	@include transform(translate3d(-50%, 0, 0));
-	background: $white;
 	display: table;
 	padding: 0 30px;
 	position: absolute;
@@ -14,7 +12,7 @@
 	z-index: 1;
 
 	&--hide {
-		top: -40px;
+		top: 10px;
 		opacity: 0;
 	}
 
@@ -26,63 +24,82 @@
 		}
 
 		p {
-			color: $text-highlight;
+			color: $text;
 			display: inline-block;
-			font-size: 45px;
-			line-height: 45px;
+			font-size: $text-size;
+			line-height: $text-size;
 			margin: 30px 0;
 			padding: 0 5px;
 			width: auto;
 		}
 
 		span {
-			@include transition(color 250ms);
-			color: $text-normal;
+			@include transition(color 350ms, border-bottom-color 350ms);
+			border-bottom-style: solid;
+			border-bottom-width: 2px;
+			border-bottom-color: $text-highlight;
+			color: $text-highlight;
 			cursor: pointer;
 			display: block;
 			float: right;
-			font-size: 45px;
-			line-height: 45px;
+			font-size: $text-size;
+			line-height: $text-size;
 			margin: 30px 0;
 			padding: 0 5px;
 
 			&:hover {
-				color: $test;
+				color: $text-highlight-hover;
+				border-bottom-color: $text-highlight-hover;
 			}
 		}
 	}
 }
 
 .bt {
-	@include transition(opacity 450ms, top 450ms, transform 450ms);
+	@include transition(background 350ms, shadow 350ms, opacity 350ms, top 350ms);
 	@include border-radius(50%);
-	@include shadow(0 2px 5px 0 $shadow);
-	@include transform(rotate(90deg));
+	@include shadow(0 0 0 0 $shadow);
+	/* @include transform(rotate(90deg)); */
 	@include transform-origin(center center);
 	box-sizing: border-box;
 	height: 50px;
 	width: 50px;
 	cursor: pointer;
-	background: $white;
+	background: none;
 	position: absolute;
 	top: -10%;
 	left: 50%;
 	opacity: 0;
 	z-index: 1;
 
+	&:hover {
+		background: $white;
+		@include shadow(0 2px 5px 0 $shadow);
+	}
+
 	&--show {
 		top: 40px;
-		@include transform(rotate(-90deg));
+		background: $white;
+
 		opacity: 1;
+		p {
+			@include transform(rotate(-90deg));
+		}
 	}
 
 	&--hide {
-		top: 120px;
-		@include transform(rotate(90deg));
+		top: 135px;
+		background: $white;
+		@include shadow(0 2px 5px 0 $shadow);
 		opacity: 1;
+
+		p {
+			@include transform(rotate(90deg));
+		}
 	}
 
 	p {
+		@include transition(transform 250ms);
 		box-sizing: border-box;
 		font-size: 20px;
 		line-height: 20px;

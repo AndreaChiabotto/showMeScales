@@ -1,13 +1,13 @@
 .fretboard__guitar {
 	height: calc(#{$guitar-fret-height} * #{$number-of-strings-on-guitar});
-	width: calc(#{$fret-width} * #{$number-of-frets-on-guitar});
+	width: calc(#{$guitar-fret-width} * #{$number-of-frets-on-guitar});
 	background: $guitar;
 	border-bottom: 7px solid $guitar-shadow;
 	border-top: 7px solid $guitar-shadow;
 	margin-top: -175px;
 
 	.strings {
-		width: calc(#{$fret-width} * #{$number-of-frets-on-guitar});
+		width: calc(#{$guitar-fret-width} * #{$number-of-frets-on-guitar});
 		@include shadow(0 3px 2px 0 $shadow);
 		border-bottom: 2px solid $string;
 		height: $guitar-fret-height;
@@ -24,11 +24,11 @@
 
 	.note {
 		height: $guitar-fret-height;
-		width: $fret-width;
+		width: $guitar-fret-width;
 
 		&::before,
 		&::after {
-			width: calc(#{$fret-width} / 18);
+			width: calc(#{$guitar-fret-width} / 18);
 		}
 	}
 
@@ -47,46 +47,46 @@
 		background: $guitar-inlay;
 
 		&:nth-child(1) {
-			left: calc(#{$fret-width} * 2.5);
+			left: calc(#{$guitar-fret-width} * 2.5);
 		}
 
 		&:nth-child(2) {
-			left: calc(#{$fret-width} * 4.5);
+			left: calc(#{$guitar-fret-width} * 4.5);
 		}
 
 		&:nth-child(3) {
-			left: calc(#{$fret-width} * 6.5);
+			left: calc(#{$guitar-fret-width} * 6.5);
 		}
 
 		&:nth-child(4) {
-			left: calc(#{$fret-width} * 8.5);
+			left: calc(#{$guitar-fret-width} * 8.5);
 		}
 
 		&:nth-child(5) {
 			top: calc(#{$guitar-fret-height} * 1);
-			left: calc(#{$fret-width} * 11.5);
+			left: calc(#{$guitar-fret-width} * 11.5);
 		}
 
 		&:nth-child(6) {
 			bottom: calc(#{$guitar-fret-height} * .5);
 			top: auto;
-			left: calc(#{$fret-width} * 11.5);
+			left: calc(#{$guitar-fret-width} * 11.5);
 		}
 
 		&:nth-child(7) {
-			left: calc(#{$fret-width} * 14.5);
+			left: calc(#{$guitar-fret-width} * 14.5);
 		}
 
 		&:nth-child(8) {
-			left: calc(#{$fret-width} * 16.5);
+			left: calc(#{$guitar-fret-width} * 16.5);
 		}
 
 		&:nth-child(9) {
-			left: calc(#{$fret-width} * 18.5);
+			left: calc(#{$guitar-fret-width} * 18.5);
 		}
 
 		&:nth-child(10) {
-			left: calc(#{$fret-width} * 20.5);
+			left: calc(#{$guitar-fret-width} * 20.5);
 		}
 	}
 
