@@ -624,29 +624,3 @@ html {
   top: 20px;
   width: calc(100% - 40px);
   background: #48a8df; }
-<<<<<<< HEAD
-
-.credit {
-  -webkit-transition: opacity 350ms;
-  -moz-transition: opacity 350ms;
-  -ms-transition: opacity 350ms;
-  -o-transition: opacity 350ms;
-  transition: opacity 350ms;
-  position: absolute;
-  bottom: 20px;
-  padding: 0;
-  margin: 0;
-  left: 50%;
-  font-size: 13px;
-  cursor: pointer;
-  text-align: center;
-  -moz-transform: translate3d(-50%, 0, 0);
-  -o-transform: translate3d(-50%, 0, 0);
-  -ms-transform: translate3d(-50%, 0, 0);
-  -webkit-transform: translate3d(-50%, 0, 0);
-  transform: translate3d(-50%, 0, 0);
-  opacity: .6; }
-  .credit:hover {
-    opacity: 1; }
-=======
->>>>>>> master
