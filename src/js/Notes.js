@@ -5,7 +5,6 @@ var Notes = (function () {
         NOTES_EMBELLISHMENTS = ['1', 'b9', '2', 'm3', 'M3', '4', 'b5', '5', '#5', '6', 'm7', 'M7'],
         SCALE = [
 
-            //#### BASIC ONES ####
             MinorScale = {
                 name: 'Minor',
                 intervals: [0, 2, 1, 2, 2, 1, 2, 2]
@@ -53,7 +52,6 @@ var Notes = (function () {
                 intervals: [0, 1, 2, 2, 1, 2, 2, 2]
             },
 
-
             //#### ARMONIC #### jazzy things
             HarmonicMinor = {
                 name: 'Harmonic Minor',
@@ -67,6 +65,7 @@ var Notes = (function () {
 
 
             //#### MELODIC ####
+
             MelodicMinor = {
                 name: 'Melodic Minor',
                 intervals: [0, 2, 1, 2, 2, 2, 2, 1]
@@ -76,7 +75,6 @@ var Notes = (function () {
                 name: 'Melodic Major',
                 intervals: [0, 2, 2, 1, 2, 1, 2, 2]
             },
-
 
             //#### PENTATONIC ####
             PentatonicMinor = {
@@ -89,6 +87,10 @@ var Notes = (function () {
                 intervals: [0, 2, 2, 3, 2, 3]
             },
 
+            PentatonicMinor = {
+                name: 'Pentatonic Minor',
+                intervals: [0, 3, 2, 2, 3, 2]
+            },
 
             //#### BLUES #####
             Blues = {
@@ -96,18 +98,19 @@ var Notes = (function () {
                 intervals: [0, 3, 2, 1, 1, 2, 3]
             },
 
-            BluesMinor = {
-                name: 'Blues Minor',
-                intervals: [0, 3, 2, 1, 1, 3, 2]
-            },
 
             BluesMajor = {
                 name: 'Blues Major',
                 intervals: [0, 2, 1, 1, 3, 2, 3]
             },
 
+            BluesMinor = {
+                name: 'Blues Minor',
+                intervals: [0, 3, 2, 1, 1, 3, 2]
+            },
 
             //#### COMMON SCALES ####
+
             Diminished = {
                 name: 'Diminished',
                 intervals: [0, 2, 1, 2, 1, 2, 1, 2, 1]

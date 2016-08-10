@@ -42,7 +42,7 @@ module.exports = function (grunt) {
                     'src/js/Select.js',
                     'src/js/dragInstrument.js'
                 ],
-                dest: 'dist/js/app.min.js'
+                dest: 'dist/js/app.js'
             }
         },
 
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
             },
             build: {
                 files: {
-                    'dist/js/app.min.js': ['src/js/*.js']
+                    'dist/js/app.min.js': ['dist/js/app.js']
                 }
             }
         },
@@ -92,11 +92,11 @@ module.exports = function (grunt) {
         // ===========================================================================
         cssmin: {
             options: {
-                banner:'/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
             },
             build: {
                 files: {
-                    'dist/css/style.min.css': ['src/css/style.css']
+                    'dist/css/style.min.css': ['dist/css/style.css']
                 }
             }
         },
@@ -107,15 +107,15 @@ module.exports = function (grunt) {
         watch: {
             stylesheets: {
                 files: ['src/scss/**.*',
-                        'src/scss/instruments/**.*'],
+                    'src/scss/instruments/**.*'],
                 tasks: ['stylelint',
-                        'sass'
+                    'sass'
                     /*, 'cssmin'*/]
             },
             // for scripts, run jshint and uglify
             scripts: {
                 files: ['src/js/**.*',
-                        'src/js/select/**.*'],
+                    'src/js/select/**.*'],
                 tasks: ['jshint', 'concat']
             }
         },
@@ -126,8 +126,8 @@ module.exports = function (grunt) {
         browserSync: {
             bsFiles: {
                 src: ['dist/css/*.css',
-                      'dist/js/*.js',
-                      'index.html']
+                    'dist/js/*.js',
+                    'index.html']
             },
             options: {
                 watchTask: true,
@@ -164,13 +164,22 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default',
         ['jshint',
-            //'uglify',
             'concat',
             'stylelint',
             'sass',
-            //'cssmin',
             'browserSync',
             'watch'
         ]);
 
+
+    grunt.registerTask('build',
+        ['jshint',
+         'concat',
+         'uglify',
+         'stylelint',
+         'sass',
+         'cssmin',
+         'browserSync',
+         'watch'
+        ]);
 };
